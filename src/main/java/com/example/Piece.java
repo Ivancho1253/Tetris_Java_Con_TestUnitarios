@@ -1,21 +1,18 @@
 package com.example;
 
-public class Piece {
-    int crear;
+public class Piece 
+            extends Tetris {
 
-    public Piece(int crear) {
-        this.crear = crear; // Inicializa la variable crear
+    public boolean  existencia;
+    
+    public Piece() {
     }
 
-    public int getCrear() {
-        return crear; // Retorna el valor de crear
+    public Piece(boolean existencia) {
+        this.existencia = existencia; 
     }
 
-    public void setCrear(int crear) {
-        this.crear = crear; // Permite modificar el valor de crear
-    }
-
-    public int getFueCreado() {
-        return 1; // Retorna 1 para indicar que fue creado
-    }
+    public boolean getExistencia() {
+        return existencia; 
+    } 
 }

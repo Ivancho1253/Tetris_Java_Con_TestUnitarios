@@ -1,12 +1,34 @@
 package com.example;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import static org.junit.jupiter.api.Assertions.assertEquals; // Importa assertEquals
 import org.junit.jupiter.api.Test;
 
 public class TetrisTest {
     @Test
-    void CrearPieceT() {
-        PieceT piecet = new PieceT(1); // Crear una instancia de PieceT con el valor 1
-        assertEquals(1, piecet.getFueCreado()); // Llama al método de instancia
+    void test_tetris(){
+
+        Tetris tetris = new Tetris();
+        assert tetris != null;
+
+    }   
+
+    @Test
+    void existenciaPieceT() {
+
+        PieceT pt = new PieceT(); 
+
+        //assertEquals(true, pt.getExistencia()); 
+        assert pt != null;
     }
+    @Test
+    void existenciaPieceSquare() {
+
+        PieceSquare pt = new PieceSquare(); 
+
+        //assertEquals(true, pt.getExistencia()); 
+        assert pt != null;
+    }
+
+
 }

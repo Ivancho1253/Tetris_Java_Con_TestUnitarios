@@ -1,11 +1,12 @@
 package com.example;
 
-public class PieceT extends Piece {
-    public PieceT(int crear) {
-        super(crear); // Llama al constructor de la clase base
-    }
+public class PieceT 
+            extends Piece {
 
-    public int getFueCreado() {
-        return 1; // Retorna 1 para indicar que fue creado
+    public PieceT() {
     }
+    
+    public PieceT(boolean existencia) {
+        super(existencia); // Llama al constructor de la clase base
+    }   
 }
