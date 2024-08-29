@@ -205,8 +205,7 @@ public class TetrisTest {
         pT1.rotarIzquierda();
         
         
-        assertArrayEquals(pT2.getForma(), pT1.getForma());//verifico el contenido del objeto para confirmar que sean iguales
-        
+        assertArrayEquals(pT2.getForma(), pT1.getForma()); //verifico el contenido del objeto sen iguales para confirmar
     }
     @Test
     void rotar_PieceT_360_izquierda_test(){
@@ -320,22 +319,75 @@ public class TetrisTest {
         pStick1.rotarDerecha();
 
         assert pStick1.getForma() != pStick2.getForma();
-        
+    
     }
-
-    /*@Test
-    void rotar_PieceStick_180_Derecha_test(){
+    @Test
+    void rotar_PieceStick_izquierda_Comparacion_con_otra_pieza_test(){
 
         PieceStick pStick1 = new PieceStick();
-        PieceStick pStick2= new PieceStick();
+        PieceStick pStick2 = new PieceStick();
+
+        pStick1.rotarIzquierda();
+
+        assert pStick1.getForma() != pStick2.getForma();
+    }
+    @Test
+    void rotar_PieceStick_360_Derecha_test(){
+
+        PieceStick pStick1 = new PieceStick();
+        PieceStick pStick2 = new PieceStick();
 
         pStick1.rotarIzquierda();
         pStick1.rotarIzquierda();
-        //pStick1.rotarIzquierda();
-        //pStick1.rotarIzquierda();
+        pStick1.rotarIzquierda();
+        pStick1.rotarIzquierda();
 
         assertArrayEquals(pStick2.getForma(), pStick1.getForma());
-    }*/
+    }
+    @Test
+    void rotar_PieceDog_Derecha_test(){
+
+        PieceStick pStick = new PieceStick();
+
+        pStick.rotarIzquierda();
+
+        assertArrayEquals(pStick.forma, pStick.getForma());
+
+    }
+    @Test
+    void rotar_PieceDog_derecha_Comparacion_con_otra_pieza_test(){
+
+        PieceStick pStick1 = new PieceStick();
+        PieceStick pStick2 = new PieceStick();
+
+        pStick1.rotarDerecha();
+
+        assert pStick1.getForma() != pStick2.getForma();
+    
+    }
+    @Test
+    void rotar_PieceDog_izquierda_Comparacion_con_otra_pieza_test(){
+
+        PieceStick pStick1 = new PieceStick();
+        PieceStick pStick2 = new PieceStick();
+
+        pStick1.rotarIzquierda();
+
+        assert pStick1.getForma() != pStick2.getForma();
+    }
+    @Test
+    void rotar_PieceDog_360_Derecha_test(){
+
+        PieceStick pStick1 = new PieceStick();
+        PieceStick pStick2 = new PieceStick();
+
+        pStick1.rotarIzquierda();
+        pStick1.rotarIzquierda();
+        pStick1.rotarIzquierda();
+        pStick1.rotarIzquierda();
+
+        assertArrayEquals(pStick2.getForma(), pStick1.getForma());
+    }
     
 
 
