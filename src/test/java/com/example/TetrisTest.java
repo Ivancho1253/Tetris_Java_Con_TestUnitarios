@@ -430,4 +430,11 @@ public class TetrisTest {
 
         assertArrayEquals(pDogD1.getForma(), pDogD2.getForma());
     }
+    @Test
+    void existencia_board_test(){
+
+        Board board = new Board();
+        assert board != null;
+
+    } 
 }
