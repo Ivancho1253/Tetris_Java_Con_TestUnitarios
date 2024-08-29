@@ -15,13 +15,7 @@ public class PieceStick
         };
         
         setForma(forma);
-
-        int[][]nuevaForma={
-            {
-                1,1,1,1
-            }
-        };
-        setForma(nuevaForma);
+;
     }
     
     public PieceStick(boolean existencia, int [][] forma) {
