@@ -6,7 +6,7 @@ public class PieceSquare
     public PieceSquare() {
     }
     
-    public PieceSquare(boolean existencia) {
-        super(existencia); 
+    public PieceSquare(boolean existencia, int [][] forma) {
+        super(existencia, forma); 
     }   
 }

@@ -1,6 +1,8 @@
 package com.example;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -51,6 +53,22 @@ public class TetrisTest {
         PieceDog pdog = new PieceDog();
 
         assert pdog !=null;
+    }
+
+    @Test
+    void crear_PieceT_test(){
+
+        PieceT pt = new PieceT();
+        assert pt != null;
+        int[][]formaCreada={
+            
+            {0, 1, 0,
+            1, 1, 1}
+            
+        };
+        assertArrayEquals(formaCreada,pt.getForma());
+
+        
     }
     
 }

@@ -6,7 +6,7 @@ public class PieceStick
     public PieceStick() {
     }
     
-    public PieceStick(boolean existencia) {
-        super(existencia); 
+    public PieceStick(boolean existencia, int [][] forma) {
+        super(existencia, forma); 
     }   
 }

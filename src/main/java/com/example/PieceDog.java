@@ -6,7 +6,7 @@ public class PieceDog
     public PieceDog(){
     }
     
-    public PieceDog(boolean existencia) {
-        super(existencia); 
+    public PieceDog(boolean existencia, int [][] forma) {
+        super(existencia, forma); 
     }   
 }

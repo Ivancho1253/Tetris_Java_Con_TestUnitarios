@@ -6,7 +6,7 @@ public class PieceL
     public PieceL(){
     }
 
-    public PieceL(boolean existencia) {
-        super(existencia);
+    public PieceL(boolean existencia, int [][] forma) {
+        super(existencia, forma);
     }   
 }
