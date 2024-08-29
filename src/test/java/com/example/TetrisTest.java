@@ -1,8 +1,8 @@
 package com.example;
-//import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -148,26 +148,34 @@ public class TetrisTest {
         assert pDogi.getForma() != pDogd.getForma();
 
     }
-    /*@Test
-    void rotar_PieceStick_test(){
+    
+    @Test
+    void rotar_PieceT_Derecha_test(){
+        PieceT pT1 = new PieceT();
+        pT1.rotarDerecha();
+        assertArrayEquals(pT1.forma, pT1.getForma());
 
-        PieceStick pStick = new PieceStick();
+    }
+    @Test
+    void rotar_PieceT_Derecha_Comparacioon_con_otra_pieza_test(){
+        PieceT pT1 = new PieceT();
+        PieceT pT2= new PieceT();
+        pT1.rotarDerecha();
+        assert pT1.getForma() != pT2.getForma();
+        
+    }
+    @Test
+    void rotar_PieceT_360_test(){
+        PieceT pT1 = new PieceT();
+        PieceT pT2= new PieceT();
+        pT1.rotarDerecha();
+        pT1.rotarDerecha();
+        pT1.rotarDerecha();
+        pT1.rotarDerecha();
 
-        assert pStick != null;
-        pStick.rotar();
-
-        assertArrayEquals(pStick.forma, pStick.getForma());
+        assertArrayEquals(pT2.getForma(), pT1.getForma());
         
     }
 
-    @Test
-    void rotar_PieceT_test(){
-
-        PieceT pT = new PieceT();
-
-        
-    }*/
-
-    
     
 }

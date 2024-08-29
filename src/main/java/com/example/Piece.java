@@ -25,18 +25,32 @@ public class Piece
     public int [][] getForma(){
         return forma;
     }
-    /*public void rotar(){
-        
+
+    public void rotarDerecha() {
+
         int filas = forma.length;
         int columnas = forma[0].length;
-        int[][]nuevaForma = new int[columnas][filas];
-        
-        for(int i=0; i<filas; i++){
-            for(int j=0; j<columnas; j++){
+        int[][] nuevaForma = new int[columnas][filas];
 
-                nuevaForma[j][filas-1-i] = forma[i][j];
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                nuevaForma[j][filas - 1 - i] = forma[i][j];
             }
         }
         setForma(nuevaForma);
-    }*/
+    }
+
+    public void rotarIzquierda() {
+
+        int filas = forma.length;
+        int columnas = forma[0].length;
+        int[][] nuevaForma = new int[columnas][filas];
+
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                nuevaForma[columnas - 1 - j][i] = forma[i][j];
+            }
+        }
+        setForma(nuevaForma);
+    }
 }
