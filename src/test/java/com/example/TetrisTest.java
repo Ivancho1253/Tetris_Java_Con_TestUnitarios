@@ -75,5 +75,15 @@ public class TetrisTest {
         assertArrayEquals(pStick.forma, pStick.getForma());
         
     }
+    @Test
+    void crear_PieceSquare_test(){
+
+        PieceStick pS = new PieceStick();
+
+        assert pS != null;
+
+        assertArrayEquals(pS.forma, pS.getForma());
+        
+    }
     
 }

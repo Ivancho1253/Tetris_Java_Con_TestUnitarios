@@ -3,7 +3,15 @@ package com.example;
 public class PieceSquare 
             extends Piece {
 
-    public PieceSquare() {
+     public PieceSquare() {
+        int [][] forma = {
+
+            {
+             1, 1,
+             1, 1}
+        };
+        
+        setForma(forma);
     }
     
     public PieceSquare(boolean existencia, int [][] forma) {
