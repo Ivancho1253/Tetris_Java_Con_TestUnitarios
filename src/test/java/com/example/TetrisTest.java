@@ -429,7 +429,5 @@ public class TetrisTest {
         pDogD1.rotarIzquierda();
 
         assertArrayEquals(pDogD1.getForma(), pDogD2.getForma());
-        
     }
-
 }
