@@ -3,6 +3,7 @@ package com.example;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 //import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -435,6 +436,17 @@ public class TetrisTest {
 
         Board board = new Board();
         assert board != null;
+
+    } 
+    @Test
+    void Creacion_board_test(){
+
+        Board board = new Board();
+        //assert board != null;
+
+        assertEquals(10,board.fila);
+        assertEquals(20, board.columna);
+
 
     } 
 }
