@@ -1,14 +1,17 @@
 package com.example;
 
 public class PieceT 
-            extends Piece {
+            extends Piece{
 
     public PieceT() {
-        int [][]formaT={
-            {0,1,0,
-            1,1,1}
+        
+        int [][] forma = {
+
+            {0, 1, 0,
+            1, 1, 1}
         };
-        setForma (formaT);
+        
+        setForma(forma);
     }
 
     public PieceT(boolean existencia, int [][] forma){

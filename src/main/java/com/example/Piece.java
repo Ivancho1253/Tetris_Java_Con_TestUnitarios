@@ -22,7 +22,7 @@ public class Piece
         this.forma = forma;
     }
     
-    public int[][] getForma(){
+    public int [][] getForma(){
         return forma;
     }
 }

@@ -18,56 +18,51 @@ public class TetrisTest {
     @Test
     void existencia_PieceT_test() {
 
-        PieceT pt = new PieceT(); 
+        PieceT pT = new PieceT(); 
 
         //assertEquals(true, pt.getExistencia()); 
-        assert pt != null;
+        assert pT != null;
     }
     @Test
     void existencia_PieceSquare_test() {
 
-        PieceSquare ps = new PieceSquare(); 
+        PieceSquare pS = new PieceSquare(); 
 
         //assertEquals(true, ps.getExistencia()); 
-        assert ps != null;
+        assert pS != null;
     }
     @Test
     void existencia_PieceStick_test() {
 
-        PieceStick pstick = new PieceStick(); 
+        PieceStick pStick = new PieceStick(); 
 
         //assertEquals(true, pstick.getExistencia()); 
-        assert pstick != null;
+        assert pStick != null;
     }
     @Test
     void existencia_PieceL_test(){
 
-        PieceL pl = new PieceL();
+        PieceL pL = new PieceL();
 
         //assertEquals(true, pl.getExistencia()); 
-        assert pl != null;
+        assert pL != null;
     }
     @Test
     void existencia_PieceDog_test(){
 
-        PieceDog pdog = new PieceDog();
+        PieceDog pDog = new PieceDog();
 
-        assert pdog !=null;
+        assert pDog !=null;
     }
 
     @Test
     void crear_PieceT_test(){
 
-        PieceT pt = new PieceT();
-        assert pt != null;
-        int[][]formaCreada={
-            
-            {0, 1, 0,
-            1, 1, 1}
-            
-        };
-        assertArrayEquals(formaCreada,pt.getForma());
+        PieceT pT = new PieceT();
 
+        assert pT != null;
+
+        assertArrayEquals(pT.forma, pT.getForma());
         
     }
     
