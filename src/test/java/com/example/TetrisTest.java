@@ -14,7 +14,6 @@ public class TetrisTest {
         assert tetris != null;
 
     }   
-
     @Test
     void existencia_PieceT_test() {
 
@@ -107,7 +106,7 @@ public class TetrisTest {
         assertArrayEquals(pLi.forma, pLi.getForma());
     }
     @Test
-    void comparar_PieceL_izquierda_con_derecha_para_comprobar_que_son_distintos_test(){
+    void comparar_PieceL_izquierda_con_derecha_test(){
 
         PieceL pLi = new PieceL();
         PieceL  pLd = new PieceL();
@@ -138,10 +137,10 @@ public class TetrisTest {
         
     }
     @Test
-    void comparar_PieceDog_izquierda_con_derecha_para_comprobar_que_son_distintos_test(){
+    void comparar_PieceDog_izquierda_con_derecha_test(){
 
         PieceDog pDogi = new PieceDog();
-        
+
         PieceDog  pDogd = new PieceDog();
         
         pDogi.izquierda();
@@ -149,6 +148,25 @@ public class TetrisTest {
         assert pDogi.getForma() != pDogd.getForma();
 
     }
+    /*@Test
+    void rotar_PieceStick_test(){
+
+        PieceStick pStick = new PieceStick();
+
+        assert pStick != null;
+        pStick.rotar();
+
+        assertArrayEquals(pStick.forma, pStick.getForma());
+        
+    }
+
+    @Test
+    void rotar_PieceT_test(){
+
+        PieceT pT = new PieceT();
+
+        
+    }*/
 
     
     
