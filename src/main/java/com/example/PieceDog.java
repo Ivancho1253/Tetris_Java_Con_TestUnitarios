@@ -1,9 +1,9 @@
 package com.example;
 
 public class PieceDog 
-            extends Piece {
+            extends Piece{
 
-    public PieceDog() {
+    public PieceDog(){
     }
     
     public PieceDog(boolean existencia) {

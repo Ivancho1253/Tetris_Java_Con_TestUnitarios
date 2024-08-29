@@ -1,5 +1,5 @@
 package com.example;
-//import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
@@ -46,14 +46,11 @@ public class TetrisTest {
         assert pl != null;
     }
     @Test
-    void existencia_PieceT_test() {
+    void existencia_PieceDog_test(){
 
-        PieceT pt = new PieceT(); 
+        PieceDog pdog = new PieceDog();
 
-        //assertEquals(true, pt.getExistencia()); 
-        assert pt != null;
+        assert pdog !=null;
     }
-
-
-
+    
 }

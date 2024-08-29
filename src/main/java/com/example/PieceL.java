@@ -8,6 +8,5 @@ public class PieceL
 
     public PieceL(boolean existencia) {
         super(existencia);
-    }
-                
+    }   
 }
