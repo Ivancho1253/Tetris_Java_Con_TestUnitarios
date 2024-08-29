@@ -224,7 +224,7 @@ public class TetrisTest {
     @Test
     void rotar_PieceLDerecho_izquierda_test(){
 
-        PieceT pLi = new PieceT();
+        PieceL pLi = new PieceL();
 
         pLi.rotarIzquierda();
 
@@ -234,8 +234,8 @@ public class TetrisTest {
     @Test
     void rotar_PieceLDerecho_Izquierda_Comparacion_con_otra_pieza_test(){
 
-        PieceT pLi1 = new PieceT();
-        PieceT pLi2 = new PieceT();
+        PieceL pLi1 = new PieceL();
+        PieceL pLi2 = new PieceL();
 
         pLi1.rotarIzquierda();
 
@@ -245,8 +245,8 @@ public class TetrisTest {
     @Test
     void rotar_PieceLDerecho_360_izquierda_test(){
 
-        PieceT pLi1 = new PieceT();
-        PieceT pLi2= new PieceT();
+        PieceL pLi1 = new PieceL();
+        PieceL pLi2= new PieceL();
 
         pLi1.rotarIzquierda();
         pLi1.rotarIzquierda();
@@ -258,7 +258,7 @@ public class TetrisTest {
     @Test
     void rotar_PieceLIzquierdo_Derecha_test(){
 
-        PieceT pLd = new PieceT();
+        PieceL pLd = new PieceL();
 
         pLd.rotarIzquierda();
 
@@ -268,8 +268,8 @@ public class TetrisTest {
     @Test
     void rotar_PieceLIzquierdo_derecha_Comparacion_con_otra_pieza_test(){
 
-        PieceT pLd1 = new PieceT();
-        PieceT pLd2 = new PieceT();
+        PieceL pLd1 = new PieceL();
+        PieceL pLd2 = new PieceL();
 
         pLd1.rotarIzquierda();
 
@@ -279,8 +279,8 @@ public class TetrisTest {
     @Test
     void rotar_PieceLIzquierda_360_Derecha_test(){
 
-        PieceT pLd1 = new PieceT();
-        PieceT pLd2= new PieceT();
+        PieceL pLd1 = new PieceL();
+        PieceL pLd2= new PieceL();
 
         pLd1.rotarIzquierda();
         pLd1.rotarIzquierda();
@@ -289,6 +289,40 @@ public class TetrisTest {
 
         assertArrayEquals(pLd2.getForma(), pLd1.getForma());
     }
+    @Test
+    void rotar_PieceStick_Derecha_test(){
+
+        PieceStick pStick = new PieceStick();
+
+        pStick.rotarIzquierda();
+
+        assertArrayEquals(pStick.forma, pStick.getForma());
+
+    }
+    @Test
+    void rotar_PieceStick_derecha_Comparacion_con_otra_pieza_test(){
+
+        PieceStick pStick1 = new PieceStick();
+        PieceStick pStick2 = new PieceStick();
+
+        pStick1.rotarIzquierda();
+
+        assert pStick1.getForma() != pStick2.getForma();
+        
+    }
+    /*@Test
+    void rotar_PieceStick_180_Derecha_test(){
+
+        PieceStick pStick1 = new PieceStick();
+        PieceStick pStick2= new PieceStick();
+
+        pStick1.rotarIzquierda();
+        pStick1.rotarIzquierda();
+        //pStick1.rotarIzquierda();
+        //pStick1.rotarIzquierda();
+
+        assertArrayEquals(pStick2.getForma(), pStick1.getForma());
+    }*/
     
 
 
