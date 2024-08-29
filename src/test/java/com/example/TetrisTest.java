@@ -2,7 +2,7 @@ package com.example;
 //import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -145,7 +145,7 @@ public class TetrisTest {
         
         pDogi.izquierda();
 
-        assert pDogi.getForma() != pDogd.getForma();
+        assert pDogi.getForma() != pDogd.getForma();//comparo que los dos objetos sean distintos en instancias distintas de la memoria
 
     }
     @Test
@@ -204,8 +204,8 @@ public class TetrisTest {
         pT1.rotarIzquierda();
         pT1.rotarIzquierda();
         
-        //assert pT2.getForma() == pT1.getForma();
-        assertArrayEquals(pT2.getForma(), pT1.getForma());
+        
+        assertArrayEquals(pT2.getForma(), pT1.getForma());//verifico el contenido del objeto para confirmar que sean iguales
         
     }
     @Test
@@ -221,6 +221,42 @@ public class TetrisTest {
 
         assertArrayEquals(pT2.getForma(), pT1.getForma());
     }
+    @Test
+    void rotar_PieceLDerecho_izquierda_test(){
+
+        PieceT pLi = new PieceT();
+
+        pLi.rotarIzquierda();
+
+        assertArrayEquals(pLi.forma, pLi.getForma());
+
+    }
+    @Test
+    void rotar_PieceLDerecho_Izquierda_Comparacion_con_otra_pieza_test(){
+
+        PieceT pTi1 = new PieceT();
+        PieceT pTi2 = new PieceT();
+
+        pTi1.rotarIzquierda();
+
+        assert pTi1.getForma() != pTi2.getForma();
+        
+    }
+    @Test
+    void rotar_PieceLDerecho_360_izquierda_test(){
+
+        PieceT pLi1 = new PieceT();
+        PieceT pLi2= new PieceT();
+
+        pLi1.rotarIzquierda();
+        pLi1.rotarIzquierda();
+        pLi1.rotarIzquierda();
+        pLi1.rotarIzquierda();
+
+        assertArrayEquals(pLi2.getForma(), pLi1.getForma());
+    }
+    
+
 
     
 }
