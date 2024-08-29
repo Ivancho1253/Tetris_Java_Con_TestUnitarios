@@ -165,13 +165,40 @@ public class TetrisTest {
         
     }
     @Test
-    void rotar_PieceT_360_test(){
+    void rotar_PieceT_360_derecha_test(){
         PieceT pT1 = new PieceT();
         PieceT pT2= new PieceT();
         pT1.rotarDerecha();
         pT1.rotarDerecha();
         pT1.rotarDerecha();
         pT1.rotarDerecha();
+
+        assertArrayEquals(pT2.getForma(), pT1.getForma());
+        
+    }
+    @Test
+    void rotar_PieceT_Izquieda_test(){
+        PieceT pT1 = new PieceT();
+        pT1.rotarIzquierda();
+        assertArrayEquals(pT1.forma, pT1.getForma());
+
+    }
+    @Test
+    void rotar_PieceT_Izquierda_Comparacion_con_otra_pieza_test(){
+        PieceT pT1 = new PieceT();
+        PieceT pT2= new PieceT();
+        pT1.rotarIzquierda();
+        assert pT1.getForma() != pT2.getForma();
+        
+    }
+    @Test
+    void rotar_PieceT_360_izquierda_test(){
+        PieceT pT1 = new PieceT();
+        PieceT pT2= new PieceT();
+        pT1.rotarIzquierda();
+        pT1.rotarIzquierda();
+        pT1.rotarIzquierda();
+        pT1.rotarIzquierda();
 
         assertArrayEquals(pT2.getForma(), pT1.getForma());
         
