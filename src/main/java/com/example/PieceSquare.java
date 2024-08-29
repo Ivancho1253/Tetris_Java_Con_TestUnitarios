@@ -8,7 +8,8 @@ public class PieceSquare
 
             {
              1, 1,
-             1, 1}
+             1, 1
+            }
         };
         
         setForma(forma);
