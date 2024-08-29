@@ -1,12 +1,12 @@
 package com.example;
 
-public class PieceT 
+public class PieceDog 
             extends Piece {
 
-    public PieceT() {
+    public PieceDog() {
     }
     
-    public PieceT(boolean existencia) {
+    public PieceDog(boolean existencia) {
         super(existencia); 
     }   
 }

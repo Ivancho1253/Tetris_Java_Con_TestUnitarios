@@ -1,12 +1,12 @@
 package com.example;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
 public class TetrisTest {
     @Test
-    void test_tetris(){
+    void tetris_test(){
 
         Tetris tetris = new Tetris();
         assert tetris != null;
@@ -14,7 +14,7 @@ public class TetrisTest {
     }   
 
     @Test
-    void existenciaPieceT() {
+    void existencia_PieceT_test() {
 
         PieceT pt = new PieceT(); 
 
@@ -22,13 +22,38 @@ public class TetrisTest {
         assert pt != null;
     }
     @Test
-    void existenciaPieceSquare() {
+    void existencia_PieceSquare_test() {
 
-        PieceSquare pt = new PieceSquare(); 
+        PieceSquare ps = new PieceSquare(); 
+
+        //assertEquals(true, ps.getExistencia()); 
+        assert ps != null;
+    }
+    @Test
+    void existencia_PieceStick_test() {
+
+        PieceStick pstick = new PieceStick(); 
+
+        //assertEquals(true, pstick.getExistencia()); 
+        assert pstick != null;
+    }
+    @Test
+    void existencia_PieceL_test(){
+
+        PieceL pl = new PieceL();
+
+        //assertEquals(true, pl.getExistencia()); 
+        assert pl != null;
+    }
+    @Test
+    void existencia_PieceT_test() {
+
+        PieceT pt = new PieceT(); 
 
         //assertEquals(true, pt.getExistencia()); 
         assert pt != null;
     }
+
 
 
 }

@@ -1,7 +1,7 @@
 package com.example;
 
 public class Piece 
-            extends Tetris {
+            extends Tetris{
 
     public boolean  existencia;
     
