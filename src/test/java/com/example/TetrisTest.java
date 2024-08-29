@@ -78,7 +78,7 @@ public class TetrisTest {
     @Test
     void crear_PieceSquare_test(){
 
-        PieceStick pS = new PieceStick();
+        PieceSquare pS = new PieceSquare();
 
         assert pS != null;
 
@@ -86,24 +86,47 @@ public class TetrisTest {
         
     }
     @Test
-    void crear_PieceL_test(){
+    void crear_PieceL_Derecho_test(){
 
-        PieceStick pL = new PieceStick();
+        PieceL pLd = new PieceL();
 
-        assert pL != null;
+        assert pLd != null;
 
-        assertArrayEquals(pL.forma, pL.getForma());
+        assertArrayEquals(pLd.forma, pLd.getForma());
         
+    }
+    @Test
+    void crear_PieceL_izquierda_test(){
+
+        PieceL pLi = new PieceL();
+        
+        pLi.izquierda();
+        
+        assert pLi != null; 
+        
+        assertArrayEquals(pLi.forma, pLi.getForma());
+    }
+    @Test
+    void comparar_PieceL_izquierda_con_derecha_test(){
+
+        PieceL pLi = new PieceL();
+        PieceL  pLd = new PieceL();
+        
+        pLi.izquierda();
+
+        assert pLi.getForma() != pLd.getForma();
+
     }
     @Test
     void crear_PieceDog_test(){
 
-        PieceStick pDog = new PieceStick();
+        PieceDog pDog = new PieceDog();
 
         assert pDog != null;
 
         assertArrayEquals(pDog.forma, pDog.getForma());
         
     }
+    
     
 }
