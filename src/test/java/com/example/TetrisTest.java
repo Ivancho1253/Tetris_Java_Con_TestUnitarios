@@ -448,5 +448,25 @@ public class TetrisTest {
         assertEquals(20, board.columna);
 
 
-    } 
+    }
+     @Test
+    void verificar_ingreso_pieza_board_test(){
+
+        Board board = new Board();
+        PieceT pT = new PieceT();
+        
+        //assert board != null;
+        board.ingresarNuevaPieza(pT);
+
+        int[][]estadoTablero=board.getBoard();
+        int[][] forma = pT.getForma();
+        assertArrayEquals(forma,estadoTablero[]);
+
+        //Piece piezaEnTablero = board.colocarPieceEnTablero(pT);
+        //assertEquals(pT.getForma,board.getBoard);
+
+
+
+
+    }  
 }
