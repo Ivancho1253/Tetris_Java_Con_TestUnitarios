@@ -482,5 +482,27 @@ public class TetrisTest {
         assertArrayEquals(board.getBoard(), board.getNuevaBoard());
 
     }
+    @Test
+    void verificar_ingreso_piezaStick_board_test(){
+
+        Board board = new Board();
+        PieceStick pStick = new PieceStick();
+        board.getBoard();
+        board.ingresarNuevaPieza(pStick);
+        board.colocarPieceEnTablero(pStick, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+
+    }
+    @Test
+    void verificar_ingreso_piezaSquare_lado_derecho_board_test(){
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+        board.getBoard();
+        board.ingresarNuevaPieza(pS);
+        board.colocarPieceEnTablero(pS, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+
+    }
 
 }
