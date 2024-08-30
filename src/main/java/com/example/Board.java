@@ -40,5 +40,16 @@ public class Board {
     public int[][] getBoard() {
         return board;
     }
+    public int[][] getNuevaBoard() {
+        int[][] nuevaBoard = new int[fila][columna];
+    
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < columna; j++) {
+                nuevaBoard[i][j] = board[i][j];
+            }
+        }
+    
+        return nuevaBoard;
+    }
 
 }
