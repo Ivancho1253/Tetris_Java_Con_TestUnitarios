@@ -450,7 +450,7 @@ public class TetrisTest {
 
     }
      @Test
-    void verificar_ingreso_piezaT_board_test(){
+    void verificar_ingreso_pieceT_board_test(){
 
         Board board = new Board();
         PieceT pT = new PieceT();
@@ -461,7 +461,7 @@ public class TetrisTest {
 
     }
     @Test
-    void verificar_ingreso_piezaL_lado_izquierdo_board_test(){
+    void verificar_ingreso_pieceL_lado_izquierdo_board_test(){
 
         Board board = new Board();
         PieceL pLi = new PieceL();
@@ -472,7 +472,7 @@ public class TetrisTest {
 
     }
     @Test
-    void verificar_ingreso_piezaL_lado_derecho_board_test(){
+    void verificar_ingreso_pieceL_lado_derecho_board_test(){
 
         Board board = new Board();
         PieceL pLd = new PieceL();
@@ -483,7 +483,7 @@ public class TetrisTest {
 
     }
     @Test
-    void verificar_ingreso_piezaStick_board_test(){
+    void verificar_ingreso_pieceStick_board_test(){
 
         Board board = new Board();
         PieceStick pStick = new PieceStick();
@@ -494,13 +494,35 @@ public class TetrisTest {
 
     }
     @Test
-    void verificar_ingreso_piezaSquare_lado_derecho_board_test(){
+    void verificar_ingreso_pieceSquare_board_test(){
 
         Board board = new Board();
         PieceSquare pS = new PieceSquare();
         board.getBoard();
         board.ingresarNuevaPieza(pS);
         board.colocarPieceEnTablero(pS, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+
+    }
+    @Test
+    void verificar_ingreso_pieceDog_lado_izquierdo_board_test(){
+
+        Board board = new Board();
+        PieceDog pDogi = new PieceDog();
+        board.getBoard();
+        board.ingresarNuevaPieza(pDogi);
+        board.colocarPieceEnTablero(pDogi, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+
+    }
+    @Test
+    void verificar_ingreso_pieceDog_lado_derecho_board_test(){
+
+        Board board = new Board();
+        PieceDog pDogd = new PieceDog();
+        board.getBoard();
+        board.ingresarNuevaPieza(pDogd);
+        board.colocarPieceEnTablero(pDogd, 0, 0);
         assertArrayEquals(board.getBoard(), board.getNuevaBoard());
 
     }
