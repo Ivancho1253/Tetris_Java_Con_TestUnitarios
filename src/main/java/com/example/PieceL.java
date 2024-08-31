@@ -26,8 +26,10 @@ public class PieceL extends Piece {
 
         setForma(formaIzquierda);
     }
+    
 
     public PieceL(boolean existencia) {
         super(existencia, null); 
     }
+
 }

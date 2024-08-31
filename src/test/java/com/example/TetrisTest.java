@@ -4,6 +4,7 @@ package com.example;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -524,7 +525,21 @@ public class TetrisTest {
         board.ingresarNuevaPieza(pDogd);
         board.colocarPieceEnTablero(pDogd, 0, 0);
         assertArrayEquals(board.getBoard(), board.getNuevaBoard());
-
     }
+    @Test
+    void verificar_ingreso_pieceL_lado_Random_board_test(){
+
+        Board board = new Board();
+        PieceL pL1 = new PieceL();
+        PieceL pL2=new PieceL();
+        board.getBoard();//se verifica que se creo el tablero
+        pL1.seleccionarPiezaRandom();//hago una pieza randoma L
+        assertNotEquals(pL1.getForma(), pL2.getForma());//verifico que sea random
+        board.ingresarNuevaPieza(pL1);//coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pL1, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());//comparo que se ingreso la pieza con tablero actualizado
+    }
+
+
 
 }

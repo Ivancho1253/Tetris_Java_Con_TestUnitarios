@@ -18,7 +18,7 @@ public class Board {
         this.board = board;
         random = new Random();
     }
-
+    
     public void ingresarNuevaPieza (Piece piece){
         int posicionInicial = random.nextInt(columna - piece.getForma()[0].length + 1);
         colocarPieceEnTablero(piece, 0 , posicionInicial);
