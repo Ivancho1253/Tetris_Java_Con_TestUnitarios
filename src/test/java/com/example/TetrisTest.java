@@ -4,6 +4,7 @@ package com.example;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -449,20 +450,94 @@ public class TetrisTest {
 
 
     }
-     @Test
-    void verificar_ingreso_pieza_board_test(){
+    @Test
+    void verificar_ingreso_pieceT_board_test(){
 
         Board board = new Board();
         PieceT pT = new PieceT();
-        
+        board.getBoard();
         board.ingresarNuevaPieza(pT);
+        board.colocarPieceEnTablero(pT, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
 
-        int[][]estadoTablero = board.getBoard();
-        int[][] forma = pT.getForma();
+    }
+    @Test
+    void verificar_ingreso_pieceL_lado_izquierdo_board_test(){
 
-        //assertArrayEquals(forma,estadoTablero[]);
-        //Piece piezaEnTablero = board.colocarPieceEnTablero(pT);
-        //assertEquals(pT.getForma,board.getBoard);
+        Board board = new Board();
+        PieceL pLi = new PieceL();
+        board.getBoard();
+        board.ingresarNuevaPieza(pLi);
+        board.colocarPieceEnTablero(pLi, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
 
-    }  
+    }
+    @Test
+    void verificar_ingreso_pieceL_lado_derecho_board_test(){
+
+        Board board = new Board();
+        PieceL pLd = new PieceL();
+        board.getBoard();
+        board.ingresarNuevaPieza(pLd);
+        board.colocarPieceEnTablero(pLd, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+
+    }
+    @Test
+    void verificar_ingreso_pieceStick_board_test(){
+
+        Board board = new Board();
+        PieceStick pStick = new PieceStick();
+        board.getBoard();
+        board.ingresarNuevaPieza(pStick);
+        board.colocarPieceEnTablero(pStick, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+
+    }
+    @Test
+    void verificar_ingreso_pieceSquare_board_test(){
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+        board.getBoard();
+        board.ingresarNuevaPieza(pS);
+        board.colocarPieceEnTablero(pS, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+
+    }
+    @Test
+    void verificar_ingreso_pieceDog_lado_izquierdo_board_test(){
+
+        Board board = new Board();
+        PieceDog pDogi = new PieceDog();
+        board.getBoard();
+        board.ingresarNuevaPieza(pDogi);
+        board.colocarPieceEnTablero(pDogi, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+
+    }
+    @Test
+    void verificar_ingreso_pieceDog_lado_derecho_board_test(){
+
+        Board board = new Board();
+        PieceDog pDogd = new PieceDog();
+        board.getBoard();
+        board.ingresarNuevaPieza(pDogd);
+        board.colocarPieceEnTablero(pDogd, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+    }
+    @Test
+    void verificar_ingreso_pieceL_lado_Random_board_test(){
+
+        Board board = new Board();
+        PieceL pL1 = new PieceL();
+        PieceL pL2=new PieceL();
+        board.getBoard();//se verifica que se creo el tablero
+        pL1.seleccionarPiezaRandom();//hago una pieza randoma L
+        assertNotEquals(pL1.getForma(), pL2.getForma());//verifico que sea random
+        board.ingresarNuevaPieza(pL1);//coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pL1, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getNuevaBoard());//comparo que se ingreso la pieza con tablero actualizado
+    }
+
 }
