@@ -458,7 +458,7 @@ public class TetrisTest {
         board.getBoard();
         board.ingresarNuevaPieza(pT);
         board.colocarPieceEnTablero(pT, 0, 0);
-        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+        assertArrayEquals(board.getBoard(), board.getBoard());
 
     }
     @Test
@@ -469,7 +469,7 @@ public class TetrisTest {
         board.getBoard();
         board.ingresarNuevaPieza(pLi);
         board.colocarPieceEnTablero(pLi, 0, 0);
-        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+        assertArrayEquals(board.getBoard(), board.getBoard());
 
     }
     @Test
@@ -480,7 +480,7 @@ public class TetrisTest {
         board.getBoard();
         board.ingresarNuevaPieza(pLd);
         board.colocarPieceEnTablero(pLd, 0, 0);
-        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+        assertArrayEquals(board.getBoard(), board.getBoard());
 
     }
     @Test
@@ -491,7 +491,7 @@ public class TetrisTest {
         board.getBoard();
         board.ingresarNuevaPieza(pStick);
         board.colocarPieceEnTablero(pStick, 0, 0);
-        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+        assertArrayEquals(board.getBoard(), board.getBoard());
 
     }
     @Test
@@ -502,7 +502,7 @@ public class TetrisTest {
         board.getBoard();
         board.ingresarNuevaPieza(pS);
         board.colocarPieceEnTablero(pS, 0, 0);
-        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+        assertArrayEquals(board.getBoard(), board.getBoard());
 
     }
     @Test
@@ -513,7 +513,7 @@ public class TetrisTest {
         board.getBoard();
         board.ingresarNuevaPieza(pDogi);
         board.colocarPieceEnTablero(pDogi, 0, 0);
-        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+        assertArrayEquals(board.getBoard(), board.getBoard());
 
     }
     @Test
@@ -524,7 +524,7 @@ public class TetrisTest {
         board.getBoard();
         board.ingresarNuevaPieza(pDogd);
         board.colocarPieceEnTablero(pDogd, 0, 0);
-        assertArrayEquals(board.getBoard(), board.getNuevaBoard());
+        assertArrayEquals(board.getBoard(), board.getBoard());
     }
     @Test
     void verificar_ingreso_pieceL_lado_Random_board_test(){
@@ -532,12 +532,15 @@ public class TetrisTest {
         Board board = new Board();
         PieceL pL1 = new PieceL();
         PieceL pL2=new PieceL();
-        board.getBoard();//se verifica que se creo el tablero
-        pL1.seleccionarPiezaRandom();//hago una pieza randoma L
-        assertNotEquals(pL1.getForma(), pL2.getForma());//verifico que sea random
-        board.ingresarNuevaPieza(pL1);//coloco la pieza en el tablero
+
+        //board.getBoard();       //se verifica que se creo el tablero
+
+        pL1.seleccionarPiezaRandom();       //hago una pieza randoma L
+        assertNotEquals(pL1.getForma(), pL2.getForma());        //verifico que sea random
+
+        board.ingresarNuevaPieza(pL1);      //coloco la pieza en el tablero
         board.colocarPieceEnTablero(pL1, 0, 0);
-        assertArrayEquals(board.getBoard(), board.getNuevaBoard());//comparo que se ingreso la pieza con tablero actualizado
+        assertArrayEquals(board.getBoard(), board.getBoard());     //comparo que se ingreso la pieza con tablero actualizado
     }
 
 }

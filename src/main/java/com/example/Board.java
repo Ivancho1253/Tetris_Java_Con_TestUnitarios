@@ -20,8 +20,10 @@ public class Board {
     }
     
     public void ingresarNuevaPieza (Piece piece){
+
         int posicionInicial = random.nextInt(columna - piece.getForma()[0].length + 1);
         colocarPieceEnTablero(piece, 0 , posicionInicial);
+
     }
     
     public void colocarPieceEnTablero(Piece piece, int fila, int columna){
@@ -38,18 +40,14 @@ public class Board {
     }
 
     public int[][] getBoard() {
-        return board;
-    }
-    public int[][] getNuevaBoard() {
-        int[][] nuevaBoard = new int[fila][columna];
-    
-        for (int i = 0; i < fila; i++) {
-            for (int j = 0; j < columna; j++) {
-                nuevaBoard[i][j] = board[i][j];
+
+        for (int i = 0; i < fila; i++){
+            for (int j = 0; j < columna; j++){
+
+                board[i][j] = board[i][j];
             }
         }
-    
-        return nuevaBoard;
+        return board;
     }
 
 }
