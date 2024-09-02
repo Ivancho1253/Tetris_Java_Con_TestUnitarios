@@ -39,7 +39,7 @@ public class Board {
 
                 if (piece.getForma()[i][j] != 0) {
 
-                    board[fila + i][columna + j] = piece.getForma()[i][j];
+                    board[fila + i][columna + j] = piece.getForma()[i][j];//rodri
                 }
             }
         }

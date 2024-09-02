@@ -654,7 +654,7 @@ public class TetrisTest {
 
         // board.getBoard(); //se verifica que se creo el tablero
 
-        pT1.seleccionarPiezaRandom(); // hago una pieza randoma L
+        pT1.seleccionarPiezaRandom(); // hago una pieza random T
         assertNotEquals(pT1.getForma(), pT2.getForma()); // verifico que sea random
 
         board.ingresarNuevaPieza(pT1); // coloco la pieza en el tablero
@@ -680,6 +680,8 @@ public class TetrisTest {
                                                                // actualizado
     }
                                                                */
+
+
     //!Decsiende con pieza random
     
 
@@ -691,7 +693,7 @@ public class TetrisTest {
         PieceL pLi2 = new PieceL();
 
         // ! Aca creo una pieza en forma random
-        pLi1.seleccionarPiezaRandom(); // hago una pieza randoma L
+        pLi1.seleccionarPiezaRandom(); // hago una pieza random L Izquierda
         assertNotEquals(pLi1.getForma(), pLi2.getForma()); // verifico que sea random
         // ! Aca coloco la pieza en el tablero
 
@@ -716,7 +718,7 @@ public class TetrisTest {
         PieceL pLd2 = new PieceL();
 
         // ! Aca creo una pieza en forma random
-        pLd1.seleccionarPiezaRandom(); // hago una pieza randoma L
+        pLd1.seleccionarPiezaRandom(); // hago una pieza random L Derecho
         assertNotEquals(pLd1.getForma(), pLd2.getForma()); // verifico que sea random
         // ! Aca coloco la pieza en el tablero
 
@@ -741,7 +743,7 @@ public class TetrisTest {
         PieceDog pdogD2 = new PieceDog();
 
         // ! Aca creo una pieza en forma random
-        pDogD1.seleccionarPiezaRandom(); // hago una pieza randoma L
+        pDogD1.seleccionarPiezaRandom(); // hago una pieza random Izquierdo
         assertNotEquals(pDogD1.getForma(), pdogD2.getForma()); // verifico que sea random
         // ! Aca coloco la pieza en el tablero
 
@@ -765,7 +767,7 @@ public class TetrisTest {
         PieceDog pdogI2 = new PieceDog();
 
         // ! Aca creo una pieza en forma random
-        pDogI1.seleccionarPiezaRandom(); // hago una pieza randoma L
+        pDogI1.seleccionarPiezaRandom(); // hago una pieza randoma Dog Izquierdo
         assertNotEquals(pDogI1.getForma(), pdogI2.getForma()); // verifico que sea random
         // ! Aca coloco la pieza en el tablero
 
@@ -788,7 +790,7 @@ public class TetrisTest {
         PieceSquare pS1 = new PieceSquare();
 
         // ! Aca creo una pieza en forma random
-        pS1.seleccionarPiezaRandom(); // hago una pieza randoma L
+        pS1.seleccionarPiezaRandom(); // hago una pieza random Square
 
         // ! Aca coloco la pieza en el tablero
 
