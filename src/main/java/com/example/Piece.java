@@ -6,10 +6,9 @@ public class Piece{
 
     public boolean  existencia;
     public int [][] forma;
-    private Random random=new Random();
+    private Random random = new Random();
     
     public Piece() {
-        
     }
 
     public Piece(boolean existencia, int [][] forma) {
@@ -28,7 +27,6 @@ public class Piece{
     public int [][] getForma(){
         return forma;
     }
-
 
     public void rotarDerecha() {
 
@@ -57,11 +55,15 @@ public class Piece{
         }
         setForma(nuevaForma);
     }
-    //funcion para ingresar una pieza en alguna posicion random
-    public void seleccionarPiezaRandom(){
-        int configuracion=random.nextInt(2);//genera aleatoriamente el 0 o 1
-        if(configuracion==0){
+    //Funcion para ingresar una pieza en alguna posicion random
+    
+    public void seleccionarLadoRandom(){
+
+        int configuracion = random.nextInt(2);  //Genera aleatoriamente el 0 o 1
+
+        if(configuracion == 0){
             rotarDerecha();
+
         }else{
             rotarIzquierda();
         }
