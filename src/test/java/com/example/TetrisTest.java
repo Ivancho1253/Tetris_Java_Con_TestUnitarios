@@ -690,5 +690,29 @@ public class TetrisTest {
         assertArrayEquals(board.getBoard(), board.getBoard());
 
     }
+    @Test
+    void verificar_ingreso_pieceSquare_Random_board_desciende_test() {
+
+        Board board = new Board();
+        PieceSquare pS1 = new PieceSquare();
+
+        // ! Aca creo una pieza en forma random
+        pS1.seleccionarPiezaRandom(); // hago una pieza randoma L
+
+        // ! Aca coloco la pieza en el tablero
+
+        board.ingresarNuevaPieza(pS1); // coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pS1, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getBoard()); // comparo que se ingreso la pieza con tablero
+        
+        // !desciende las piezas
+        board.descenso(pS1);// pieza desciende
+        assertArrayEquals(board.getBoard(), board.getBoard());
+        pS1.rotarDerecha();
+        board.descenso(pS1);
+        assertArrayEquals(board.getBoard(), board.getBoard());
+
+    }
+    
 
 }
