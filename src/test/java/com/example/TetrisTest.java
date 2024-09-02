@@ -574,23 +574,114 @@ public class TetrisTest {
         assertArrayEquals(board.getBoard(), board.getBoard());
     }
 
+    //!aca tiene que ingresar random
+    
+
     @Test
-    void verificar_ingreso_pieceL_lado_Random_board_test() {
+    void verificar_ingreso_pieceL_lado_izquierdo_Random_board_test() {
 
         Board board = new Board();
-        PieceL pL1 = new PieceL();
-        PieceL pL2 = new PieceL();
+        PieceL pLi1 = new PieceL();
+        PieceL pLi2 = new PieceL();
 
         // board.getBoard(); //se verifica que se creo el tablero
 
-        pL1.seleccionarPiezaRandom(); // hago una pieza randoma L
-        assertNotEquals(pL1.getForma(), pL2.getForma()); // verifico que sea random
+        pLi1.seleccionarPiezaRandom(); // hago una pieza randoma L
+        assertNotEquals(pLi1.getForma(), pLi2.getForma()); // verifico que sea random
 
-        board.ingresarNuevaPieza(pL1); // coloco la pieza en el tablero
-        board.colocarPieceEnTablero(pL1, 0, 0);
+        board.ingresarNuevaPieza(pLi1); // coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pLi1, 0, 0);
         assertArrayEquals(board.getBoard(), board.getBoard()); // comparo que se ingreso la pieza con tablero
                                                                // actualizado
     }
+    @Test
+    void verificar_ingreso_pieceL_lado_derecho_Random_board_test() {
+
+        Board board = new Board();
+        PieceL pLd1 = new PieceL();
+        PieceL pLd2 = new PieceL();
+
+        // board.getBoard(); //se verifica que se creo el tablero
+
+        pLd1.seleccionarPiezaRandom(); // hago una pieza randoma L
+        assertNotEquals(pLd1.getForma(), pLd2.getForma()); // verifico que sea random
+
+        board.ingresarNuevaPieza(pLd1); // coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pLd1, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getBoard()); // comparo que se ingreso la pieza con tablero
+                                                               // actualizado
+    }
+    @Test
+    void verificar_ingreso_pieceDog_lado_derecho_Random_board_test() {
+
+        Board board = new Board();
+        PieceDog pDogD1 = new PieceDog();
+        PieceDog pDogD2 = new PieceDog();
+
+        // board.getBoard(); //se verifica que se creo el tablero
+
+        pDogD1.seleccionarPiezaRandom(); // hago una pieza randoma Dog
+        assertNotEquals(pDogD1.getForma(), pDogD2.getForma()); // verifico que sea random
+
+        board.ingresarNuevaPieza(pDogD1); // coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pDogD1, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getBoard()); // comparo que se ingreso la pieza con tablero
+                                                               // actualizado
+    }
+    @Test
+    void verificar_ingreso_pieceDog_lado_izquierdo_Random_board_test() {
+
+        Board board = new Board();
+        PieceDog pDogI1 = new PieceDog();
+        PieceDog pDogI2 = new PieceDog();
+
+        // board.getBoard(); //se verifica que se creo el tablero
+
+        pDogI1.seleccionarPiezaRandom(); 
+        assertNotEquals(pDogI1.getForma(), pDogI2.getForma()); // verifico que sea random
+
+        board.ingresarNuevaPieza(pDogI1); // coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pDogI1, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getBoard()); // comparo que se ingreso la pieza con tablero
+                                                               // actualizado
+    }
+    @Test
+    void verificar_ingreso_pieceT_Random_board_test() {
+
+        Board board = new Board();
+        PieceT pT1 = new PieceT();
+        PieceT pT2 = new PieceT();
+
+        // board.getBoard(); //se verifica que se creo el tablero
+
+        pT1.seleccionarPiezaRandom(); // hago una pieza randoma L
+        assertNotEquals(pT1.getForma(), pT2.getForma()); // verifico que sea random
+
+        board.ingresarNuevaPieza(pT1); // coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pT1, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getBoard()); // comparo que se ingreso la pieza con tablero
+                                                               // actualizado
+    }
+    /*@Test
+    void verificar_ingreso_pieceStick_Random_board_test() {
+
+        Board board = new Board();
+        PieceStick pStick1 = new PieceStick();
+        PieceStick pStick2 = new PieceStick();
+
+        // board.getBoard(); //se verifica que se creo el tablero
+
+        pStick1.seleccionarPiezaRandom(); // hago una pieza randoma L
+        assertNotEquals(pStick1.getForma(), pStick2.getForma()); // verifico que sea random
+
+        board.ingresarNuevaPieza(pStick1); // coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pStick1, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getBoard()); // comparo que se ingreso la pieza con tablero
+                                                               // actualizado
+    }
+                                                               */
+    //!Decsiende con pieza random
+    
 
     @Test
     void verificar_ingreso_pieceL_lado_Izquierdo_Random_board_desciende_test() {
@@ -704,7 +795,7 @@ public class TetrisTest {
         board.ingresarNuevaPieza(pS1); // coloco la pieza en el tablero
         board.colocarPieceEnTablero(pS1, 0, 0);
         assertArrayEquals(board.getBoard(), board.getBoard()); // comparo que se ingreso la pieza con tablero
-        
+
         // !desciende las piezas
         board.descenso(pS1);// pieza desciende
         assertArrayEquals(board.getBoard(), board.getBoard());
@@ -713,6 +804,33 @@ public class TetrisTest {
         assertArrayEquals(board.getBoard(), board.getBoard());
 
     }
+    /*  
+    @Test
+    void verificar_ingreso_pieceStick_lado_Random_board_desciende_test() {
+
+        Board board = new Board();
+        PieceStick pStick1 = new PieceStick();
+        PieceStick pStick2 = new PieceStick();
+
+        // ! Aca creo una pieza en forma random
+        pStick1.seleccionarPiezaRandom(); // hago una pieza randoma Stick
+        assertNotEquals(pStick1.getForma(), pStick2.getForma()); // verifico que sea random
+        // ! Aca coloco la pieza en el tablero
+
+        board.ingresarNuevaPieza(pStick1); // coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pStick1, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getBoard()); // comparo que se ingreso la pieza con tablero
+                                                               // actualizado
+        // !desciende las piezas
+        board.descenso(pStick1);// pieza desciende
+        assertArrayEquals(board.getBoard(), board.getBoard());
+        pStick1.rotarDerecha();
+        board.descenso(pStick1);
+        assertArrayEquals(board.getBoard(), board.getBoard());
+        
+
+    }*/
+    //!Falta descender Stick, T
     
 
 }
