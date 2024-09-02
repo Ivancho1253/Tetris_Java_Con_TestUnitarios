@@ -542,5 +542,33 @@ public class TetrisTest {
         board.colocarPieceEnTablero(pL1, 0, 0);
         assertArrayEquals(board.getBoard(), board.getBoard());     //comparo que se ingreso la pieza con tablero actualizado
     }
+    @Test
+    void verificar_ingreso_pieceL_lado_Random_board_desciende_test(){
 
-}
+        Board board = new Board();
+        PieceL pL1 = new PieceL();
+        PieceL pL2=new PieceL();
+
+        // ! Aca creo una pieza en forma random
+        pL1.seleccionarPiezaRandom();       //hago una pieza randoma L
+        assertNotEquals(pL1.getForma(), pL2.getForma());        //verifico que sea random
+        //! Aca coloco la pieza en el tablero
+
+        board.ingresarNuevaPieza(pL1);      //coloco la pieza en el tablero
+        board.colocarPieceEnTablero(pL1, 0, 0);
+        assertArrayEquals(board.getBoard(), board.getBoard());     //comparo que se ingreso la pieza con tablero actualizado
+        //!desciende las piezas
+        board.descenso(pL1);//pieza desciende
+        assertArrayEquals(board.getBoard(), board.getBoard());    
+        pL1.rotarDerecha();
+        board.descenso(pL1);
+        assertArrayEquals(board.getBoard(), board.getBoard());    
+
+
+
+
+    }
+
+
+} git config --global user.email "rodrigomagallanes0@gmail.com"
+git config --global user.name "Rodrix0"
