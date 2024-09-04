@@ -1,7 +1,5 @@
 package com.example;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.Random;
 
 public class Board {
@@ -10,26 +8,19 @@ public class Board {
     public int fila = 10;
     public int columna = 20;
     public Random random;
-    public Instant tiempoDespues;
-    public Duration delayTime = Duration.ofSeconds(2);
     public Piece piezaActual;
 
     public Board(){
         
         board = new int[fila][columna];
         random = new Random();
-        tiempoDespues = Instant.now();
-        delayTime = Duration.ofSeconds(2);
+
     }
     
     public Board(int[][] board, Random random, Piece piezaActual) {
         this.board = board;
         random = new Random();
         this.piezaActual = piezaActual;
-    }
-
-    public void setTiempoDespues(Instant tiempoDespues){
-        this.tiempoDespues = tiempoDespues;
     }
 
     public void setPiezaActual(Piece piezaActual){
@@ -61,27 +52,10 @@ public class Board {
         }
     }
 
-    public void descenso(Piece piece) {
-
-        /* Calcula entre el tiempo final de la pieza con el inicio cuanto tarda con la
-        restriccion de 2 seg */
-
-        if (piezaActual != null && Duration.between(tiempoDespues, Instant.now()).compareTo(delayTime) >= 0) {
-
-            for (int i = fila  ; i >= 0; i--) {   //Se mueve las filas hasta la penultima
-                for (int j = 0; j < columna; j++){ 
-                    
-                    setBoard(fila + 1, columna, board[i][j]);
-                  //Mueve el contenido a la fila de abajo
-                }
-            }
-    
-            setTiempoDespues(Instant.now());  //Actualiza el tiempo para que se mueva cada 2 seg
-           
-        }
-    }    
     
     public int[][] getBoard() {
         return board;
     }
+    
+
 }

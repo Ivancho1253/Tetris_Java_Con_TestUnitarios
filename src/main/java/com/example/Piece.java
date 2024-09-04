@@ -70,4 +70,5 @@ public class Piece{
             //No pasa nada, la pieza mantiene su forma original
         }
     }
+    
 }
