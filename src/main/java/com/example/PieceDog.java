@@ -9,14 +9,11 @@ public class PieceDog
 
         int [][] formaDerecha = {
 
-            {
-             0, 0, 0,
-             1, 1, 0,
-             0, 1, 1
-            }
-            //0,1,0
-            //1,1,0
-            //1,0,0
+             {0, 0, 0},
+             {1, 1, 0},
+             {0, 1, 1}
+            
+
         };
         
         setForma(formaDerecha);
@@ -25,11 +22,10 @@ public class PieceDog
 
         int[][] formaIzquierda = {
 
-            {
-            0, 0, 0,
-            0, 1, 1,
-            1, 1, 0
-            }
+            {0, 0, 0},
+            {0, 1, 1},
+            {1, 1, 0}
+            
         };
 
        setForma(formaIzquierda);
