@@ -59,13 +59,15 @@ public class Piece{
     
     public void seleccionarLadoRandom(){
 
-        int configuracion = random.nextInt(2);  //Genera aleatoriamente el 0 o 1
+        int configuracion = random.nextInt(3);  //Genera aleatoriamente el 0 o 1
 
         if(configuracion == 0){
             rotarDerecha();
 
-        }else{
+        }if(configuracion==1){
             rotarIzquierda();
+        }else{
+            //No pasa nada, la pieza mantiene su forma original
         }
     }
 }

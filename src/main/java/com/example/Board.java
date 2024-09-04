@@ -32,10 +32,6 @@ public class Board {
         this.tiempoDespues = tiempoDespues;
     }
 
-    /*public void setBoard(int[][] board){
-        this.board = board;
-    }*/
-
     public void setPiezaActual(Piece piezaActual){
         this.piezaActual = piezaActual;	
     }
@@ -46,7 +42,6 @@ public class Board {
     }
 
     public void ingresarNuevaPieza(Piece piece) {
-        //int posicionInicial = random.nextInt(columna - piece.getForma()[0].length + 1);
         setPiezaActual(piece);
         colocarPieceEnTablero(piezaActual, 0,  0);
     }
@@ -60,7 +55,6 @@ public class Board {
                     if(fila + i < board.length && columna + j < board[0].length){  //Verifico que no salga del tablero
 
                         setBoard(fila + i, columna + j,piece.getForma()[i][j]);
-                        //board[fila + i][columna + j] = piece.getForma()[i][j]; 
                     }
                 }
             }
@@ -78,12 +72,12 @@ public class Board {
                 for (int j = 0; j < columna; j++){ 
                     
                     setBoard(fila + 1, columna, board[i][j]);
-                    //board[i + 1][j] = board[i][j];  //Mueve el contenido a la fila de abajo
+                  //Mueve el contenido a la fila de abajo
                 }
             }
     
             setTiempoDespues(Instant.now());  //Actualiza el tiempo para que se mueva cada 2 seg
-            //tiempoDespues=Instant.now();
+           
         }
     }    
     

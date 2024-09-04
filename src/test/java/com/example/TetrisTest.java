@@ -565,21 +565,27 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[2][1]);
         assertEquals(1, board.getBoard()[2][2]);
     }
-    //Ingreso de las piezas con lado random
     @Test
     void verificar_ingreso_pieceL_lado_derecho_Random_board_test() {
 
         Board board = new Board();
         PieceL pLd1 = new PieceL();
 
-        pLd1.seleccionarLadoRandom(); // Creo un lado random
-        
-        board.ingresarNuevaPieza(pLd1); // coloco la pieza en el tablero
-        board.colocarPieceEnTablero(pLd1, 0, 0);
-        
-        assertNotNull(board.getBoard()[0][0]);
-    }
+        pLd1.seleccionarLadoRandom(); 
+        board.ingresarNuevaPieza(pLd1); 
+
+    int[][] formaActual = pLd1.getForma();
     
+
+    for (int i = 0; i < formaActual.length; i++) {
+        for (int j = 0; j < formaActual[i].length; j++) {
+            if (formaActual[i][j] == 1) {
+                assertEquals(1, board.getBoard()[i][j]);
+            }
+        }
+    }
+}
+
     @Test
     void verificar_ingreso_pieceDog_lado_derecho_Random_board_test() {
 
