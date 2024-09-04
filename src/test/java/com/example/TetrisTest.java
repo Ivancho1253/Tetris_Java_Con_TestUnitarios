@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-
-
 import org.junit.jupiter.api.Test;
 
 public class TetrisTest {
@@ -738,32 +736,63 @@ public class TetrisTest {
 
     }
 
-    // Comienzo de Descenso
-    /*@Test
-    void verificar_ingreso_pieceL_lado_Izquierdo_Random_board_desciende_test() {
+    // !Ingreso cuadrado agregar codigo ivan
+    @Test
+    void verificar_ingreso_pieceSquare_Random_board_test() {
 
         Board board = new Board();
-        Clock clock = new Clock();
-        PieceL pLi = new PieceL();
+        PieceSquare pS = new PieceSquare();
 
-        pLi.izquierda();
-        pLi.seleccionarLadoRandom();
+        pS.seleccionarLadoRandom(); // Creo lado random T
 
-        clock.ingresarNuevaPieza(pLi);
+        board.ingresarNuevaPieza(pS); // Coloco la pieza en el tablero
 
-        // Simular el paso del tiempo en Clock
-        clock.setTiempoDespues(Instant.now().minus(Duration.ofSeconds(2)));
-
-        // Llamar al método descenso utilizando Clock
-        clock.descenso();
-
-        // Verificar si la pieza ha descendido utilizando la referencia al tablero en Clock
-        int[][] formaActual = pLi.getForma();
+        int[][] formaActual = pS.getForma();
         for (int i = 0; i < formaActual.length; i++) {
             for (int j = 0; j < formaActual[i].length; j++) {
                 if (formaActual[i][j] == 1) {
-                    assertEquals(1, clock.getBoard()[i + 1][j]);  // Verifica que la pieza descendió una fila
+                    assertEquals(1, board.getBoard()[i][j]);
                 }
             }
-        }*/
+        }
+
     }
+
+    // Comienzo de Descenso
+    @Test
+    void verificar_ingreso_pieceSquare_descenso_board_test() {
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+
+        board.ingresarNuevaPieza(pS); // Coloco la pieza en el tablero
+        board.descenderPieza();
+        board.descenderPieza();
+        board.descenderPieza();
+
+        assertEquals(1, board.getBoard()[3][0]);
+        assertEquals(1, board.getBoard()[3][1]);
+        assertEquals(1, board.getBoard()[4][0]);
+        assertEquals(1, board.getBoard()[4][1]);
+
+    }
+
+    @Test
+    void verificar_ingreso_pieceT_descenso_board_test() {
+
+        Board board = new Board();
+        PieceT pT1 = new PieceT();
+
+        board.ingresarNuevaPieza(pT1); // Coloco la pieza en el tablero
+        board.descenderPieza();
+        board.descenderPieza();
+        // board.descenderPieza();
+
+        assertEquals(1, board.getBoard()[2][0]);
+        assertEquals(1, board.getBoard()[2][1]);
+        assertEquals(1, board.getBoard()[2][2]);
+        assertEquals(1, board.getBoard()[3][1]);
+
+    }
+
+}
