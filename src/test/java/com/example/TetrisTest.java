@@ -1530,10 +1530,11 @@ public class TetrisTest {
         pS.seleccionarLadoRandom(); // Creo lado random 
 
         board.ingresarNuevaPieza(pS); // Coloco la pieza en el tablero
-        board.descenderPieza();
 
         c1.tic();
         c1.tic();
+        board.descenderPieza();
+
         
         int[][] formaActual = pS.getForma();
         for (int i = 1; i < formaActual.length; i++) {
