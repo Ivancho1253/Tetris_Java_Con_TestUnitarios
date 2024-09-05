@@ -14,7 +14,5 @@ public class PieceSquare
         setForma(forma);
     }
     
-    public PieceSquare(boolean existencia, int [][] forma) {
-        super(existencia, forma); 
-    }   
+     
 }

@@ -11,15 +11,6 @@ public class Piece{
     public Piece() {
     }
 
-    public Piece(boolean existencia, int [][] forma) {
-        this.existencia = existencia;
-        this.forma = forma;
-    }
-
-    public boolean getExistencia() {
-        return existencia; 
-    } 
-
     public void setForma(int [][] forma) {
         this.forma = forma;
     }

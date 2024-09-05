@@ -31,9 +31,10 @@ public class TetrisTest {
     void existencia_PieceSquare_test() {
 
         PieceSquare pS = new PieceSquare();
-
+        
         // assertEquals(true, ps.getExistencia());
         assert pS != null;
+        assert pS.getForma() != null;
     }
 
     @Test
@@ -67,6 +68,7 @@ public class TetrisTest {
 
         Board board = new Board();
         assert board != null;
+
 
     }
 
@@ -184,7 +186,9 @@ public class TetrisTest {
 
         assertEquals(10, board.fila);
         assertEquals(20, board.columna);
+
     }
+    
 
     // ----------------------------------------Rotar
     // Piezas---------------------------------------------------------------------//
@@ -1521,14 +1525,17 @@ public class TetrisTest {
 
         Board board = new Board();
         PieceSquare pS = new PieceSquare();
+        Clock c1 = new Clock();
 
-        pS.seleccionarLadoRandom(); // Creo lado random T
+        pS.seleccionarLadoRandom(); // Creo lado random 
 
         board.ingresarNuevaPieza(pS); // Coloco la pieza en el tablero
         board.descenderPieza();
 
+        c1.tic();
+        c1.tic();
+        
         int[][] formaActual = pS.getForma();
-
         for (int i = 1; i < formaActual.length; i++) {
             for (int j = 0; j < formaActual[i].length; j++) {
                 if (formaActual[i][j] == 1) {
@@ -1536,6 +1543,7 @@ public class TetrisTest {
                 }
             }
         }
+        assertEquals(2, c1.getTic());
     }
 
 }

@@ -17,7 +17,5 @@ public class PieceStick
 ;
     }
     
-    public PieceStick(boolean existencia, int [][] forma) {
-        super(existencia, forma); 
-    }   
+      
 }

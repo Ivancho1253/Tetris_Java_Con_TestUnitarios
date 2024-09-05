@@ -15,7 +15,5 @@ public class PieceT
         setForma(forma);
     }
 
-    public PieceT(boolean existencia, int [][] forma){
-        super(existencia, forma);
-    }  
+   
 }

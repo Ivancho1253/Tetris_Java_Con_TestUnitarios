@@ -31,9 +31,6 @@ public class PieceDog
        setForma(formaIzquierda);
     }
     
-    public PieceDog(boolean existencia){
-        super(existencia, null); 
-    }
 
 
 }

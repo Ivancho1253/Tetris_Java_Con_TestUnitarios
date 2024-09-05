@@ -22,11 +22,11 @@ public class Board {
 
     }
 
-    public Board(int[][] board, Random random, Piece piezaActual) {
+    /*public Board(int[][] board, Random random, Piece piezaActual) {
         this.board = board;
         random = new Random();
         this.piezaActual = piezaActual;
-    }
+    }*/
 
     public void setPiezaActual(Piece piezaActual) {
         this.piezaActual = piezaActual;
@@ -57,15 +57,6 @@ public class Board {
                 }
             }
         }
-    }
-    public void ingresarNuevaPiezaRandom(Piece piece) {
-    // Genera una fila aleatoria que sea válida para la pieza (sin que se salga del tablero)
-    columnaActual = random.nextInt(board.length - piece.getForma().length + 1);
-    filaActual = 0; // La columna siempre es 0
-
-    setPiezaActual(piece);
-    colocarPieceEnTablero(piezaActual, columnaActual, filaActual);
-    
     }
 
     public int getColumnaActual() {

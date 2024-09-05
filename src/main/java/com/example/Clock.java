@@ -5,10 +5,7 @@ public class Clock {
     public int tic;
 
     public Clock(){
-    }
-
-    public Clock(int tic){
-        this.tic = tic;
+        
     }
 
     public int getTic() {
