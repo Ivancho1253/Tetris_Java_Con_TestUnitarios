@@ -1293,6 +1293,40 @@ public class TetrisTest {
             }
         }
     }
+    //--------------------------------------Descenso con pieza random en una columna random-----------------------------------------//
+    @Test
+    void verificar_Descenso_pieceSquare_board_columna_random_test() {
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+
+        int[][] formaInicial = pS.getForma();
+
+        board.ingresarNuevaPieza(pS);
+
+        int columnaAleatoria = board.getColumnaActual();
+        assertEquals(1, board.getBoard()[0][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[1][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
+        assertEquals(1, board.getBoard()[0][columnaAleatoria + 1]);
+        board.descenderPieza();
+
+
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i + 1][j]);
+                }
+            }
+        }
+    }
+    
+
+
+
+
+
+
 
     // -------------------------------------------Tic para contar la cantidad de
     // descenso-----------------------------------------//
