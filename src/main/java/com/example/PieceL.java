@@ -1,6 +1,7 @@
 package com.example;
 
-public class PieceL extends Piece {
+public class PieceL 
+            extends Piece {
     
     public PieceL() {
         int[][] formaDerecha = {
