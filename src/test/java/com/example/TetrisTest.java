@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
 
 public class TetrisTest {
+    // -------------------------------------------Comprobar que no sean null las class------------------------------------------//
     @Test
     void tetris_test() {
 
@@ -60,6 +61,15 @@ public class TetrisTest {
         assert pDog != null;
     }
 
+    @Test
+    void existencia_board_test() {
+
+        Board board = new Board();
+        assert board != null;
+
+    }
+
+    // -----------------------------------------------------Crear piezas--------------------------------------------------------//
     @Test
     void crear_PieceT_test() {
 
@@ -162,6 +172,95 @@ public class TetrisTest {
         assert pDogi.getForma() != pDogd.getForma();// comparo que los dos objetos sean distintos en instancias
                                                     // distintas de la memoria
 
+    }
+
+    @Test
+    void Creacion_board_test() {
+
+        Board board = new Board();
+        // assert board != null;
+
+        assertEquals(10, board.fila);
+        assertEquals(20, board.columna);
+    }
+
+    // ----------------------------------------Rotar Piezas---------------------------------------------------------------------//
+    @Test
+    void rotar_PieceSquare_Derecha_test() {
+
+        PieceSquare pS1 = new PieceSquare();
+
+        pS1.rotarDerecha();
+
+        assertArrayEquals(pS1.forma, pS1.getForma());
+
+    }
+
+    @Test
+    void rotar_PieceSquare_hacia_Derecha_Comparacion_con_otra_pieza_test() {
+
+        PieceSquare pS1 = new PieceSquare();
+        PieceSquare pS2 = new PieceSquare();
+
+        pS1.rotarDerecha();
+
+        assert pS1.getForma() != pS2.getForma();
+
+    }
+
+    @Test
+    void rotar_PieceSquare_360_derecha_test() {
+
+        PieceSquare pS1 = new PieceSquare();
+        PieceSquare pS2 = new PieceSquare();
+
+        pS1.rotarDerecha();
+        pS1.rotarDerecha();
+        pS1.rotarDerecha();
+        pS1.rotarDerecha();
+
+        assertArrayEquals(pS2.getForma(), pS1.getForma());
+
+    }
+
+    @Test
+    void rotar_PieceSquare_Izquieda_test() {
+
+        PieceSquare pS1 = new PieceSquare();
+
+        pS1.rotarIzquierda();
+
+        assertArrayEquals(pS1.forma, pS1.getForma());
+
+    }
+
+    @Test
+    void rotar_PieceSquare_hacia_Izquierda_Comparacion_con_otra_pieza_test() {
+
+        PieceSquare pS1 = new PieceSquare();
+        PieceSquare pS2 = new PieceSquare();
+
+        pS1.rotarIzquierda();
+        pS1.rotarIzquierda();
+        pS1.rotarIzquierda();
+        pS1.rotarIzquierda();
+
+        assertArrayEquals(pS2.getForma(), pS1.getForma()); // verifico el contenido del objeto sen iguales para
+                                                           // confirmar
+    }
+
+    @Test
+    void rotar_PieceSquare_360_hacia_izquierda_test() {
+
+        PieceSquare pS1 = new PieceSquare();
+        PieceSquare pS2 = new PieceSquare();
+
+        pS1.rotarIzquierda();
+        pS1.rotarIzquierda();
+        pS1.rotarIzquierda();
+        pS1.rotarIzquierda();
+
+        assertArrayEquals(pS2.getForma(), pS1.getForma());
     }
 
     @Test
@@ -471,23 +570,7 @@ public class TetrisTest {
         assertArrayEquals(pDogD1.getForma(), pDogD2.getForma());
     }
 
-    @Test
-    void existencia_board_test() {
-
-        Board board = new Board();
-        assert board != null;
-
-    }
-
-    @Test
-    void Creacion_board_test() {
-
-        Board board = new Board();
-        // assert board != null;
-
-        assertEquals(10, board.fila);
-        assertEquals(20, board.columna);
-    }
+    // -------------------------------------Verificar ingreso de las piezas en el board-------------------------------------------//
 
     @Test
     void verificar_ingreso_pieceT_board_test() {
@@ -611,6 +694,8 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[2][2]);
     }
 
+    // ----------------------------------Verificar Ingreso de las piezas con un lado random-------------------------------------//
+
     @Test
     void verificar_ingreso_pieceL_lado_derecho_Random_board_test() {
 
@@ -679,6 +764,7 @@ public class TetrisTest {
 
         Board board = new Board();
         PieceDog pDogI1 = new PieceDog();
+        pDogI1.izquierda();
 
         pDogI1.seleccionarLadoRandom();
 
@@ -736,7 +822,6 @@ public class TetrisTest {
 
     }
 
-    // !Ingreso cuadrado agregar codigo ivan
     @Test
     void verificar_ingreso_pieceSquare_Random_board_test() {
 
@@ -758,7 +843,54 @@ public class TetrisTest {
 
     }
 
-    // Comienzo de Descenso
+    // -------------------------------Ingreso de pieza con lado random en un lugar random del board------------------------------//
+
+    @Test
+    void verificar_ingreso_pieceSquare_board_columna_random_test() {
+
+    Board board = new Board();
+    PieceSquare pS = new PieceSquare();
+
+    board.ingresarNuevaPieza(pS);
+
+    int columnaAleatoria = board.getColumnaActual(); 
+    assertEquals(1, board.getBoard()[0][columnaAleatoria]);
+    assertEquals(1, board.getBoard()[1][columnaAleatoria]);
+    assertEquals(1, board.getBoard()[1][columnaAleatoria+1]);
+    assertEquals(1, board.getBoard()[0][columnaAleatoria+1]);
+    }
+    @Test
+    void verificar_ingreso_pieceStick_board_columna_random_test() {
+
+    Board board = new Board();
+    PieceStick pStick = new PieceStick();
+
+    board.ingresarNuevaPieza(pStick);
+
+    int columnaAleatoria = board.getColumnaActual(); 
+
+    assertEquals(1, board.getBoard()[0][columnaAleatoria + 1]);
+    assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
+    assertEquals(1, board.getBoard()[2][columnaAleatoria + 1]);
+    assertEquals(1, board.getBoard()[3][columnaAleatoria + 1]);
+
+    }
+    @Test
+    void verificar_ingreso_pieceT_board_columna_random_test() {
+
+    Board board = new Board();
+    PieceT pT = new PieceT();
+
+    board.ingresarNuevaPieza(pT);
+
+    int columnaAleatoria = board.getColumnaActual(); 
+    assertEquals(1, board.getBoard()[0][columnaAleatoria]);
+    assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
+    assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
+    assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
+    }
+
+    // --------------------------------------------------Comienzo de Descenso-------------------------------------------------//
     @Test
     void verificar_ingreso_pieceSquare_descenso_board_test() {
 
@@ -766,9 +898,13 @@ public class TetrisTest {
         PieceSquare pS = new PieceSquare();
 
         board.ingresarNuevaPieza(pS); // Coloco la pieza en el tablero
+
         board.descenderPieza();
         board.descenderPieza();
         board.descenderPieza();
+
+        assertEquals(0, board.getBoard()[0][0]);
+        assertEquals(0, board.getBoard()[0][1]);
 
         assertEquals(1, board.getBoard()[3][0]);
         assertEquals(1, board.getBoard()[3][1]);
@@ -787,12 +923,333 @@ public class TetrisTest {
         board.descenderPieza();
         board.descenderPieza();
         // board.descenderPieza();
+        assertEquals(0, board.getBoard()[0][0]);
+        assertEquals(0, board.getBoard()[0][1]);
 
         assertEquals(1, board.getBoard()[2][0]);
         assertEquals(1, board.getBoard()[2][1]);
         assertEquals(1, board.getBoard()[2][2]);
         assertEquals(1, board.getBoard()[3][1]);
 
+    }
+
+    @Test
+    void verificar_ingreso_pieceStick_Descenso_board_test() {
+
+        Board board = new Board();
+        PieceStick pStick = new PieceStick();
+
+        board.ingresarNuevaPieza(pStick); // Coloco la pieza en el tablero
+        board.descenderPieza();
+        board.descenderPieza();
+        // board.descenderPieza();
+        assertEquals(0, board.getBoard()[0][1]);
+        assertEquals(0, board.getBoard()[0][1]);
+
+        assertEquals(1, board.getBoard()[2][1]);
+        assertEquals(1, board.getBoard()[3][1]);
+        assertEquals(1, board.getBoard()[4][1]);
+        assertEquals(1, board.getBoard()[5][1]);
+
+    }
+
+    @Test
+    void verificar_ingreso_pieceDog_Derecho_descenso_board_test() {
+
+        Board board = new Board();
+        PieceDog pDogD1 = new PieceDog();
+
+        board.ingresarNuevaPieza(pDogD1); // Coloco la pieza en el tablero
+        board.descenderPieza();
+
+        // board.descenderPieza();
+        // board.descenderPieza();
+
+        assertEquals(0, board.getBoard()[1][1]);
+        assertEquals(0, board.getBoard()[1][0]);
+
+        assertEquals(1, board.getBoard()[2][0]);
+        assertEquals(1, board.getBoard()[2][1]);
+        assertEquals(1, board.getBoard()[3][1]);
+        assertEquals(1, board.getBoard()[3][2]);
+
+    }
+
+    @Test
+    void verificar_ingreso_pieceDog_Izquierdo_Descenso_board_test() {
+
+        Board board = new Board();
+        PieceDog pDogI1 = new PieceDog();
+        pDogI1.izquierda();
+
+        board.ingresarNuevaPieza(pDogI1); // Coloco la pieza en el tablero
+
+        board.descenderPieza();
+        // board.descenderPieza();
+
+        assertEquals(0, board.getBoard()[1][1]);
+        assertEquals(0, board.getBoard()[1][2]);
+
+        assertEquals(1, board.getBoard()[2][1]);
+        assertEquals(1, board.getBoard()[2][2]);
+        assertEquals(1, board.getBoard()[3][1]);
+        assertEquals(1, board.getBoard()[3][0]);
+
+    }
+
+    @Test
+    void verificar_ingreso_pieceL_lado_derecho_descender_board_test() {
+
+        Board board = new Board();
+        PieceL pLd1 = new PieceL();
+
+        board.ingresarNuevaPieza(pLd1);
+        board.descenderPieza();
+
+        assertEquals(0, board.getBoard()[0][1]);
+
+        assertEquals(1, board.getBoard()[1][1]);
+        assertEquals(1, board.getBoard()[2][1]);
+        assertEquals(1, board.getBoard()[3][1]);
+        assertEquals(1, board.getBoard()[3][2]);
+
+    }
+
+    @Test
+    void verificar_ingreso_pieceL_lado_izquierdo_descender_board_test() {
+
+        Board board = new Board();
+        PieceL pLi1 = new PieceL();
+
+        pLi1.izquierda();
+        board.ingresarNuevaPieza(pLi1);
+        board.descenderPieza();
+
+        assertEquals(0, board.getBoard()[0][1]);
+
+        assertEquals(1, board.getBoard()[1][1]);
+        assertEquals(1, board.getBoard()[2][1]);
+        assertEquals(1, board.getBoard()[3][1]);
+        assertEquals(1, board.getBoard()[3][0]);
+
+    }
+
+    // ---------------------------------------Ingreso de la pieza de lado random con
+    // descenso------------------------------------//
+    @Test
+    void verificar_ingreso_pieceSquare_Random_descenso_board_test() {
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+
+        pS.seleccionarLadoRandom(); // Creo lado random T
+
+        board.ingresarNuevaPieza(pS); // Coloco la pieza en el tablero
+        board.descenderPieza();
+
+        int[][] formaActual = pS.getForma();
+        for (int i = 1; i < formaActual.length; i++) {
+            for (int j = 0; j < formaActual[i].length; j++) {
+                if (formaActual[i][j] == 1) {
+                    assertEquals(1, board.getBoard()[i][j]);
+                }
+            }
+        }
+
+    }
+
+    @Test
+    void verificar_ingreso_pieceStick_Random_Descenso_board_test() {
+
+        Board board = new Board();
+        PieceStick pStick = new PieceStick();
+
+        pStick.seleccionarLadoRandom(); // Creo lado random T
+
+        // Ingresa la pieza al tablero
+        board.ingresarNuevaPieza(pStick);
+
+        // Verifica que la pieza esté en la posición inicial en el tablero
+        int[][] formaInicial = pStick.getForma();
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i][j]);
+                }
+            }
+        }
+
+        // Realiza el descenso de la pieza
+        board.descenderPieza();
+
+        // Verifica que la pieza haya descendido una fila
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i + 1][j]);
+                }
+            }
+        }
+    }
+
+    
+
+    @Test
+    void verificar_ingreso_pieceT_Random_Descenso_board_test() {
+
+        Board board = new Board();
+        PieceT pT1 = new PieceT();
+
+        pT1.seleccionarLadoRandom(); // Creo lado random T
+
+        board.ingresarNuevaPieza(pT1);
+
+        int[][] formaInicial = pT1.getForma();
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i][j]);
+                }
+            }
+        }
+
+        board.descenderPieza();
+
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i + 1][j]);
+                }
+            }
+        }
+    }
+
+    
+
+    @Test
+    void verificar_ingreso_pieceDog_lado_derecho_Random_descender_board_test() {
+
+        Board board = new Board();
+        PieceDog pDogD1 = new PieceDog();
+
+        pDogD1.seleccionarLadoRandom(); // Creo un lado random
+        board.ingresarNuevaPieza(pDogD1); // Coloco la pieza en el tablero
+        board.descenderPieza();
+
+        int[][] formaActual = pDogD1.getForma();
+
+        for (int i = 2; i < formaActual.length; i++) {
+            for (int j = 0; j < formaActual[i].length; j++) {
+                if (formaActual[i][j] == 1) {
+                    assertEquals(1, board.getBoard()[i][j]);
+                }
+            }
+        }
+    }
+
+    @Test
+    void verificar_ingreso_pieceDog_lado_izquierdo_Random_Descender_board_test() {
+
+        Board board = new Board();
+        PieceDog pDogI1 = new PieceDog();
+        pDogI1.izquierda();
+
+        pDogI1.seleccionarLadoRandom();
+
+        board.ingresarNuevaPieza(pDogI1); // Coloco la pieza en el tablero
+        board.descenderPieza();
+        int[][] formaActual = pDogI1.getForma();
+
+        for (int i = 2; i < formaActual.length; i++) {
+            for (int j = 2; j < formaActual[i].length; j++) {
+                if (formaActual[i][j] == 1) {
+                    assertEquals(1, board.getBoard()[i][j]);
+                }
+            }
+        }
+    }
+
+    @Test
+    void verificar_ingreso_pieceL_lado_derecho_Random_descenso_board_test() {
+
+        Board board = new Board();
+        PieceL pLd1 = new PieceL();
+
+        pLd1.izquierda();
+
+        pLd1.seleccionarLadoRandom();
+
+        board.ingresarNuevaPieza(pLd1);
+
+        int[][] formaInicial = pLd1.getForma();
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i][j]);
+                }
+            }
+        }
+
+        board.descenderPieza();
+
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i + 1][j]);
+                }
+            }
+        }
+    }
+
+    @Test
+    void verificar_ingreso_pieceL_lado_izquierdo_Random_descenso_board_test() {
+        Board board = new Board();
+        PieceL pLi1 = new PieceL();
+
+        pLi1.izquierda();
+
+        pLi1.seleccionarLadoRandom();
+
+        board.ingresarNuevaPieza(pLi1);
+
+        int[][] formaInicial = pLi1.getForma();
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i][j]);
+                }
+            }
+        }
+
+        board.descenderPieza();
+
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i + 1][j]);
+                }
+            }
+        }
+    }
+
+    //-------------------------------------------Tic para contar la cantidad de descenso-----------------------------------------//
+    @Test
+    void comprobar_el_setTic_en_clock_test() {
+
+        Clock c1 = new Clock();
+
+        c1.setTic(1);
+
+        assert c1.getTic() == 1;    //Se aplico la misma comparacion para verificar en el jacobo
+        assertEquals(1, c1.getTic());
+    }
+    @Test
+    void crear_clock_comprobar_tic_test() {
+
+        Clock c1 = new Clock();
+        c1.tic();
+        
+        assertEquals(1, c1.getTic());
     }
 
 }
