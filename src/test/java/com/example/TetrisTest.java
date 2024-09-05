@@ -972,9 +972,9 @@ public class TetrisTest {
 
         board.ingresarNuevaPieza(pS); // Coloco la pieza en el tablero
 
-        board.descenderPieza();
-        board.descenderPieza();
-        board.descenderPieza();
+        board.descenderPieza(pS);
+        board.descenderPieza(pS);
+        board.descenderPieza(pS);
 
         assertEquals(0, board.getBoard()[0][0]);
         assertEquals(0, board.getBoard()[0][1]);
@@ -993,9 +993,9 @@ public class TetrisTest {
         PieceT pT1 = new PieceT();
 
         board.ingresarNuevaPieza(pT1); // Coloco la pieza en el tablero
-        board.descenderPieza();
-        board.descenderPieza();
-        // board.descenderPieza();
+        board.descenderPieza(pT1);
+        board.descenderPieza(pT1);
+
         assertEquals(0, board.getBoard()[0][0]);
         assertEquals(0, board.getBoard()[0][1]);
 
@@ -1012,9 +1012,10 @@ public class TetrisTest {
         Board board = new Board();
         PieceStick pStick = new PieceStick();
 
-        board.ingresarNuevaPieza(pStick); // Coloco la pieza en el tablero
-        board.descenderPieza();
-        board.descenderPieza();
+        board.ingresarNuevaPieza(pStick); 
+        board.descenderPieza(pStick);
+        board.descenderPieza(pStick);
+        
         // board.descenderPieza();
         assertEquals(0, board.getBoard()[0][1]);
         assertEquals(0, board.getBoard()[0][1]);
@@ -1033,7 +1034,7 @@ public class TetrisTest {
         PieceDog pDogD1 = new PieceDog();
 
         board.ingresarNuevaPieza(pDogD1); // Coloco la pieza en el tablero
-        board.descenderPieza();
+        board.descenderPieza(pDogD1);
 
         // board.descenderPieza();
         // board.descenderPieza();
@@ -1057,7 +1058,7 @@ public class TetrisTest {
 
         board.ingresarNuevaPieza(pDogI1); // Coloco la pieza en el tablero
 
-        board.descenderPieza();
+        board.descenderPieza(pDogI1);
         // board.descenderPieza();
 
         assertEquals(0, board.getBoard()[1][1]);
@@ -1077,7 +1078,7 @@ public class TetrisTest {
         PieceL pLd1 = new PieceL();
 
         board.ingresarNuevaPieza(pLd1);
-        board.descenderPieza();
+        board.descenderPieza(pLd1);
 
         assertEquals(0, board.getBoard()[0][1]);
 
@@ -1096,7 +1097,7 @@ public class TetrisTest {
 
         pLi1.izquierda();
         board.ingresarNuevaPieza(pLi1);
-        board.descenderPieza();
+        board.descenderPieza(pLi1);
 
         assertEquals(0, board.getBoard()[0][1]);
 
@@ -1115,10 +1116,10 @@ public class TetrisTest {
         Board board = new Board();
         PieceSquare pS = new PieceSquare();
 
-        pS.seleccionarLadoRandom(); // Creo lado random T
+        pS.seleccionarLadoRandom(); 
 
-        board.ingresarNuevaPieza(pS); // Coloco la pieza en el tablero
-        board.descenderPieza();
+        board.ingresarNuevaPieza(pS); 
+        board.descenderPieza(pS);
 
         int[][] formaActual = pS.getForma();
         for (int i = 1; i < formaActual.length; i++) {
@@ -1137,12 +1138,9 @@ public class TetrisTest {
         Board board = new Board();
         PieceStick pStick = new PieceStick();
 
-        pStick.seleccionarLadoRandom(); // Creo lado random T
-
-        // Ingresa la pieza al tablero
+        pStick.seleccionarLadoRandom(); 
         board.ingresarNuevaPieza(pStick);
 
-        // Verifica que la pieza esté en la posición inicial en el tablero
         int[][] formaInicial = pStick.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
@@ -1152,10 +1150,8 @@ public class TetrisTest {
             }
         }
 
-        // Realiza el descenso de la pieza
-        board.descenderPieza();
+        board.descenderPieza(pStick);
 
-        // Verifica que la pieza haya descendido una fila
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
                 if (formaInicial[i][j] != 0) {
@@ -1184,7 +1180,7 @@ public class TetrisTest {
             }
         }
 
-        board.descenderPieza();
+        board.descenderPieza(pT1);
 
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
@@ -1214,7 +1210,7 @@ public class TetrisTest {
             }
         }
 
-        board.descenderPieza();
+        board.descenderPieza(pDogD1);
 
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
@@ -1244,7 +1240,7 @@ public class TetrisTest {
             }
         }
 
-        board.descenderPieza();
+        board.descenderPieza(pDogI1);
 
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
@@ -1276,7 +1272,7 @@ public class TetrisTest {
             }
         }
 
-        board.descenderPieza();
+        board.descenderPieza(pLd1);
 
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
@@ -1307,7 +1303,7 @@ public class TetrisTest {
             }
         }
 
-        board.descenderPieza();
+        board.descenderPieza(pLi1);
 
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
@@ -1325,9 +1321,6 @@ public class TetrisTest {
 
         Board board = new Board();
         PieceSquare pS = new PieceSquare();
-
-        int[][] formaInicial = pS.getForma();
-
         board.ingresarNuevaPieza(pS);
 
         int columnaAleatoria = board.getColumnaActual();
@@ -1335,8 +1328,10 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[1][columnaAleatoria]);
         assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[0][columnaAleatoria + 1]);
-        board.descenderPieza();
 
+
+        int[][] formaInicial = pS.getForma();
+        board.descenderPieza(pS);
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
                 if (formaInicial[i][j] != 0) {
@@ -1351,9 +1346,6 @@ public class TetrisTest {
 
         Board board = new Board();
         PieceStick pStick = new PieceStick();
-
-        int[][] formaInicial = pStick.getForma();
-
         board.ingresarNuevaPieza(pStick);
 
         int columnaAleatoria = board.getColumnaActual();
@@ -1361,8 +1353,10 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[2][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[3][columnaAleatoria + 1]);
-        board.descenderPieza();
+        
 
+        int[][] formaInicial = pStick.getForma();
+        board.descenderPieza(pStick);
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
                 if (formaInicial[i][j] != 0) {
@@ -1377,7 +1371,6 @@ public class TetrisTest {
 
         Board board = new Board();
         PieceT pT1 = new PieceT();
-        int[][] formaInicial = pT1.getForma();
         board.ingresarNuevaPieza(pT1);
 
         int columnaAleatoria = board.getColumnaActual();
@@ -1385,8 +1378,10 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
+    
 
-        board.descenderPieza();
+        int[][] formaInicial = pT1.getForma();
+        board.descenderPieza(pT1);
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
                 if (formaInicial[i][j] != 0) {
@@ -1402,8 +1397,6 @@ public class TetrisTest {
 
         Board board = new Board();
         PieceL pLd = new PieceL();
-        int[][] formaInicial = pLd.getForma();
-
         board.ingresarNuevaPieza(pLd);
 
         int columnaAleatoria = board.getColumnaActual();
@@ -1412,7 +1405,9 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[2][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[2][columnaAleatoria + 1]);
 
-        board.descenderPieza();
+
+        int[][] formaInicial = pLd.getForma();
+        board.descenderPieza(pLd);
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
                 if (formaInicial[i][j] != 0) {
@@ -1429,7 +1424,6 @@ public class TetrisTest {
         PieceL pLi = new PieceL();
 
         pLi.izquierda();
-        int[][] formaInicial = pLi.getForma();
 
         board.ingresarNuevaPieza(pLi);
 
@@ -1438,7 +1432,9 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[2][columnaAleatoria]);
         assertEquals(1, board.getBoard()[2][columnaAleatoria]);
-        board.descenderPieza();
+        board.descenderPieza(pLi);
+
+        int[][] formaInicial = pLi.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
                 if (formaInicial[i][j] != 0) {
@@ -1454,7 +1450,6 @@ public class TetrisTest {
 
         Board board = new Board();
         PieceL pDogD = new PieceL();
-        int[][] formaInicial = pDogD.getForma();
 
         board.ingresarNuevaPieza(pDogD);
 
@@ -1464,7 +1459,9 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[2][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[2][columnaAleatoria + 1]);
 
-        board.descenderPieza();
+        board.descenderPieza(pDogD);
+
+        int[][] formaInicial = pDogD.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
                 if (formaInicial[i][j] != 0) {
@@ -1480,7 +1477,6 @@ public class TetrisTest {
         Board board = new Board();
         PieceL pDogI = new PieceL();
         pDogI.izquierda();
-        int[][] formaInicial = pDogI.getForma();
 
         board.ingresarNuevaPieza(pDogI);
 
@@ -1489,7 +1485,9 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[2][columnaAleatoria]);
         assertEquals(1, board.getBoard()[2][columnaAleatoria]);
-        board.descenderPieza();
+        board.descenderPieza(pDogI);
+
+        int[][] formaInicial = pDogI.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
                 if (formaInicial[i][j] != 0) {
@@ -1533,7 +1531,7 @@ public class TetrisTest {
 
         c1.tic();
         c1.tic();
-        board.descenderPieza();
+        board.descenderPieza(pS);
 
         int[][] formaInicial = pS.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
@@ -1554,14 +1552,14 @@ public class TetrisTest {
         Clock c1 = new Clock();
 
         pStick.seleccionarLadoRandom(); // Creo lado random
-        int[][] formaInicial = pStick.getForma();
 
         board.ingresarNuevaPieza(pStick); // Coloco la pieza en el tablero
 
         c1.tic();
         c1.tic();
-        board.descenderPieza();
+        board.descenderPieza(pStick);
 
+        int[][] formaInicial = pStick.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
                 if (formaInicial[i][j] != 0) {
@@ -1585,7 +1583,7 @@ public class TetrisTest {
 
         c1.tic();
         c1.tic();
-        board.descenderPieza();
+        board.descenderPieza(pT);
 
         int[][] formaInicial = pT.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
@@ -1610,7 +1608,7 @@ public class TetrisTest {
         board.ingresarNuevaPieza(pLd); // Coloco la pieza en el tablero
         c1.tic();
         c1.tic();
-        board.descenderPieza();
+        board.descenderPieza(pLd);
 
         int[][] formaInicial = pLd.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
@@ -1636,7 +1634,7 @@ public class TetrisTest {
 
         c1.tic();
         c1.tic();
-        board.descenderPieza();
+        board.descenderPieza(pLi);
 
         int[][] formaInicial = pLi.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
@@ -1662,7 +1660,7 @@ public class TetrisTest {
 
         c1.tic();
         c1.tic();
-        board.descenderPieza();
+        board.descenderPieza(pDogD);
 
         int[][] formaInicial = pDogD.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
@@ -1691,7 +1689,7 @@ public class TetrisTest {
         c1.tic();
         c1.tic();
 
-        board.descenderPieza();
+        board.descenderPieza(pDogI);
 
         int[][] formaInicial = pDogI.getForma();
         for (int i = 0; i < formaInicial.length; i++) {
@@ -1702,6 +1700,20 @@ public class TetrisTest {
             }
         }
         assertEquals(2, c1.getTic());
+    }
+    
+    @Test
+    void verificar_pieceSquare_se_mueve_hacia_izquierda_en_board_test(){
+
+        Board board = new Board();
+        PieceSquare pSquare = new PieceSquare();
+
+        board.ingresarNuevaPieza(pSquare);
+        assertEquals(1,board.getBoard()[0][0]);
+
+        board.moverPiezaDerecha(pSquare);
+
+        assertEquals(0,board.getBoard()[0][0]);
     }
 
 }

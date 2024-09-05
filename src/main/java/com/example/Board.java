@@ -21,16 +21,10 @@ public class Board {
         columnaActual = 0;
 
     }
-
-    /*public Board(int[][] board, Random random, Piece piezaActual) {
-        this.board = board;
-        random = new Random();
-        this.piezaActual = piezaActual;
-    }*/
-
+    
     public void setPiezaActual(Piece piezaActual) {
         this.piezaActual = piezaActual;
-    }
+    } 
 
     public void setBoard(int fila, int columna, int valor) {
 
@@ -43,7 +37,7 @@ public class Board {
         filaActual = 0;
         columnaActual = 0;
     }
-
+    
     public void colocarPieceEnTablero(Piece piece, int fila, int columna) {
 
         for (int i = 0; i < piece.getForma().length; i++) {
@@ -51,7 +45,6 @@ public class Board {
 
                 if (piece.getForma()[i][j] != 0) {
                     if (fila + i < board.length && columna + j < board[0].length) { // Verifico que no salga del tablero
-
                         setBoard(fila + i, columna + j, piece.getForma()[i][j]);
                     }
                 }
@@ -62,20 +55,29 @@ public class Board {
     public int getColumnaActual() {
         return columnaActual;
     }
+    public void setColumnaActual(int columnaActual){
+        this.columnaActual=columnaActual;
+        
+    }
+    
+    public void setFilaActual(int filaActual) {
+        this.filaActual = filaActual;
+    }
+
+    public int getFilaActual() {
+        return filaActual;
+    }
 
     public int[][] getBoard() {
         return board;
     }
 
-    public void descenderPieza() {
+    public void descenderPieza(Piece piezaActual) {
 
-        // Limpiar la pieza en su posición actual
         limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
 
-        // Mover la pieza una fila abajo
-        filaActual++;
+        setFilaActual(getFilaActual() + 1);
 
-        // Colocar la pieza en su nueva posición
         colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
     }
 
@@ -87,5 +89,24 @@ public class Board {
                 }
             }
         }
+    }
+
+    public void moverPiezaDerecha(Piece piezaActual) {
+        
+        limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
+       
+        setColumnaActual(getColumnaActual() + 1);
+
+        
+        colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
+    }
+
+    public void moverPiezaIzquierda(Piece piezaActual) {
+
+        limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
+
+        setColumnaActual(getColumnaActual() - 1);
+
+        colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
     }
 }
