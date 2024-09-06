@@ -82,10 +82,11 @@ public class Board {
     }
 
     public void limpiarPiezaDelTablero(Piece piece, int fila, int columna) {
+
         for (int i = 0; i < piece.getForma().length; i++) {
             for (int j = 0; j < piece.getForma()[i].length; j++) {
                 if (piece.getForma()[i][j] != 0) {
-                    board[fila + i][columna + j] = 0; // Limpiar la posición anterior
+                    board[fila + i][columna + j] = 0; 
                 }
             }
         }

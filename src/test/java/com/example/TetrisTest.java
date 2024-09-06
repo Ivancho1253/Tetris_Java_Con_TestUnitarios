@@ -862,6 +862,7 @@ public class TetrisTest {
         Board board = new Board();
         PieceSquare pS = new PieceSquare();
 
+        pS.seleccionarLadoRandom();
         board.ingresarNuevaPieza(pS);
 
         int columnaAleatoria = board.getColumnaActual();
@@ -876,7 +877,7 @@ public class TetrisTest {
 
         Board board = new Board();
         PieceStick pStick = new PieceStick();
-
+        
         board.ingresarNuevaPieza(pStick);
 
         int columnaAleatoria = board.getColumnaActual();
@@ -1424,7 +1425,6 @@ public class TetrisTest {
         PieceL pLi = new PieceL();
 
         pLi.izquierda();
-
         board.ingresarNuevaPieza(pLi);
 
         int columnaAleatoria = board.getColumnaActual();
@@ -1531,6 +1531,38 @@ public class TetrisTest {
 
         c1.tic();
         c1.tic();
+        board.descenderPieza(pS);
+
+        int[][] formaInicial = pS.getForma();
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i + 1][j]);
+                }
+            }
+        }
+        assertEquals(2, c1.getTic());
+    }
+/////TEST SUPER COMPLETO, LADO RANDOM, COLUMNA RANDOM, DESCENSO CON CLOCK
+    @Test
+    void verificar_descenso_pieceSquare_lado_y_columna_random_con_clock_test() {
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+        Clock c1 = new Clock();
+
+        pS.seleccionarLadoRandom();
+        board.ingresarNuevaPieza(pS);
+
+        int columnaAleatoria = board.getColumnaActual();
+        assertEquals(1, board.getBoard()[0][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[1][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
+        assertEquals(1, board.getBoard()[0][columnaAleatoria + 1]);
+
+        c1.tic();
+        c1.tic();
+
         board.descenderPieza(pS);
 
         int[][] formaInicial = pS.getForma();
@@ -1703,7 +1735,7 @@ public class TetrisTest {
     }
     
     @Test
-    void verificar_pieceSquare_se_mueve_hacia_izquierda_en_board_test(){
+    void verificar_pieceSquare_se_mueve_hacia_derecha_en_board_test(){
 
         Board board = new Board();
         PieceSquare pSquare = new PieceSquare();
@@ -1715,5 +1747,107 @@ public class TetrisTest {
 
         assertEquals(0,board.getBoard()[0][0]);
     }
+
+    
+    @Test
+    void verificar_pieceT_se_mueve_hacia_derecha_en_board_test(){
+
+        Board board = new Board();
+        PieceT pT = new PieceT();
+
+        board.ingresarNuevaPieza(pT);
+        assertEquals(1,board.getBoard()[0][0]);
+
+        board.moverPiezaDerecha(pT);
+
+        assertEquals(0,board.getBoard()[0][0]);  
+    
+    }
+
+    @Test
+    void verificar_pieceL_derecho_se_mueve_hacia_derecha_en_board_test(){
+
+        Board board = new Board();
+        PieceL pLD = new PieceL();
+
+        board.ingresarNuevaPieza(pLD);
+        assertEquals(1,board.getBoard()[0][1]);
+
+        board.moverPiezaDerecha(pLD);
+
+        assertEquals(0,board.getBoard()[0][1]);  
+    
+    }
+
+    @Test
+    void verificar_pieceL_izquierdo_se_mueve_hacia_derecha_en_board_test(){
+
+        Board board = new Board();
+        PieceL pLI = new PieceL();
+        pLI.izquierda();
+
+        board.ingresarNuevaPieza(pLI);
+        assertEquals(1,board.getBoard()[0][1]);
+
+        board.moverPiezaDerecha(pLI);
+
+        assertEquals(0,board.getBoard()[0][1]);  
+    }
+
+    @Test
+    void verificar_pieceDog_derecho_se_mueve_hacia_derecha_en_board_test(){
+
+        Board board = new Board();
+        PieceDog pDogD = new PieceDog();
+
+        board.ingresarNuevaPieza(pDogD);
+        assertEquals(1,board.getBoard()[1][0]);
+
+        board.moverPiezaDerecha(pDogD);
+
+        assertEquals(0,board.getBoard()[1][0]);
+
+    }
+    //TEST SUPER COMPLETO, DESCENSO, MOVIMIENTO HACIA DERECHA, CON COLUMNA Y LADO RANDOM
+    @Test
+    void verificar_descenso_con_clock_y_movimiento_hacia_derecha_de_pieceSquare_lado_y_columna_random_test(){
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+        Clock c1 = new Clock();
+
+        pS.seleccionarLadoRandom();
+        board.ingresarNuevaPieza(pS);
+
+        int columnaAleatoria = board.getColumnaActual();
+        assertEquals(1, board.getBoard()[0][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[1][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
+        assertEquals(1, board.getBoard()[0][columnaAleatoria + 1]);
+
+        c1.tic();
+        c1.tic();
+
+        board.descenderPieza(pS);
+
+        int[][] formaInicial = pS.getForma();
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i + 1][j]);
+                }
+            }
+        }
+        assertEquals(2, c1.getTic());
+
+        board.moverPiezaDerecha(pS);
+
+        assertEquals(0, board.getBoard()[0][columnaAleatoria]);
+
+    }
+
+
+    
+    
 
 }
