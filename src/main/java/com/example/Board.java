@@ -31,14 +31,15 @@ public class Board {
         board[fila][columna] = valor;
     }
 
-    public void ingresarNuevaPieza(Piece piece) {
+    public void ingresarNuevaPieza(Piece piece) {   //Permite colocar la pieza en el tablero 
+
         setPiezaActual(piece);
         colocarPieceEnTablero(piezaActual, 0, 0);
         filaActual = 0;
         columnaActual = 0;
     }
     
-    public void colocarPieceEnTablero(Piece piece, int fila, int columna) {
+    public void colocarPieceEnTablero(Piece piece, int fila, int columna) {     //Este metodo es invocado en el metodo IngresarNuevaPieza
 
         for (int i = 0; i < piece.getForma().length; i++) {
             for (int j = 0; j < piece.getForma()[i].length; j++) {
@@ -46,6 +47,9 @@ public class Board {
                 if (piece.getForma()[i][j] != 0) {
                     if (fila + i < board.length && columna + j < board[0].length) { // Verifico que no salga del tablero
                         setBoard(fila + i, columna + j, piece.getForma()[i][j]);
+                    }
+                    else{
+                        //No pasa nada, la pieza no puede moverse fuera del tablero
                     }
                 }
             }
@@ -72,7 +76,7 @@ public class Board {
         return board;
     }
 
-    public void descenderPieza(Piece piezaActual) {
+    public void descenderPieza(Piece piezaActual) { //Permite mover la pieza para abajo
 
         limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
 
@@ -81,7 +85,7 @@ public class Board {
         colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
     }
 
-    public void limpiarPiezaDelTablero(Piece piece, int fila, int columna) {
+    public void limpiarPiezaDelTablero(Piece piece, int fila, int columna) {    //Limpia la pieza del tablero
 
         for (int i = 0; i < piece.getForma().length; i++) {
             for (int j = 0; j < piece.getForma()[i].length; j++) {
@@ -92,17 +96,16 @@ public class Board {
         }
     }
 
-    public void moverPiezaDerecha(Piece piezaActual) {
+    public void moverPiezaDerecha(Piece piezaActual) {  //Permite mover la pieza para la derecha
         
         limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
        
         setColumnaActual(getColumnaActual() + 1);
 
-        
         colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
     }
 
-    public void moverPiezaIzquierda(Piece piezaActual) {
+    public void moverPiezaIzquierda(Piece piezaActual) {    //Permite mover la pieza para la izquierda
 
         limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
 

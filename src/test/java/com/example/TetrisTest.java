@@ -1323,7 +1323,8 @@ public class TetrisTest {
         Board board = new Board();
         PieceSquare pS = new PieceSquare();
         board.ingresarNuevaPieza(pS);
-
+        pS.seleccionarLadoRandom();
+        
         int columnaAleatoria = board.getColumnaActual();
         assertEquals(1, board.getBoard()[0][columnaAleatoria]);
         assertEquals(1, board.getBoard()[1][columnaAleatoria]);
@@ -1477,7 +1478,7 @@ public class TetrisTest {
         Board board = new Board();
         PieceL pDogI = new PieceL();
         pDogI.izquierda();
-
+        //pDogI.seleccionarLadoRandom();
         board.ingresarNuevaPieza(pDogI);
 
         int columnaAleatoria = board.getColumnaActual();
@@ -1846,8 +1847,25 @@ public class TetrisTest {
 
     }
 
+    @Test
+    void verificar_descenso_no_salga_board_pieceSquare_test(){
 
-    
-    
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+
+        board.ingresarNuevaPieza(pS);
+
+        board.descenderPieza(pS);
+        board.descenderPieza(pS);
+        board.descenderPieza(pS);
+        board.descenderPieza(pS);
+        board.descenderPieza(pS);
+        board.descenderPieza(pS);
+        board.descenderPieza(pS);
+        board.descenderPieza(pS);
+        board.descenderPieza(pS);
+
+        assertEquals(1, board.getBoard()[9][0]);
+    }
 
 }
