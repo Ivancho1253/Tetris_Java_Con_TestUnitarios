@@ -1868,4 +1868,29 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[9][0]);
     }
 
+
+    //TEST PARA VERIFICAR SI LLENAMOS UNA COLUMNA ENTERA YA NO PUEDE GENERARSE PIEZAS EN ESA COLUMNA (NO SALIO)
+    /*@Test
+    void verificar_que_no_se_puedan_ingresar_mas_piezas_test(){
+        
+        Board board = new Board();
+        PieceSquare pS1 = new PieceSquare();
+        PieceSquare pS2 = new PieceSquare();
+
+
+        board.ingresarNuevaPieza(pS1);
+        board.moverPiezaDerecha(pS1);
+        board.moverPiezaDerecha(pS1);
+
+        //assertEquals(0, board.getBoard()[0][0]);
+
+        assertEquals(1, board.getBoard()[0][2]);
+        assertEquals(1, board.getBoard()[1][2]);
+        assertEquals(1, board.getBoard()[0][3]);
+        assertEquals(1, board.getBoard()[1][3]);
+
+        board.ingresarNuevaPieza(pS2);
+
+        assertEquals(0, board.getBoard()[0][2]);
+    }*/
 }
