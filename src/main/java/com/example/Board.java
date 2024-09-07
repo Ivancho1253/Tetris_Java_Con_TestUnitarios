@@ -76,15 +76,38 @@ public class Board {
         return board;
     }
 
-    public void descenderPieza(Piece piezaActual) { //Permite mover la pieza para abajo
+    //Agregue este nuevo para que se verifique si se puede colocar
+    public boolean puedeColocarse(Piece piece, int fila, int columna) {
+        for (int i = 0; i < piece.getForma().length; i++) {
+            for (int j = 0; j < piece.getForma()[i].length; j++) {
+                if (piece.getForma()[i][j] != 0) {
+                    int nuevaFila = fila + i;
+                    int nuevaColumna = columna + j;
+    
+                    // Verifica que no se salga del tablero
+                    if (nuevaFila >= board.length || nuevaColumna >= board[0].length || nuevaFila < 0 || nuevaColumna < 0) {
+                        return false; // No se puede colocar
+                    }
+    
+                    // Verifica que no haya otra pieza en esa posición
+                    if (board[nuevaFila][nuevaColumna] != 0) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 
+    public void descenderPieza(Piece piezaActual) {
         limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
-
-        setFilaActual(getFilaActual() + 1);
-
+    
+        // Verifica si la pieza puede descender
+        if (puedeColocarse(piezaActual, filaActual + 1, columnaActual)) {
+            setFilaActual(getFilaActual() + 1);
+        }
+    
         colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
-
-        //verificarFila();
     }
 
     public void limpiarPiezaDelTablero(Piece piece, int fila, int columna) {    //Limpia la pieza del tablero
@@ -98,21 +121,24 @@ public class Board {
         }
     }
 
-    public void moverPiezaDerecha(Piece piezaActual) {  //Permite mover la pieza para la derecha
-        
+    //Agregue que se pregunte si se puede mover
+    public void moverPiezaDerecha(Piece piezaActual) {
         limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
-       
-        setColumnaActual(getColumnaActual() + 1);
-
+    
+        if (puedeColocarse(piezaActual, filaActual, columnaActual + 1)) {
+            setColumnaActual(getColumnaActual() + 1);
+        }
+    
         colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
     }
-
-    public void moverPiezaIzquierda(Piece piezaActual) {    //Permite mover la pieza para la izquierda
-
+    
+    public void moverPiezaIzquierda(Piece piezaActual) {
         limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
-
-        setColumnaActual(getColumnaActual() - 1);
-
+    
+        if (puedeColocarse(piezaActual, filaActual, columnaActual - 1)) {
+            setColumnaActual(getColumnaActual() - 1);
+        }
+    
         colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
     }
 
