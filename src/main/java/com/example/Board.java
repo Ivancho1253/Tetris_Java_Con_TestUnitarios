@@ -57,27 +57,33 @@ public class Board {
     }
 
     public int getColumnaActual() {
+
         return columnaActual;
     }
     public void setColumnaActual(int columnaActual){
+
         this.columnaActual=columnaActual;
         
     }
     
     public void setFilaActual(int filaActual) {
+
         this.filaActual = filaActual;
     }
 
     public int getFilaActual() {
+
         return filaActual;
     }
 
     public int[][] getBoard() {
+
         return board;
     }
 
     //Agregue este nuevo para que se verifique si se puede colocar
     public boolean puedeColocarse(Piece piece, int fila, int columna) {
+
         for (int i = 0; i < piece.getForma().length; i++) {
             for (int j = 0; j < piece.getForma()[i].length; j++) {
                 if (piece.getForma()[i][j] != 0) {
@@ -100,6 +106,7 @@ public class Board {
     }
 
     public void descenderPieza(Piece piezaActual) {
+        
         limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
     
         // Verifica si la pieza puede descender
@@ -142,39 +149,5 @@ public class Board {
         colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
     }
 
-    /*public void verificarFila() {
-        
-        for (int i = 0; i < board.length; i++) {
-            boolean filaCompleta = true;
-    
-            // Verificamos si la fila está completa
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] == 0) {
-                    filaCompleta = false;
-                    break;
-                }
-            }
-    
-            // Si la fila está completa, la eliminamos y bajamos las demás filas
-            if (filaCompleta) {
-                eliminarFila(i);
-                i--; // Volvemos a verificar la fila actual, ya que ahora contiene la fila superior
-            }
-        }
-    }
-    
-    private void eliminarFila(int fila) {
-        // Movemos todas las filas por encima de la fila eliminada una posición hacia abajo
-
-        for (int i = fila; i > 0; i--) {
-            for (int j = 0; j < board[i].length; j++) {
-                board[i][j] = board[i - 1][j];
-            }
-        }
-    
-        // Limpiamos la fila superior del tablero
-        for (int j = 0; j < board[0].length; j++) {
-            board[0][j] = 0;
-        }
-    }*/
+   
 }

@@ -1749,7 +1749,6 @@ public class TetrisTest {
         assertEquals(0,board.getBoard()[0][0]);
     }
 
-    
     @Test
     void verificar_pieceT_se_mueve_hacia_derecha_en_board_test(){
 
@@ -1809,7 +1808,9 @@ public class TetrisTest {
         assertEquals(0,board.getBoard()[1][0]);
 
     }
+
     //TEST SUPER COMPLETO, DESCENSO, MOVIMIENTO HACIA DERECHA, CON COLUMNA Y LADO RANDOM
+
     @Test
     void verificar_descenso_con_clock_y_movimiento_hacia_derecha_de_pieceSquare_lado_y_columna_random_test(){
 
@@ -1839,6 +1840,7 @@ public class TetrisTest {
                 }
             }
         }
+
         assertEquals(2, c1.getTic());
 
         board.moverPiezaDerecha(pS);
@@ -1846,107 +1848,143 @@ public class TetrisTest {
         assertEquals(0, board.getBoard()[0][columnaAleatoria]);
 
     }
+
     //--------------------------Verifica que se muevan solo si tienen espacio---------------------------------------------------//
 
    @Test
-void verificar_descenso_y_Mover_no_salga_board_pieceSquare_test() {
-    Board board = new Board();
-    PieceSquare pS = new PieceSquare();
+    void verificar_descenso_y_Mover_no_salga_board_pieceSquare_test() {
 
-    board.ingresarNuevaPieza(pS);
-
-        board.descenderPieza(pS);
-        board.descenderPieza(pS);
-        board.descenderPieza(pS);
-        board.descenderPieza(pS);
-        board.descenderPieza(pS);
-        board.descenderPieza(pS);
-        board.descenderPieza(pS);
-        board.descenderPieza(pS);
-        //board.descenderPieza(pS);
-
-    // Verificamos que la pieza este en la última fila
-    assertEquals(1, board.getBoard()[8][0]);
-
-
-    assertEquals(1, board.getBoard()[9][0]);
-
-    // Verificamos que al descender otra vez la pieza se quede en ese ligar
-    board.descenderPieza(pS);
-
-    assertEquals(1, board.getBoard()[8][0]);
-
-    assertEquals(1, board.getBoard()[9][0]);
-
-    //Verificamos que la pieza no salga de los costados y se quede en su lugar
-    board.moverPiezaIzquierda(pS);
-    board.moverPiezaIzquierda(pS);
-    board.moverPiezaIzquierda(pS);
-    board.moverPiezaIzquierda(pS);
-    board.moverPiezaIzquierda(pS);
-
-    assertEquals(1, board.getBoard()[9][0]);
-    //Este seria otro codigo pero quiero verificar 
-    PieceSquare pS1 = new PieceSquare();
-    board.ingresarNuevaPieza(pS1);
-
-    board.descenderPieza(pS1);
-    board.descenderPieza(pS1);
-    board.descenderPieza(pS1);
-    board.descenderPieza(pS1);
-    board.descenderPieza(pS1);
-    board.descenderPieza(pS1);
-    board.descenderPieza(pS1);
-    board.descenderPieza(pS1);
-    board.descenderPieza(pS1);
-
-    board.descenderPieza(pS1);
-
-    board.descenderPieza(pS1);
-
-
-
-    assertEquals(1, board.getBoard()[6][0]);
-
-
-    assertEquals(1, board.getBoard()[7][0]);
-    assertEquals(1, board.getBoard()[8][0]);
-
-
-    assertEquals(1, board.getBoard()[9][0]);
-
-
-    
-}
-// Falta todo elresto Cambie cosas de Board
-
-
-
-    
-
-
-    //TEST PARA VERIFICAR SI LLENAMOS UNA COLUMNA ENTERA YA NO PUEDE GENERARSE PIEZAS EN ESA COLUMNA (NO SALIO)
-    /*@Test
-    void verificar_que_no_se_puedan_ingresar_mas_piezas_test(){
-        
         Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+
+            board.ingresarNuevaPieza(pS);
+
+            board.descenderPieza(pS);
+            board.descenderPieza(pS);
+            board.descenderPieza(pS);
+            board.descenderPieza(pS);
+            board.descenderPieza(pS);
+            board.descenderPieza(pS);
+            board.descenderPieza(pS);
+            board.descenderPieza(pS);
+            //board.descenderPieza(pS);
+
+        // Verificamos que la pieza este en la última fila
+        assertEquals(1, board.getBoard()[8][0]);
+
+        assertEquals(1, board.getBoard()[9][0]);
+
+        // Verificamos que al descender otra vez la pieza se quede en ese ligar
+        board.descenderPieza(pS);
+
+        assertEquals(1, board.getBoard()[8][0]);
+
+        assertEquals(1, board.getBoard()[9][0]);
+
+        //Verificamos que la pieza no salga de los costados y se quede en su lugar
+        board.moverPiezaIzquierda(pS);
+        board.moverPiezaIzquierda(pS);
+        board.moverPiezaIzquierda(pS);
+        board.moverPiezaIzquierda(pS);
+        board.moverPiezaIzquierda(pS);
+
+        assertEquals(1, board.getBoard()[9][0]);
+
+        //Este seria otro codigo pero quiero verificar 
+
         PieceSquare pS1 = new PieceSquare();
-        PieceSquare pS2 = new PieceSquare();
-
-
         board.ingresarNuevaPieza(pS1);
-        board.moverPiezaDerecha(pS1);
-        board.moverPiezaDerecha(pS1);
 
-        //assertEquals(0, board.getBoard()[0][0]);
+        board.descenderPieza(pS1);
+        board.descenderPieza(pS1);
+        board.descenderPieza(pS1);
+        board.descenderPieza(pS1);
+        board.descenderPieza(pS1);
+        board.descenderPieza(pS1);
+        board.descenderPieza(pS1);
+        board.descenderPieza(pS1);
+        board.descenderPieza(pS1);
+        board.descenderPieza(pS1);
+        board.descenderPieza(pS1);
 
-        assertEquals(1, board.getBoard()[0][2]);
-        assertEquals(1, board.getBoard()[1][2]);
-        assertEquals(1, board.getBoard()[0][3]);
-        assertEquals(1, board.getBoard()[1][3]);
+        assertEquals(1, board.getBoard()[6][0]);
 
-        board.ingresarNuevaPieza(pS2);
+        assertEquals(1, board.getBoard()[7][0]);
+        assertEquals(1, board.getBoard()[8][0]);
 
-        assertEquals(0, board.getBoard()[0][2]);
-    }*/
+        assertEquals(1, board.getBoard()[9][0]);
+    
+    }
+
+    @Test
+    void verificar_descenso_y_Mover_no_salga_board_pieceT_test() {
+
+    Board board = new Board();
+    PieceT pT = new PieceT();
+
+    board.ingresarNuevaPieza(pT);
+
+        board.descenderPieza(pT);
+        board.descenderPieza(pT);
+        board.descenderPieza(pT);
+        board.descenderPieza(pT);
+        board.descenderPieza(pT);
+        board.descenderPieza(pT);
+        board.descenderPieza(pT);
+        board.descenderPieza(pT);
+
+        assertEquals(1, board.getBoard()[9][1]);
+
+        // Verificamos que al descender otra vez la pieza se quede en ese lugar
+        board.descenderPieza(pT);
+        assertEquals(1, board.getBoard()[9][1]);
+
+        //Verificamos que la pieza no salga de los costados y se quede en su lugar
+
+        board.moverPiezaIzquierda(pT);
+        board.moverPiezaIzquierda(pT);
+        board.moverPiezaIzquierda(pT);
+        board.moverPiezaIzquierda(pT);
+        board.moverPiezaIzquierda(pT);
+
+        assertEquals(1, board.getBoard()[9][1]);
+
+    }
+
+    @Test
+    void verificar_descenso_y_Mover_no_salga_board_pieceL_derecho_test() {
+
+        Board board = new Board();
+        PieceL pL = new PieceL();
+
+        board.ingresarNuevaPieza(pL);
+
+        board.descenderPieza(pL);
+        board.descenderPieza(pL);
+        board.descenderPieza(pL);
+        board.descenderPieza(pL);
+        board.descenderPieza(pL);
+        board.descenderPieza(pL);
+        board.descenderPieza(pL);
+        board.descenderPieza(pL);
+
+        assertEquals(1, board.getBoard()[9][1]);
+
+        // Verificamos que al descender otra vez la pieza se quede en ese lugar
+
+        board.descenderPieza(pL);
+        assertEquals(1, board.getBoard()[9][1]);
+
+        // Verificamos que la pieza no salga de los costados y se quede en su lugar
+
+        board.moverPiezaIzquierda(pL);
+        board.moverPiezaIzquierda(pL);
+        board.moverPiezaIzquierda(pL);
+        board.moverPiezaIzquierda(pL);
+        board.moverPiezaIzquierda(pL);
+
+        assertEquals(1, board.getBoard()[9][1]);
+
+    }
+
 }
