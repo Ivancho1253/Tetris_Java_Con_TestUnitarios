@@ -1331,7 +1331,6 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[0][columnaAleatoria + 1]);
 
-
         int[][] formaInicial = pS.getForma();
         board.descenderPieza(pS);
         for (int i = 0; i < formaInicial.length; i++) {
@@ -1857,21 +1856,13 @@ public class TetrisTest {
         Board board = new Board();
         PieceSquare pS = new PieceSquare();
 
-            board.ingresarNuevaPieza(pS);
+        board.ingresarNuevaPieza(pS);
 
+        for (int i = 0; i < 10; i++) {
             board.descenderPieza(pS);
-            board.descenderPieza(pS);
-            board.descenderPieza(pS);
-            board.descenderPieza(pS);
-            board.descenderPieza(pS);
-            board.descenderPieza(pS);
-            board.descenderPieza(pS);
-            board.descenderPieza(pS);
-            //board.descenderPieza(pS);
+        }
 
         // Verificamos que la pieza este en la última fila
-        assertEquals(1, board.getBoard()[8][0]);
-
         assertEquals(1, board.getBoard()[9][0]);
 
         // Verificamos que al descender otra vez la pieza se quede en ese ligar
@@ -1882,11 +1873,9 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[9][0]);
 
         //Verificamos que la pieza no salga de los costados y se quede en su lugar
-        board.moverPiezaIzquierda(pS);
-        board.moverPiezaIzquierda(pS);
-        board.moverPiezaIzquierda(pS);
-        board.moverPiezaIzquierda(pS);
-        board.moverPiezaIzquierda(pS);
+        for (int i = 0; i < 10; i++) {
+            board.moverPiezaIzquierda(pS);
+        }
 
         assertEquals(1, board.getBoard()[9][0]);
 
@@ -1895,17 +1884,9 @@ public class TetrisTest {
         PieceSquare pS1 = new PieceSquare();
         board.ingresarNuevaPieza(pS1);
 
-        board.descenderPieza(pS1);
-        board.descenderPieza(pS1);
-        board.descenderPieza(pS1);
-        board.descenderPieza(pS1);
-        board.descenderPieza(pS1);
-        board.descenderPieza(pS1);
-        board.descenderPieza(pS1);
-        board.descenderPieza(pS1);
-        board.descenderPieza(pS1);
-        board.descenderPieza(pS1);
-        board.descenderPieza(pS1);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS1);
+        }
 
         assertEquals(1, board.getBoard()[6][0]);
 
@@ -1919,19 +1900,14 @@ public class TetrisTest {
     @Test
     void verificar_descenso_y_Mover_no_salga_board_pieceT_test() {
 
-    Board board = new Board();
-    PieceT pT = new PieceT();
+        Board board = new Board();
+        PieceT pT = new PieceT();
 
-    board.ingresarNuevaPieza(pT);
+        board.ingresarNuevaPieza(pT);
 
-        board.descenderPieza(pT);
-        board.descenderPieza(pT);
-        board.descenderPieza(pT);
-        board.descenderPieza(pT);
-        board.descenderPieza(pT);
-        board.descenderPieza(pT);
-        board.descenderPieza(pT);
-        board.descenderPieza(pT);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pT);
+        }
 
         assertEquals(1, board.getBoard()[9][1]);
 
@@ -1941,12 +1917,9 @@ public class TetrisTest {
 
         //Verificamos que la pieza no salga de los costados y se quede en su lugar
 
-        board.moverPiezaIzquierda(pT);
-        board.moverPiezaIzquierda(pT);
-        board.moverPiezaIzquierda(pT);
-        board.moverPiezaIzquierda(pT);
-        board.moverPiezaIzquierda(pT);
-
+        for (int i = 0; i < 10; i++) {
+            board.moverPiezaIzquierda(pT);
+        }
         assertEquals(1, board.getBoard()[9][1]);
 
     }
@@ -1959,14 +1932,9 @@ public class TetrisTest {
 
         board.ingresarNuevaPieza(pL);
 
-        board.descenderPieza(pL);
-        board.descenderPieza(pL);
-        board.descenderPieza(pL);
-        board.descenderPieza(pL);
-        board.descenderPieza(pL);
-        board.descenderPieza(pL);
-        board.descenderPieza(pL);
-        board.descenderPieza(pL);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pL);
+        }
 
         assertEquals(1, board.getBoard()[9][1]);
 
@@ -1977,14 +1945,39 @@ public class TetrisTest {
 
         // Verificamos que la pieza no salga de los costados y se quede en su lugar
 
-        board.moverPiezaIzquierda(pL);
-        board.moverPiezaIzquierda(pL);
-        board.moverPiezaIzquierda(pL);
-        board.moverPiezaIzquierda(pL);
-        board.moverPiezaIzquierda(pL);
+        for (int i = 0; i < 10; i++) {
+            board.moverPiezaIzquierda(pL);
+        }
 
         assertEquals(1, board.getBoard()[9][1]);
 
     }
+
+    @Test
+    void verificar_descenso_y_Mover_no_salga_board_pieceStick_test() {
+
+        Board board = new Board();
+        PieceStick pStick = new PieceStick();
+
+        board.ingresarNuevaPieza(pStick);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pStick);
+        }
+        assertEquals(1, board.getBoard()[9][1]);
+
+        // Verificamos que al descender otra vez la pieza se quede en ese lugar
+
+        board.descenderPieza(pStick);
+        assertEquals(1, board.getBoard()[9][1]);
+
+        // Verificamos que la pieza no salga de los costados y se quede en su lugar
+        for (int i = 0; i < 10; i++) {
+            board.moverPiezaIzquierda(pStick);
+        }    
+
+        assertEquals(1, board.getBoard()[9][0]);
+    }
+
 
 }

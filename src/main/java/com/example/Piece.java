@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class Piece{
 
-    public boolean  existencia;
     public int [][] forma;
     private Random random = new Random();
     
@@ -60,6 +59,5 @@ public class Piece{
         }else{
             //No pasa nada, la pieza mantiene su forma original
         }
-    }
-    
+    }  
 }
