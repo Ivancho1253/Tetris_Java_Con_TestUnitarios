@@ -2465,7 +2465,7 @@ public class TetrisTest {
             board.ingresarNuevaPieza(pS);
         
             // Mover la primera pieza hasta la derecha (debería moverse 8 veces, no 9)
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < 20; i++) {
                 board.moverPiezaDerecha(pS);
             }
         
@@ -2473,7 +2473,7 @@ public class TetrisTest {
             board.ingresarNuevaPieza(pS1);
         
             // Mover la segunda pieza hasta la derecha
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < 20; i++) {
                 board.moverPiezaDerecha(pS1);
             }
         
@@ -2481,13 +2481,229 @@ public class TetrisTest {
             board.ingresarNuevaPieza(pS2);
         
             // Mover la tercera pieza hasta la derecha
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < 20; i++) {
                 board.moverPiezaDerecha(pS2);
+            }
+
+            PieceSquare pS3 = new PieceSquare();
+            board.ingresarNuevaPieza(pS3);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pS3);
+            }
+
+            PieceSquare pS4 = new PieceSquare();
+            board.ingresarNuevaPieza(pS4);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pS4);
+            }
+
+            PieceSquare pS5 = new PieceSquare();
+            board.ingresarNuevaPieza(pS5);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pS5);
+            }
+
+            PieceSquare pS6 = new PieceSquare();
+            board.ingresarNuevaPieza(pS6);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pS6);
+            }
+
+            PieceSquare pS7 = new PieceSquare();
+            board.ingresarNuevaPieza(pS7);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pS7);
+            }
+
+            PieceSquare pS8 = new PieceSquare();
+            board.ingresarNuevaPieza(pS8);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pS8);
+            }
+
+            PieceSquare pS9 = new PieceSquare();
+            board.ingresarNuevaPieza(pS9);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pS9);
+            }
+
+            PieceSquare pS10 = new PieceSquare();
+            board.ingresarNuevaPieza(pS10);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pS10);
             }
         
             // Verificación antes de la eliminación
             for (int i = 0; i < board.getBoard()[0].length; i++) {
                 assertEquals(1, board.getBoard()[0][i]);
+            }
+        
+            // Verificar y eliminar líneas
+            board.verificarYEliminarLineas();
+        
+            // Verificación después de la eliminación
+            for (int i = 0; i < board.getBoard()[0].length; i++) {
+                assertEquals(0, board.getBoard()[0][i]);
+            }
+        }
+
+        @Test
+        void verificar_eliminacion_linea_de_pieceT_test() {
+        
+            Board board = new Board();
+            PieceT pT = new PieceT();
+            board.ingresarNuevaPieza(pT);
+        
+            // Mover la primera pieza hasta la derecha (debería moverse 8 veces, no 9)
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pT);
+            }
+        
+            PieceT pT1 = new PieceT();
+            board.ingresarNuevaPieza(pT1);
+        
+            // Mover la segunda pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pT1);
+            }
+        
+            PieceT pT2 = new PieceT();
+            board.ingresarNuevaPieza(pT2);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pT2);
+            }
+
+            PieceT pT3 = new PieceT();
+            board.ingresarNuevaPieza(pT3);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pT3);
+            }
+
+            PieceT pT4 = new PieceT();
+            board.ingresarNuevaPieza(pT4);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pT4);
+            }
+
+            PieceT pT5 = new PieceT();
+            board.ingresarNuevaPieza(pT5);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pT5);
+            }
+
+            PieceT pT6 = new PieceT();
+            board.ingresarNuevaPieza(pT6);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pT6);
+            }
+
+            //Como los PieceT, son de a 3, quedan 2 espacios sin usar, asi que introduzco un Square
+            PieceSquare pS = new PieceSquare();
+            board.ingresarNuevaPieza(pS);
+        
+            // Verificación antes de la eliminación
+            for (int i = 0; i < board.getBoard()[0].length; i++) {
+                assertEquals(1, board.getBoard()[0][i]);
+            }
+        
+            // Verificar y eliminar líneas
+            board.verificarYEliminarLineas();
+        
+            // Verificación después de la eliminación
+            for (int i = 0; i < board.getBoard()[0].length; i++) {
+                assertEquals(0, board.getBoard()[0][i]);
+            }
+        }
+
+        @Test
+        void verificar_eliminacion_linea_de_pieceStick_rotado_test() {
+        
+            Board board = new Board();
+            PieceStick pStick = new PieceStick();
+
+            pStick.rotarDerecha();
+            board.ingresarNuevaPieza(pStick);
+        
+            // Mover la primera pieza hasta la derecha (debería moverse 8 veces, no 9)
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pStick);
+            }
+        
+            PieceStick pStick1 = new PieceStick();
+            pStick1.rotarDerecha();
+            board.ingresarNuevaPieza(pStick1);
+        
+            // Mover la segunda pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pStick1);
+            }
+        
+            PieceStick pStick2 = new PieceStick();
+            pStick2.rotarDerecha();
+            board.ingresarNuevaPieza(pStick2);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pStick2);
+            }
+
+            PieceStick pStick3 = new PieceStick();
+            pStick3.rotarDerecha();
+
+            board.ingresarNuevaPieza(pStick3);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pStick3);
+            }
+
+            PieceStick pStick4 = new PieceStick();
+            pStick4.rotarDerecha();
+            board.ingresarNuevaPieza(pStick4);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pStick4);
+            }
+
+            PieceStick pStick5 = new PieceStick();
+            pStick5.rotarDerecha();
+            board.ingresarNuevaPieza(pStick5);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 20; i++) {
+                board.moverPiezaDerecha(pStick5);
+            }
+
+            // Verificación antes de la eliminación
+            for (int i = 0; i < board.getBoard()[0].length; i++) {
+                assertEquals(1, board.getBoard()[1][i]);
             }
         
             // Verificar y eliminar líneas
