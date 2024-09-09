@@ -4,6 +4,7 @@ package com.example;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -1978,6 +1979,275 @@ public class TetrisTest {
 
         assertEquals(1, board.getBoard()[9][0]);
     }
+    @Test
+    void verificar_descenso_pieceSquare_test() {
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+
+        board.ingresarNuevaPieza(pS);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS);
+        }
+
+        // Verificamos que la pieza este en la última fila
+        assertEquals(1, board.getBoard()[9][0]);
+
+        // Verificamos que al descender otra vez la pieza se quede en ese ligar
+        board.descenderPieza(pS);
+
+        assertEquals(1, board.getBoard()[8][0]);
+
+        assertEquals(1, board.getBoard()[9][0]);
+
+        //Verificamos que la pieza no salga de los costados y se quede en su lugar
+        for (int i = 0; i < 10; i++) {
+            board.moverPiezaIzquierda(pS);
+        }
+
+        assertEquals(1, board.getBoard()[9][0]);
+
+        //Este seria otro codigo pero quiero verificar 
+
+        PieceSquare pS1 = new PieceSquare();
+        board.ingresarNuevaPieza(pS1);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS1);
+        }
+
+        assertEquals(1, board.getBoard()[6][0]);
+
+        assertEquals(1, board.getBoard()[7][0]);
+        assertEquals(1, board.getBoard()[8][0]);
+
+        assertEquals(1, board.getBoard()[9][0]);
+    
+    }
+    //----------------------------------------------Verificar fin de l juego linea completa---------------------------------------//
+    @Test
+    void verificar_fin_de_juego_pieceSquare_test() {
+
+        Board board = new Board();
+
+        PieceSquare pS = new PieceSquare();
+
+        board.ingresarNuevaPieza(pS);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS);
+        }
+        assertEquals(1, board.getBoard()[8][1]);
+
+        assertEquals(1, board.getBoard()[8][0]);
+        assertEquals(1, board.getBoard()[9][1]);
+
+        assertEquals(1, board.getBoard()[9][0]);
+        PieceSquare pS1 = new PieceSquare();
+
+        board.ingresarNuevaPieza(pS1);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS1);
+        }
+        assertEquals(1, board.getBoard()[6][0]);
+
+        assertEquals(1, board.getBoard()[6][1]);
+        assertEquals(1, board.getBoard()[7][0]);
+
+        assertEquals(1, board.getBoard()[7][1]);
+        PieceSquare pS2 = new PieceSquare();
+
+        board.ingresarNuevaPieza(pS2);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS2);
+        }
+        assertEquals(1, board.getBoard()[4][1]);
+
+        assertEquals(1, board.getBoard()[4][0]);
+        assertEquals(1, board.getBoard()[5][1]);
+
+        assertEquals(1, board.getBoard()[5][0]);
+        PieceSquare pS3 = new PieceSquare();
+
+        board.ingresarNuevaPieza(pS3);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS3);
+        }
+        assertEquals(1, board.getBoard()[2][1]);
+
+        assertEquals(1, board.getBoard()[2][0]);
+        assertEquals(1, board.getBoard()[3][1]);
+
+        assertEquals(1, board.getBoard()[3][0]);
+        PieceSquare pS4 = new PieceSquare();
+
+        board.ingresarNuevaPieza(pS4);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS4);
+        }
+        assertEquals(1, board.getBoard()[1][1]);
+
+        assertEquals(1, board.getBoard()[0][0]);
+        assertEquals(1, board.getBoard()[1][1]);
+
+        assertEquals(1, board.getBoard()[1][0]);
+        PieceSquare pS5 = new PieceSquare();
+
+        board.ingresarNuevaPieza(pS5);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS5);
+        }
+        assertTrue(board.esFinDelJuego(pS5));
+
+        PieceSquare pS6 = new PieceSquare();
+        board.ingresarNuevaPieza(pS6);  // Esto no debería colocar la pieza
+        assertTrue(board.esFinDelJuego(pS6));
+    }
+    @Test
+    void verificar_fin_de_juego_pieceStick_test() {
+
+        Board board = new Board();
+        PieceStick pS = new PieceStick();
+
+        board.ingresarNuevaPieza(pS);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS);
+        }
+        assertEquals(1, board.getBoard()[6][1]);
+        assertEquals(1, board.getBoard()[7][1]);
+        assertEquals(1, board.getBoard()[8][1]);
+        assertEquals(1, board.getBoard()[9][1]); 
+
+        PieceStick pS1 = new PieceStick();
+        board.ingresarNuevaPieza(pS1);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS1);
+        }
+    
+        assertEquals(1, board.getBoard()[2][1]);  
+        assertEquals(1, board.getBoard()[3][1]);
+        assertEquals(1, board.getBoard()[4][1]);
+
+        assertEquals(1, board.getBoard()[5][1]);  
+
+        PieceStick pS2 = new PieceStick();
+        pS2.rotarDerecha();
+        board.ingresarNuevaPieza(pS2);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS2);
+        }
+
+        assertEquals(1, board.getBoard()[1][0]);
+        assertEquals(1, board.getBoard()[1][1]);
+        assertEquals(1, board.getBoard()[1][2]);
+        assertEquals(1, board.getBoard()[1][3]);
+
+        PieceStick pS3 = new PieceStick();
+        pS3.rotarDerecha();
+        board.ingresarNuevaPieza(pS3);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS3);
+        }
+
+        
+        assertTrue(board.esFinDelJuego(pS3));
+
+    }
+    @Test
+    void verificar_fin_de_juego_pieceL_Derecho_test() {
+
+        Board board = new Board();
+        PieceL pLd = new PieceL();  
+
+        board.ingresarNuevaPieza(pLd);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pLd);
+        }
+    
+        assertEquals(1, board.getBoard()[7][1]);  
+        assertEquals(1, board.getBoard()[8][1]);  
+        assertEquals(1, board.getBoard()[9][1]);  
+        assertEquals(1, board.getBoard()[9][2]);  
+
+        PieceL pLd2 = new PieceL();
+        board.ingresarNuevaPieza(pLd2);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pLd2);
+        }
+        assertEquals(1, board.getBoard()[4][1]);  
+        assertEquals(1, board.getBoard()[5][1]);  
+        assertEquals(1, board.getBoard()[6][1]);  
+        assertEquals(1, board.getBoard()[6][2]);  
+
+        PieceL pLd3 = new PieceL();
+        board.ingresarNuevaPieza(pLd3);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pLd3);
+        }
+        assertEquals(1, board.getBoard()[1][1]);  
+        assertEquals(1, board.getBoard()[2][1]);  
+        assertEquals(1, board.getBoard()[3][1]);  
+        assertEquals(1, board.getBoard()[3][2]);
+
+
+        PieceL pLd4 = new PieceL();
+        board.ingresarNuevaPieza(pLd4);
+
+        assertTrue(board.esFinDelJuego(pLd4));
+    }
+    @Test
+    void verificar_fin_de_juego_pieceL_Izquierdo_test() {
+
+        Board board = new Board();
+        PieceL pLi = new PieceL();  
+        pLi.izquierda();
+        board.ingresarNuevaPieza(pLi);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pLi);
+        }
+    
+        assertEquals(1, board.getBoard()[7][1]);  
+        assertEquals(1, board.getBoard()[8][1]);  
+        assertEquals(1, board.getBoard()[9][0]);  
+        assertEquals(1, board.getBoard()[9][1]);  
+
+        PieceL pLi2 = new PieceL();
+        pLi2.izquierda();
+        board.ingresarNuevaPieza(pLi2);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pLi2);
+        }
+        assertEquals(1, board.getBoard()[4][1]);  
+        assertEquals(1, board.getBoard()[5][1]);  
+        assertEquals(1, board.getBoard()[6][1]);  
+        assertEquals(1, board.getBoard()[6][0]);  
+
+        PieceL pLi3 = new PieceL();
+        pLi3.izquierda();
+        board.ingresarNuevaPieza(pLi3);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pLi3);
+        }
+        assertEquals(1, board.getBoard()[1][1]);  
+        assertEquals(1, board.getBoard()[2][1]);  
+        assertEquals(1, board.getBoard()[3][1]);  
+        assertEquals(1, board.getBoard()[3][0]);
+
+
+        PieceL pLd4 = new PieceL();
+        board.ingresarNuevaPieza(pLd4);
+
+        assertTrue(board.esFinDelJuego(pLd4));
+    }
+
+
+
 
 
 }

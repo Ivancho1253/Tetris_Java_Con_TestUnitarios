@@ -30,13 +30,16 @@ public class Board {
         board[fila][columna] = valor;
     }
 
-    public void ingresarNuevaPieza(Piece piece) {   //Permite colocar la pieza en el tablero 
-
+    public void ingresarNuevaPieza(Piece piece) {   
+        if (esFinDelJuego(piece)) {
+            return;  // No ingresamos la pieza porque ya no hay espacio
+        }
         setPiezaActual(piece);
         colocarPieceEnTablero(piezaActual, 0, 0);
         filaActual = 0;
         columnaActual = 0;
     }
+    
     
     public void colocarPieceEnTablero(Piece piece, int fila, int columna) {     //Este metodo es invocado en el metodo IngresarNuevaPieza
 
@@ -146,6 +149,10 @@ public class Board {
         }
     
         colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
+    }
+    public boolean esFinDelJuego(Piece piece) {
+        // Intenta colocar la pieza en la fila superior del tablero
+        return !puedeColocarse(piece, 0, 0); // Retorna falso si no hay espacio en la fila superior
     }
 
    
