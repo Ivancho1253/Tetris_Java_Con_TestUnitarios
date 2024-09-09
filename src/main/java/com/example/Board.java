@@ -12,6 +12,9 @@ public class Board {
     private int filaActual;
     private int columnaActual;
 
+    private int lineasEliminadas = 0;
+    private final int PORCENTAJE_ELIMINACION = 50;
+
     public Board() {
 
         board = new int[fila][columna];
@@ -160,6 +163,12 @@ public class Board {
         return !puedeColocarse(piece, 0, 0); // Retorna falso si no hay espacio en la fila superior
     }
 
+    
+    public boolean esFinDelJuegoPorPorcentaje() {
+        int totalLineas = board.length;
+        int porcentajeLlenado = (lineasEliminadas * 100) / totalLineas;
+        return porcentajeLlenado >= PORCENTAJE_ELIMINACION;
+    }
 
     //NUEVO
     public void verificarYEliminarLineas() {
@@ -173,7 +182,12 @@ public class Board {
             }
             if (lineaCompleta) {//Si esta lleno entonces llama a la funcio eliminarLinea
                 eliminarLinea(i);
+                lineasEliminadas++;
             }
+        
+        } if (esFinDelJuegoPorPorcentaje()) {
+            //fin
+
         }
     }
     
@@ -191,5 +205,4 @@ public class Board {
         }
     }
 
-   
 }
