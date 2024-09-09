@@ -2025,7 +2025,7 @@ public class TetrisTest {
         assertEquals(1, board.getBoard()[9][0]);
     
     }
-    //----------------------------------------------Verificar fin de l juego linea completa---------------------------------------//
+    //----------------------------------------------Verificar fin del juego linea completa---------------------------------------//
     @Test
     void verificar_fin_de_juego_pieceSquare_test() {
 
@@ -2436,17 +2436,86 @@ public class TetrisTest {
         }
         assertTrue(board.esFinDelJuego(pT5));
 
-
-        //-------------------------------------Req 5 ELiminacion de La linea completa-------------------------------------------//
-
-        
-
-
-
     }
 
 
+        //-------------------------------------Req 5 ELiminacion de La linea completa-------------------------------------------//
+        @Test
+        void verificar_eliminacion_linea_de_pieceSquare_test() {
+
+            Board board = new Board();
+
+            PieceSquare pS = new PieceSquare();
+
+            board.ingresarNuevaPieza(pS);
+
+            for (int i = 0; i < 10; i++) {
+                board.descenderPieza(pS);
+            }
+            assertEquals(1, board.getBoard()[8][1]);
+
+            assertEquals(1, board.getBoard()[8][0]);
+            assertEquals(1, board.getBoard()[9][1]);
+
+            assertEquals(1, board.getBoard()[9][0]);
+            PieceSquare pS1 = new PieceSquare();
+
+            board.ingresarNuevaPieza(pS1);
+            board.moverPiezaDerecha(pS1);
+            board.moverPiezaDerecha(pS1);
 
 
+            for (int i = 0; i < 10; i++) {
+                board.descenderPieza(pS1);
+            }
+            assertEquals(1, board.getBoard()[8][2]);
+
+            assertEquals(1, board.getBoard()[8][3]);
+            assertEquals(1, board.getBoard()[9][2]);
+
+            assertEquals(1, board.getBoard()[9][3]);
+            PieceSquare pS2 = new PieceSquare();
+
+            board.ingresarNuevaPieza(pS2);
+            board.moverPiezaDerecha(pS2);
+            board.moverPiezaDerecha(pS2);
+            board.moverPiezaDerecha(pS2);
+            board.moverPiezaDerecha(pS2);
+
+
+            for (int i = 0; i < 10; i++) {
+                board.descenderPieza(pS1);
+            }
+            assertEquals(1, board.getBoard()[8][4]);
+
+            assertEquals(1, board.getBoard()[8][5]);
+            assertEquals(1, board.getBoard()[9][4]);
+
+            assertEquals(1, board.getBoard()[9][5]);
+
+
+
+            board.verificarYEliminarLineas();
+            assertEquals(0, board.getBoard()[8][1]);
+
+            assertEquals(0, board.getBoard()[8][0]);
+            assertEquals(0, board.getBoard()[9][1]);
+
+            assertEquals(0, board.getBoard()[9][0]);
+            assertEquals(0, board.getBoard()[8][2]);
+
+            assertEquals(0, board.getBoard()[8][3]);
+            assertEquals(0, board.getBoard()[9][2]);
+
+            assertEquals(0, board.getBoard()[9][3]);
+            assertEquals(0, board.getBoard()[8][4]);
+
+            assertEquals(0, board.getBoard()[8][5]);
+            assertEquals(0, board.getBoard()[9][4]);
+
+            assertEquals(0, board.getBoard()[9][5]);
+
+            
+        }
 
 }

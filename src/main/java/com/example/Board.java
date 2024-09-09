@@ -5,7 +5,7 @@ public class Board {
 
     public int[][] board;
     public int fila = 10;
-    public int columna = 20;
+    public int columna = 20;//Para verifica la eliminacion le cambie a 6 y funco
     public Random random;
     public Piece piezaActual;
 
@@ -83,6 +83,8 @@ public class Board {
         return board;
     }
 
+    //NUEVO
+
     public boolean puedeColocarse(Piece piece, int fila, int columna) {
         for (int i = 0; i < piece.getForma().length; i++) {
             for (int j = 0; j < piece.getForma()[i].length; j++) {
@@ -148,9 +150,42 @@ public class Board {
     
         colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
     }
+
+
+    //NUEVO
     public boolean esFinDelJuego(Piece piece) {
         // Intenta colocar la pieza en la fila superior del tablero
         return !puedeColocarse(piece, 0, 0); // Retorna falso si no hay espacio en la fila superior
+    }
+
+
+    //NUEVO
+    public void verificarYEliminarLineas() {
+        for (int i = 0; i < board.length; i++) { //Recorre toda la fila
+            boolean lineaCompleta = true; //se inicia que ya esta leno Pero luego en el otro for se verifica si de vedad esta lleno
+            for (int j = 0; j < board[0].length; j++) {
+                if (board[i][j] == 0) {// Verifica que la celda esta vacia
+                    lineaCompleta = false;//Esta vacia ntonces sale del if
+                    break;
+                }
+            }
+            if (lineaCompleta) {//Si esta lleno entonces llama a la funcio eliminarLinea
+                eliminarLinea(i);
+            }
+        }
+    }
+    
+    public void eliminarLinea(int fila) {
+        // Mueve todas las filas superiores una posición hacia abajo
+        for (int i = fila; i > 0; i--) {
+            for (int j = 0; j < board[0].length; j++) {
+                board[i][j] = board[i - 1][j];//Copia el contenido de la fila superior a la actual
+            }
+        }
+        // Limpia la primera fila
+        for (int j = 0; j < board[0].length; j++) {
+            board[0][j] = 0;//establece toda la fila en 0
+        }
     }
 
    
