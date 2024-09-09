@@ -132,6 +132,7 @@ public class Board {
 
     //Agregue que se pregunte si se puede mover
     public void moverPiezaDerecha(Piece piezaActual) {
+
         limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
     
         if (puedeColocarse(piezaActual, filaActual, columnaActual + 1)) {
@@ -142,6 +143,7 @@ public class Board {
     }
     
     public void moverPiezaIzquierda(Piece piezaActual) {
+        
         limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
     
         if (puedeColocarse(piezaActual, filaActual, columnaActual - 1)) {
@@ -182,6 +184,7 @@ public class Board {
                 board[i][j] = board[i - 1][j];//Copia el contenido de la fila superior a la actual
             }
         }
+
         // Limpia la primera fila
         for (int j = 0; j < board[0].length; j++) {
             board[0][j] = 0;//establece toda la fila en 0
