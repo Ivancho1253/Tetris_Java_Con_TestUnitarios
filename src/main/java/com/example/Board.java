@@ -83,9 +83,7 @@ public class Board {
         return board;
     }
 
-    //Agregue este nuevo para que se verifique si se puede colocar
     public boolean puedeColocarse(Piece piece, int fila, int columna) {
-
         for (int i = 0; i < piece.getForma().length; i++) {
             for (int j = 0; j < piece.getForma()[i].length; j++) {
                 if (piece.getForma()[i][j] != 0) {

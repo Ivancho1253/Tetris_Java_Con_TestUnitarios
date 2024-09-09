@@ -2090,7 +2090,7 @@ public class TetrisTest {
         for (int i = 0; i < 10; i++) {
             board.descenderPieza(pS4);
         }
-        assertEquals(1, board.getBoard()[1][1]);
+        assertEquals(1, board.getBoard()[0][1]);
 
         assertEquals(1, board.getBoard()[0][0]);
         assertEquals(1, board.getBoard()[1][1]);
@@ -2244,6 +2244,205 @@ public class TetrisTest {
         board.ingresarNuevaPieza(pLd4);
 
         assertTrue(board.esFinDelJuego(pLd4));
+    }
+    @Test
+    void verificar_fin_de_juego_pieceDog_Izquierdo_test() {
+
+        Board board = new Board();
+        PieceDog pDogI = new PieceDog();  
+        pDogI.izquierda();
+        board.ingresarNuevaPieza(pDogI);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pDogI);
+        }
+    
+        assertEquals(1, board.getBoard()[8][2]);  
+        assertEquals(1, board.getBoard()[8][1]);  
+        assertEquals(1, board.getBoard()[9][0]);  
+        assertEquals(1, board.getBoard()[9][1]);  
+
+        PieceDog pDogI2 = new PieceDog();  
+        pDogI2.izquierda();
+        board.ingresarNuevaPieza(pDogI2);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pDogI2);
+        }
+    
+        assertEquals(1, board.getBoard()[6][2]);  
+        assertEquals(1, board.getBoard()[6][1]);  
+        assertEquals(1, board.getBoard()[7][0]);  
+        assertEquals(1, board.getBoard()[7][1]);  
+
+        PieceDog pDogI3 = new PieceDog();  
+        pDogI3.izquierda();
+        board.ingresarNuevaPieza(pDogI3);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pDogI3);
+        }
+    
+        assertEquals(1, board.getBoard()[4][2]);  
+        assertEquals(1, board.getBoard()[4][1]);  
+        assertEquals(1, board.getBoard()[5][0]);  
+        assertEquals(1, board.getBoard()[5][1]);
+        PieceDog pDogI4 = new PieceDog();  
+        pDogI4.izquierda();
+        board.ingresarNuevaPieza(pDogI4);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pDogI4);
+        }
+    
+        assertEquals(1, board.getBoard()[2][2]);  
+        assertEquals(1, board.getBoard()[2][1]);  
+        assertEquals(1, board.getBoard()[3][0]);  
+        assertEquals(1, board.getBoard()[3][1]);
+        PieceDog pDogI5 = new PieceDog();  
+        pDogI5.izquierda();
+        board.ingresarNuevaPieza(pDogI5);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pDogI5);
+        }
+        assertTrue(board.esFinDelJuego(pDogI5));
+
+
+
+
+        PieceDog pDogI6 = new PieceDog();
+        pDogI6.izquierda();
+        board.ingresarNuevaPieza(pDogI6);
+
+        assertTrue(board.esFinDelJuego(pDogI6));
+    }
+    @Test
+    void verificar_fin_de_juego_pieceDog_Derecho_test() {
+
+        Board board = new Board();
+        PieceDog pDogD = new PieceDog();  
+        board.ingresarNuevaPieza(pDogD);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pDogD);
+        }
+    
+        assertEquals(1, board.getBoard()[8][0]);  
+        assertEquals(1, board.getBoard()[8][1]);  
+        assertEquals(1, board.getBoard()[9][1]);  
+        assertEquals(1, board.getBoard()[9][2]);  
+
+        PieceDog pDogD2 = new PieceDog();  
+        board.ingresarNuevaPieza(pDogD2);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pDogD2);
+        }
+    
+        assertEquals(1, board.getBoard()[6][0]);  
+        assertEquals(1, board.getBoard()[6][1]);  
+        assertEquals(1, board.getBoard()[7][1]);  
+        assertEquals(1, board.getBoard()[7][2]);  
+
+        PieceDog pDogD3 = new PieceDog();  
+        board.ingresarNuevaPieza(pDogD3);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pDogD3);
+        }
+    
+        assertEquals(1, board.getBoard()[4][0]);  
+        assertEquals(1, board.getBoard()[4][1]);  
+        assertEquals(1, board.getBoard()[5][1]);  
+        assertEquals(1, board.getBoard()[5][2]);
+        PieceDog pDogD4 = new PieceDog();  
+        board.ingresarNuevaPieza(pDogD4);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pDogD4);
+        }
+    
+        assertEquals(1, board.getBoard()[2][0]);  
+        assertEquals(1, board.getBoard()[2][1]);  
+        assertEquals(1, board.getBoard()[3][1]);  
+        assertEquals(1, board.getBoard()[3][2]);
+        PieceDog pDogD5 = new PieceDog();  
+        board.ingresarNuevaPieza(pDogD5);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pDogD5);
+        }
+        assertTrue(board.esFinDelJuego(pDogD5));
+
+    
+
+        PieceDog pDogD6 = new PieceDog();  
+        board.ingresarNuevaPieza(pDogD6);
+        
+        assertTrue(board.esFinDelJuego(pDogD6));
+
+    }
+    @Test
+    void verificar_fin_de_juego_pieceT_test() {
+
+        Board board = new Board();
+        PieceT pT = new PieceT();  
+        board.ingresarNuevaPieza(pT);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pT);
+        }
+    
+        assertEquals(1, board.getBoard()[8][0]);  
+        assertEquals(1, board.getBoard()[8][1]);  
+        assertEquals(1, board.getBoard()[8][2]);  
+        assertEquals(1, board.getBoard()[9][1]);
+        PieceT pT1 = new PieceT();  
+        board.ingresarNuevaPieza(pT1);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pT1);
+        }
+    
+        assertEquals(1, board.getBoard()[6][0]);  
+        assertEquals(1, board.getBoard()[6][1]);  
+        assertEquals(1, board.getBoard()[6][2]);  
+        assertEquals(1, board.getBoard()[7][1]);
+        PieceT pT2 = new PieceT();  
+        board.ingresarNuevaPieza(pT2);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pT2);
+        }
+    
+        assertEquals(1, board.getBoard()[4][0]);  
+        assertEquals(1, board.getBoard()[4][1]);  
+        assertEquals(1, board.getBoard()[4][2]);  
+        assertEquals(1, board.getBoard()[5][1]);
+        PieceT pT3 = new PieceT();  
+        board.ingresarNuevaPieza(pT3);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pT3);
+        }
+    
+        assertEquals(1, board.getBoard()[2][0]);  
+        assertEquals(1, board.getBoard()[2][1]);  
+        assertEquals(1, board.getBoard()[2][2]);  
+        assertEquals(1, board.getBoard()[3][1]);
+        PieceT pT4 = new PieceT();  
+        board.ingresarNuevaPieza(pT4);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pT4);
+        }
+    
+        assertEquals(1, board.getBoard()[0][0]);  
+        assertEquals(1, board.getBoard()[0][1]);  
+        assertEquals(1, board.getBoard()[0][2]);  
+        assertEquals(1, board.getBoard()[1][1]);
+
+        assertTrue(board.esFinDelJuego(pT4));
+        PieceT pT5 = new PieceT();  
+        board.ingresarNuevaPieza(pT5);
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pT5);
+        }
+        assertTrue(board.esFinDelJuego(pT5));
+
+
+        //-------------------------------------Req 5 ELiminacion de La linea completa-------------------------------------------//
+
+        
+
+
+
     }
 
 
