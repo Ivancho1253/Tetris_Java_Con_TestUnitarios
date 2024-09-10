@@ -2716,16 +2716,20 @@ public class TetrisTest {
         }
         //--------------------------Fin del juego luego de completar 5 lineas ------------------------------//
     @Test
-    void verificar_eliminacion_linea_de_pieceSquare_Fin_del_juego_test() {
+    void verificar_eliminacion_linea_de_pieceSquare_con_descensoClock_movimientoDerecha_Fin_del_juego_test() {
         
         Board board = new Board(); 
+        Clock c1 = new Clock();
 
         for (int j = 0; j < 5; j++) {  
-            
+
             for (int i = 0; i < 10; i++) {
                 PieceSquare pS = new PieceSquare(); 
                 board.ingresarNuevaPieza(pS);
-                
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS);
+
                 for (int k = 0; k < 20; k++) {
                     board.moverPiezaDerecha(pS); 
                 }
@@ -2733,90 +2737,54 @@ public class TetrisTest {
 
 
             for (int i = 0; i < board.getBoard()[0].length; i++) {  
-                assertEquals(1, board.getBoard()[0][i]);  
-            }
-
-            board.verificarYEliminarLineas();
-
-            for (int i = 0; i < board.getBoard()[0].length; i++) {
-                assertEquals(0, board.getBoard()[0][i]);  
-            }
-        }
-
-        assertTrue(board.esFinDelJuegoPorPorcentaje());
-    }
-    @Test
-    void verificar_eliminacion_linea_de_pieceStick_Fin_del_juego_test() {
-        Board board = new Board(); 
-        for (int j = 0; j < 5; j++) {
-            PieceStick pStick=new PieceStick();
-
-            pStick.rotarDerecha();
-            board.ingresarNuevaPieza(pStick);
-        
-            // Mover la primera pieza hasta la derecha (debería moverse 8 veces, no 9)
-            for (int i = 0; i < 20; i++) {
-                board.moverPiezaDerecha(pStick);
-            }
-        
-            PieceStick pStick1 = new PieceStick();
-            pStick1.rotarDerecha();
-            board.ingresarNuevaPieza(pStick1);
-        
-            // Mover la segunda pieza hasta la derecha
-            for (int i = 0; i < 20; i++) {
-                board.moverPiezaDerecha(pStick1);
-            }
-        
-            PieceStick pStick2 = new PieceStick();
-            pStick2.rotarDerecha();
-            board.ingresarNuevaPieza(pStick2);
-        
-            // Mover la tercera pieza hasta la derecha
-            for (int i = 0; i < 20; i++) {
-                board.moverPiezaDerecha(pStick2);
-            }
-
-            PieceStick pStick3 = new PieceStick();
-            pStick3.rotarDerecha();
-
-            board.ingresarNuevaPieza(pStick3);
-        
-            // Mover la tercera pieza hasta la derecha
-            for (int i = 0; i < 20; i++) {
-                board.moverPiezaDerecha(pStick3);
-            }
-
-            PieceStick pStick4 = new PieceStick();
-            pStick4.rotarDerecha();
-            board.ingresarNuevaPieza(pStick4);
-        
-            // Mover la tercera pieza hasta la derecha
-            for (int i = 0; i < 20; i++) {
-                board.moverPiezaDerecha(pStick4);
-            }
-
-            PieceStick pStick5 = new PieceStick();
-            pStick5.rotarDerecha();
-            board.ingresarNuevaPieza(pStick5);
-        
-            // Mover la tercera pieza hasta la derecha
-            for (int i = 0; i < 20; i++) {
-                board.moverPiezaDerecha(pStick5);
-            }
-            
-            for (int i = 0; i < board.getBoard()[0].length; i++) {  
                 assertEquals(1, board.getBoard()[1][i]);  
             }
 
             board.verificarYEliminarLineas();
 
             for (int i = 0; i < board.getBoard()[0].length; i++) {
-                assertEquals(0, board.getBoard()[0][i]);  
+                assertEquals(0, board.getBoard()[1][i]);  
             }
         }
+
+    assertTrue(board.esFinDelJuegoPorPorcentaje());
+}
+    @Test
+    void verificar_eliminacion_linea_de_pieceSitck_con_descensoClock_movimientoDerecha_y_rotandoDerecha_Fin_del_juego_test() {
+    
+        Board board = new Board(); 
+        Clock c1 = new Clock();
+
+        for (int j = 0; j < 5; j++) {  
+
+            for (int i = 0; i < 5; i++) {
+                PieceStick pStick = new PieceStick(); 
+                pStick.rotarDerecha();
+                board.ingresarNuevaPieza(pStick);
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pStick);
+
+                for (int k = 0; k < 20; k++) {
+                    board.moverPiezaDerecha(pStick); 
+                }
+            }
+
+            //Verifica que la linea este llena
+            for (int i = 0; i < board.getBoard()[0].length; i++) {  
+                assertEquals(1, board.getBoard()[2][i]);  
+            }
+
+            board.verificarYEliminarLineas();
+
+            for (int i = 0; i < board.getBoard()[0].length; i++) {
+                assertEquals(0, board.getBoard()[2][i]);  
+            }
+        }
+
+        //Verifica que hay 50 tics, debido a que hubieron 25 descensos (2 tics por descenso de cada piece).
+        assertEquals(50, c1.getTic());
         assertTrue(board.esFinDelJuegoPorPorcentaje());
 
     }
-    
-}   
+}
