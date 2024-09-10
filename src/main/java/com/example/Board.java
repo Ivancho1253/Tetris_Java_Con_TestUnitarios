@@ -5,7 +5,7 @@ public class Board {
 
     public int[][] board;
     public int fila = 10;
-    public int columna = 20;//Para verifica la eliminacion le cambie a 6 y funco
+    public int columna = 20;
     public Random random;
     public Piece piezaActual;
 
@@ -33,12 +33,13 @@ public class Board {
         board[fila][columna] = valor;
     }
 
-    public void ingresarNuevaPieza(Piece piece) {   
+    public void ingresarNuevaPieza(Piece piece) {   //Permite el ingreso de nueva pieza al board
+
         if (esFinDelJuego(piece)) {
             return;  // No ingresamos la pieza porque ya no hay espacio
         }
         setPiezaActual(piece);
-        colocarPieceEnTablero(piezaActual, 0, 0);
+        colocarPieceEnTablero(piezaActual, 0, 0);   //Se ingresa la pieza en el tablero
         filaActual = 0;
         columnaActual = 0;
     }
@@ -46,7 +47,7 @@ public class Board {
     
     public void colocarPieceEnTablero(Piece piece, int fila, int columna) {     //Este metodo es invocado en el metodo IngresarNuevaPieza
 
-        for (int i = 0; i < piece.getForma().length; i++) {
+        for (int i = 0; i < piece.getForma().length; i++) {     //Recorre el tablero dentro de sus limites y coloca la pieza
             for (int j = 0; j < piece.getForma()[i].length; j++) {
 
                 if (piece.getForma()[i][j] != 0) {
@@ -61,37 +62,41 @@ public class Board {
         }
     }
 
-    public int getColumnaActual() {
+    public int getColumnaActual() { //Devuelve el valor de la variable columnaActual, es utilizada para detectar la columna aleatoria que se genera
 
         return columnaActual;
     }
-    public void setColumnaActual(int columnaActual){
+
+    public void setColumnaActual(int columnaActual){    //Establece el valor de la variable columnaActual
 
         this.columnaActual=columnaActual;
         
     }
     
-    public void setFilaActual(int filaActual) {
+    public void setFilaActual(int filaActual) { //Establece el valor de la variable filaActual, es utilizada para detectar la fila aleatoria que se genera
 
         this.filaActual = filaActual;
     }
 
-    public int getFilaActual() {
+    public int getFilaActual() { // Devuelve el valor de filaActual, es utilizada para detectar la fila aleatoria que se genera
+
 
         return filaActual;
     }
 
-    public int[][] getBoard() {
+    public int[][] getBoard() { //Devuelve el board
 
         return board;
     }
 
     //NUEVO
 
-    public boolean puedeColocarse(Piece piece, int fila, int columna) {
-        for (int i = 0; i < piece.getForma().length; i++) {
+    public boolean puedeColocarse(Piece piece, int fila, int columna) { //Este metodo devuelve un booleano, si la pieza puede ser colocada o no en el board en X posicion
+
+        for (int i = 0; i < piece.getForma().length; i++) { //Recorre el tablero dentro de sus limites
             for (int j = 0; j < piece.getForma()[i].length; j++) {
-                if (piece.getForma()[i][j] != 0) {
+
+                if (piece.getForma()[i][j] != 0) {  // Verifica que la forma de la pieza, y toma los valores que se encuentren los 1.
                     int nuevaFila = fila + i;
                     int nuevaColumna = columna + j;
     
@@ -110,76 +115,81 @@ public class Board {
         return true;
     }
 
-    public void descenderPieza(Piece piezaActual) {
+    public void descenderPieza(Piece piezaActual) { //Metodo para descender X pieza en el board
         
-        limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
+        limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual); //Llama al metodo que limpia la pieza del tablero
     
         // Verifica si la pieza puede descender
         if (puedeColocarse(piezaActual, filaActual + 1, columnaActual)) {
-            setFilaActual(getFilaActual() + 1);
+            setFilaActual(getFilaActual() + 1); //Si es asi, la pieza se mueve una fila hacia abajo
         }
     
-        colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
+        colocarPieceEnTablero(piezaActual, filaActual, columnaActual);  //Se coloca la pieza en una fila hacia abajo, generando el descenso 
     }
 
     public void limpiarPiezaDelTablero(Piece piece, int fila, int columna) {    //Limpia la pieza del tablero
 
         for (int i = 0; i < piece.getForma().length; i++) {
             for (int j = 0; j < piece.getForma()[i].length; j++) {
-                if (piece.getForma()[i][j] != 0) {
-                    board[fila + i][columna + j] = 0; 
+
+                if (piece.getForma()[i][j] != 0) {  //En los lugares donde habian 1, osea donde estaba la pieza, ahora lo llena de 0
+                    board[fila + i][columna + j] = 0;    //Debido a que la pieza descendio
                 }
             }
         }
     }
 
-    //Agregue que se pregunte si se puede mover
-    public void moverPiezaDerecha(Piece piezaActual) {
+    public void moverPiezaDerecha(Piece piezaActual) {  //Metodo para mover la pieza a la derecha
 
-        limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
+        limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual); //Limpia el tablero, osea pone 0 donde estaba la pieza antes
     
-        if (puedeColocarse(piezaActual, filaActual, columnaActual + 1)) {
+        if (puedeColocarse(piezaActual, filaActual, columnaActual + 1)) {   //Verifica si la pieza puede moverse a la derecha
             setColumnaActual(getColumnaActual() + 1);
         }
     
-        colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
+        colocarPieceEnTablero(piezaActual, filaActual, columnaActual); //Coloca la pieza en la nueva posicion
     }
     
-    public void moverPiezaIzquierda(Piece piezaActual) {
+    public void moverPiezaIzquierda(Piece piezaActual) {    //Metodo para mover la pieza a la izquierda
         
-        limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual);
+        limpiarPiezaDelTablero(piezaActual, filaActual, columnaActual); //Limpia el tablero, osea pone 0 donde estaba antes la pieza
     
-        if (puedeColocarse(piezaActual, filaActual, columnaActual - 1)) {
+        if (puedeColocarse(piezaActual, filaActual, columnaActual - 1)) {   // Verifica si la pieza puede moverse a la izquierda
             setColumnaActual(getColumnaActual() - 1);
         }
     
-        colocarPieceEnTablero(piezaActual, filaActual, columnaActual);
+        colocarPieceEnTablero(piezaActual, filaActual, columnaActual); //Coloca la pieza en la nueva posicion
     }
 
 
     //NUEVO
-    public boolean esFinDelJuego(Piece piece) {
+    public boolean esFinDelJuego(Piece piece) { //Metodo para determinar el Fin del juego
+
         // Intenta colocar la pieza en la fila superior del tablero
         return !puedeColocarse(piece, 0, 0); // Retorna falso si no hay espacio en la fila superior
     }
 
     
-    public boolean esFinDelJuegoPorPorcentaje() {
+    public boolean esFinDelJuegoPorPorcentaje() {   //Metodo para determinar el Fin del juego por porcentaje
+
         int totalLineas = board.length;
         int porcentajeLlenado = (lineasEliminadas * 100) / totalLineas;
         return porcentajeLlenado >= PORCENTAJE_ELIMINACION;
     }
 
     //NUEVO
-    public void verificarYEliminarLineas() {
+    public void verificarYEliminarLineas() {    //Permite verificar si una linea esta llena, y la elimina.
+
         for (int i = 0; i < board.length; i++) { //Recorre toda la fila
             boolean lineaCompleta = true; //se inicia que ya esta leno Pero luego en el otro for se verifica si de vedad esta lleno
+
             for (int j = 0; j < board[0].length; j++) {
                 if (board[i][j] == 0) {// Verifica que la celda esta vacia
                     lineaCompleta = false;//Esta vacia ntonces sale del if
                     break;
                 }
             }
+
             if (lineaCompleta) {//Si esta lleno entonces llama a la funcio eliminarLinea
                 eliminarLinea(i);
                 lineasEliminadas++;
@@ -191,17 +201,19 @@ public class Board {
         }
     }
     
-    public void eliminarLinea(int fila) {
+    public void eliminarLinea(int fila) { //Metodo para eliminar una linea
+
         // Mueve todas las filas superiores una posición hacia abajo
         for (int i = fila; i > 0; i--) {
             for (int j = 0; j < board[0].length; j++) {
-                board[i][j] = board[i - 1][j];//Copia el contenido de la fila superior a la actual
+
+                board[i][j] = board[i - 1][j]; //Copia el contenido de la fila superior a la actual
             }
         }
 
         // Limpia la primera fila
         for (int j = 0; j < board[0].length; j++) {
-            board[0][j] = 0;//establece toda la fila en 0
+            board[0][j] = 0; //Establece toda la primera fila en 0
         }
     }
 
