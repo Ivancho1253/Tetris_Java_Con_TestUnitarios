@@ -13,7 +13,7 @@ public class Board {
     private int columnaActual;
 
     private int lineasEliminadas = 0;
-    private final int PORCENTAJE_ELIMINACION = 50;
+    private int porcentaje = 50;
 
     public Board() {
 
@@ -174,7 +174,7 @@ public class Board {
 
         int totalLineas = board.length;
         int porcentajeLlenado = (lineasEliminadas * 100) / totalLineas;
-        return porcentajeLlenado >= PORCENTAJE_ELIMINACION;
+        return porcentajeLlenado >= porcentaje;
     }
 
     //NUEVO
