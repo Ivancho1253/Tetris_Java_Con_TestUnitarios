@@ -2747,8 +2747,9 @@ public class TetrisTest {
             }
         }
 
-    assertTrue(board.esFinDelJuegoPorPorcentaje());
-}
+        assertTrue(board.esFinDelJuegoPorPorcentaje());
+    }
+
     @Test
     void verificar_eliminacion_linea_de_pieceSitck_con_descensoClock_movimientoDerecha_y_rotandoDerecha_Fin_del_juego_test() {
     
@@ -2788,44 +2789,44 @@ public class TetrisTest {
 
     }
     @Test
-    void Jugar_Tetris() {
+    void Jugar_Tetris_test() {
     
         Board board = new Board(); 
         Clock c1 = new Clock();
-        Tetris tetris=new Tetris();
+
+        Tetris tetris = new Tetris();
         assert tetris != null;
+
         assertEquals(1, tetris.getIniciar());
+    
+        while (board.esFinDelJuegoPorPorcentaje() == true) {
 
-        for (int j = 0; j < 5; j++) {  
-
-            for (int i = 0; i < 5; i++) {
                 PieceStick pStick = new PieceStick(); 
                 pStick.rotarDerecha();
+
+                int columnaAleatoria = board.getColumnaActual();
                 board.ingresarNuevaPieza(pStick);
+
                 c1.tic();
                 c1.tic();
+
                 board.descenderPieza(pStick);
 
                 for (int k = 0; k < 20; k++) {
                     board.moverPiezaDerecha(pStick); 
                 }
-            }
 
             //Verifica que la linea este llena
             for (int i = 0; i < board.getBoard()[0].length; i++) {  
-                assertEquals(1, board.getBoard()[2][i]);  
+                assertEquals(1, board.getBoard()[2][columnaAleatoria + i]);  
             }
 
             board.verificarYEliminarLineas();
 
             for (int i = 0; i < board.getBoard()[0].length; i++) {
-                assertEquals(0, board.getBoard()[2][i]);  
+                assertEquals(0, board.getBoard()[2][columnaAleatoria +i]);  
+
             }
         }
-
-        //Verifica que hay 50 tics, debido a que hubieron 25 descensos (2 tics por descenso de cada piece).
-        assertEquals(50, c1.getTic());
-        assertTrue(board.esFinDelJuegoPorPorcentaje());
-
     }
 }

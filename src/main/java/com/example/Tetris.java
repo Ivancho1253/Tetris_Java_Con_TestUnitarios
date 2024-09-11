@@ -1,7 +1,7 @@
 package com.example;
 
-
 public class Tetris {
+
     int iniciar;
     public Tetris(){
 
