@@ -10,7 +10,7 @@ public class Tetris {
         return 1;
     }
     public void setIniciar(int iniciar){
-        this.iniciar=iniciar;
+        this.iniciar = iniciar;
     }
 
 }

@@ -2795,7 +2795,8 @@ public class TetrisTest {
         Clock c1 = new Clock();
 
         Tetris tetris = new Tetris();
-        assert tetris != null;
+        tetris.setIniciar(1);
+        assert tetris.getIniciar() == 1;
 
         assertEquals(1, tetris.getIniciar());
     
