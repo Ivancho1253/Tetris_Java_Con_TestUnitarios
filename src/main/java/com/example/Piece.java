@@ -1,5 +1,4 @@
 package com.example;
-
 import java.util.Random;
 
 public class Piece{
@@ -18,7 +17,7 @@ public class Piece{
         return forma;
     }
 
-    public void rotarDerecha() {
+    public void rotarDerecha() {    //Funcion para rotar la pieza a la derecha
 
         int filas = forma.length;
         int columnas = forma[0].length;
@@ -32,10 +31,11 @@ public class Piece{
         setForma(nuevaForma);
     }
 
-    public void rotarIzquierda() {
+    public void rotarIzquierda() {  //Funcion para rotar la pieza a la izquierda
 
         int filas = forma.length;
         int columnas = forma[0].length;
+
         int[][] nuevaForma = new int[columnas][filas];
 
         for (int i = 0; i < filas; i++) {
