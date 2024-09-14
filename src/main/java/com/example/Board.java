@@ -184,6 +184,7 @@ public class Board {
             boolean lineaCompleta = true; //se inicia que ya esta leno Pero luego en el otro for se verifica si de vedad esta lleno
 
             for (int j = 0; j < board[0].length; j++) {
+
                 if (board[i][j] == 0) {// Verifica que la celda esta vacia
                     lineaCompleta = false;//Esta vacia ntonces sale del if
                     break;
@@ -208,12 +209,13 @@ public class Board {
             for (int j = 0; j < board[0].length; j++) {
 
                 board[i][j] = board[i - 1][j]; //Copia el contenido de la fila superior a la actual
+            
             }
         }
 
-        // Limpia la primera fila
+    // Limpia la fila llena
         for (int j = 0; j < board[0].length; j++) {
-            board[0][j] = 0; //Establece toda la primera fila en 0
+            board[fila][j] = 0; //Establece toda la primera fila en 0
         }
     }
 

@@ -72,8 +72,7 @@ public class TetrisTest {
 
     }
 
-    // -----------------------------------------------------Crear
-    // piezas--------------------------------------------------------//
+    // ------------------------------Crear piezas --------------------------------
     @Test
     void crear_PieceT_test() {
 
@@ -189,8 +188,7 @@ public class TetrisTest {
 
     }
 
-    // ----------------------------------------Rotar
-    // Piezas---------------------------------------------------------------------//
+    // ---------------------------Rotar Pieza ------------------------------------
     @Test
     void rotar_PieceSquare_Derecha_test() {
 
@@ -2464,7 +2462,7 @@ public class TetrisTest {
             PieceSquare pS = new PieceSquare();
             board.ingresarNuevaPieza(pS);
         
-            // Mover la primera pieza hasta la derecha (debería moverse 8 veces, no 9)
+            // Mover la primera pieza hasta la derecha (deberia moverse 8 veces, no 9)
             for (int i = 0; i < 20; i++) {
                 board.moverPiezaDerecha(pS);
             }
@@ -2549,15 +2547,15 @@ public class TetrisTest {
                 board.moverPiezaDerecha(pS10);
             }
         
-            // Verificación antes de la eliminación
+            // Verificacion antes de la eliminacion
             for (int i = 0; i < board.getBoard()[0].length; i++) {
                 assertEquals(1, board.getBoard()[0][i]);
             }
         
-            // Verificar y eliminar líneas
+            // Verificar y eliminar lineas
             board.verificarYEliminarLineas();
         
-            // Verificación después de la eliminación
+            // Verificacion despues de la eliminacion
             for (int i = 0; i < board.getBoard()[0].length; i++) {
                 assertEquals(0, board.getBoard()[0][i]);
             }
@@ -2570,7 +2568,7 @@ public class TetrisTest {
             PieceT pT = new PieceT();
             board.ingresarNuevaPieza(pT);
         
-            // Mover la primera pieza hasta la derecha (debería moverse 8 veces, no 9)
+            // Mover la primera pieza hasta la derecha (deberia moverse 8 veces, no 9)
             for (int i = 0; i < 20; i++) {
                 board.moverPiezaDerecha(pT);
             }
@@ -2627,15 +2625,15 @@ public class TetrisTest {
             PieceSquare pS = new PieceSquare();
             board.ingresarNuevaPieza(pS);
         
-            // Verificación antes de la eliminación
+            // Verificacion antes de la eliminacion
             for (int i = 0; i < board.getBoard()[0].length; i++) {
                 assertEquals(1, board.getBoard()[0][i]);
             }
         
-            // Verificar y eliminar líneas
+            // Verificar y eliminar lineas
             board.verificarYEliminarLineas();
         
-            // Verificación después de la eliminación
+            // Verificacion despues de la eliminaciin
             for (int i = 0; i < board.getBoard()[0].length; i++) {
                 assertEquals(0, board.getBoard()[0][i]);
             }
@@ -2650,7 +2648,7 @@ public class TetrisTest {
             pStick.rotarDerecha();
             board.ingresarNuevaPieza(pStick);
         
-            // Mover la primera pieza hasta la derecha (debería moverse 8 veces, no 9)
+            // Mover la primera pieza hasta la derecha (deberia moverse 8 veces, no 9)
             for (int i = 0; i < 20; i++) {
                 board.moverPiezaDerecha(pStick);
             }
@@ -2701,15 +2699,15 @@ public class TetrisTest {
                 board.moverPiezaDerecha(pStick5);
             }
 
-            // Verificación antes de la eliminación
+            // Verificacion antes de la eliminacion
             for (int i = 0; i < board.getBoard()[0].length; i++) {
                 assertEquals(1, board.getBoard()[1][i]);
             }
         
-            // Verificar y eliminar líneas
+            // Verificar y eliminar lineas
             board.verificarYEliminarLineas();
         
-            // Verificación después de la eliminación
+            // Verificacion despues de la eliminaciin
             for (int i = 0; i < board.getBoard()[0].length; i++) {
                 assertEquals(0, board.getBoard()[0][i]);
             }
@@ -2749,6 +2747,7 @@ public class TetrisTest {
 
         assertTrue(board.esFinDelJuegoPorPorcentaje());
     }
+
 
     @Test
     void verificar_eliminacion_linea_de_pieceSitck_con_descensoClock_movimientoDerecha_y_rotandoDerecha_Fin_del_juego_test() {
@@ -2830,4 +2829,488 @@ public class TetrisTest {
             }
         }
     }
+    
+
+    /*      TEST SELECCIONADOS PARA LA PRESENTACION       */
+
+    /*REQUERIMIENTO NRO 1 */
+    @Test
+    void existencia_PieceSquare_Presentacion_test() {
+
+        PieceSquare pS = new PieceSquare();
+
+        // assertEquals(true, ps.getExistencia());
+        assert pS != null;
+        assert pS.getForma() != null;
+    }
+
+     @Test
+    void crear_PieceSquare_Presentacion_test() {
+
+        PieceSquare pS = new PieceSquare();
+
+        assert pS.getForma() != null;
+        assertArrayEquals(pS.forma, pS.getForma());
+        
+    }
+
+
+    /*REQUERIMIENTO NRO 2 */
+    @Test
+    void rotar_PieceT_Izquierda_Presentacion_test() {
+
+        PieceT pT1 = new PieceT();
+        Piece pT2 = new PieceT();
+        
+        pT1.rotarIzquierda();
+
+        assert pT1.getForma() != pT2.getForma();
+
+    }
+
+    @Test
+    void rotar_PieceT_hacia_Izquierda_360_Comparacion_con_otra_pieza_Presentacion_test() {
+
+        PieceT pT1 = new PieceT();
+        PieceT pT2 = new PieceT();
+
+        pT1.rotarIzquierda();
+        pT1.rotarIzquierda();
+        pT1.rotarIzquierda();
+        pT1.rotarIzquierda();
+
+        assertArrayEquals(pT2.getForma(), pT1.getForma()); // verifico el contenido del objeto sen iguales para
+                                                           // confirmar
+    }
+    @Test
+    void rotar_PieceT_Derecha_Presentacion_test() {
+
+        PieceT pT1 = new PieceT();
+        PieceT pT2 = new PieceT();
+        
+        pT1.rotarDerecha();
+
+        assert pT1.getForma() != pT2.getForma();
+
+    }
+
+    @Test
+    void rotar_PieceT_hacia_Derecha_Comparacion_con_otra_pieza_Presentacion_test() {
+
+        PieceT pT1 = new PieceT();
+        PieceT pT2 = new PieceT();
+
+        pT1.rotarDerecha();
+        pT1.rotarDerecha();
+        pT1.rotarDerecha();
+        pT1.rotarDerecha();
+
+        assertArrayEquals(pT2.getForma(), pT1.getForma()); // verifico el contenido del objeto sen iguales para
+                                                            // confirmar
+
+    }
+
+    /*REQUERIMIENTO NRO 3 */
+    //Se crea el Board
+    @Test
+    void Creacion_board_test_Presentacion() {
+
+        Board board = new Board();
+
+        assertEquals(10, board.fila);
+        assertEquals(20, board.columna);
+
+    }
+
+    //Ingreso de la pieza a board
+    @Test
+    void verificar_ingreso_pieceSquare_board_Presentacion_test() {
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+
+        board.ingresarNuevaPieza(pS);
+
+        assertEquals(1, board.getBoard()[0][0]);
+        assertEquals(1, board.getBoard()[1][0]);
+        assertEquals(1, board.getBoard()[1][1]);
+        assertEquals(1, board.getBoard()[0][1]);
+
+    }
+    
+    //Ingreso de la pieza con un lado random y columna random.
+    @Test
+    void verificar_ingreso_pieceSquare_board_columna_random_Presentacion_test() {
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+
+        pS.seleccionarLadoRandom();
+        board.ingresarNuevaPieza(pS);
+
+        int columnaAleatoria = board.getColumnaActual();
+        assertEquals(1, board.getBoard()[0][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[1][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
+        assertEquals(1, board.getBoard()[0][columnaAleatoria + 1]);
+    }
+    
+    // Lado random,columna random y descenso con tic
+    @Test
+    void verificar_descenso_pieceSquare_lado_y_columna_random_con_clock_Presentacion_test() {
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+        Clock c1 = new Clock();
+
+        pS.seleccionarLadoRandom();
+        board.ingresarNuevaPieza(pS);
+
+        int columnaAleatoria = board.getColumnaActual();
+        assertEquals(1, board.getBoard()[0][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[1][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
+        assertEquals(1, board.getBoard()[0][columnaAleatoria + 1]);
+
+        c1.tic();
+        c1.tic();
+        board.descenderPieza(pS);
+
+        int[][] formaInicial = pS.getForma();
+        for (int i = 0; i < formaInicial.length; i++) {
+            for (int j = 0; j < formaInicial[i].length; j++) {
+                if (formaInicial[i][j] != 0) {
+                    assertEquals(formaInicial[i][j], board.getBoard()[i + 1][j]);
+                }
+            }
+        }
+        assertEquals(2, c1.getTic());
+    }
+    
+    //Verifica que descienda y se mueva solo si tiene espacio
+    @Test
+    void verificar_descenso_y_Mover_no_salga_board_pieceSquare_Presentacion_test() {
+
+        Board board = new Board();
+        PieceSquare pS = new PieceSquare();
+        Clock c1 = new Clock();
+
+
+        board.ingresarNuevaPieza(pS);
+
+        for (int i = 0; i < 10; i++) {
+            c1.tic();
+            c1.tic();
+            board.descenderPieza(pS);
+        }
+
+        // Verificamos que la pieza este en la última fila
+        assertEquals(1, board.getBoard()[9][0]);
+
+        // Verificamos que al descender otra vez la pieza se quede en ese lugar
+        c1.tic();
+        c1.tic();
+        board.descenderPieza(pS);
+
+        assertEquals(1, board.getBoard()[8][0]);
+        assertEquals(1, board.getBoard()[9][0]);
+
+        //Verificamos que la pieza no salga de los costados y se quede en su lugar
+        for (int i = 0; i < 10; i++) {
+            board.moverPiezaIzquierda(pS);
+        }
+
+        assertEquals(1, board.getBoard()[9][0]);
+
+        //Se verifica que al ingresar otra pieza en ese lugar, no se interpongan 
+        
+        PieceSquare pS1 = new PieceSquare();
+        board.ingresarNuevaPieza(pS1);
+
+        for (int i = 0; i < 10; i++) {
+            c1.tic();
+            c1.tic();
+            board.descenderPieza(pS1);
+        }
+
+        assertEquals(1, board.getBoard()[6][0]);        assertEquals(1, board.getBoard()[6][1]);
+        assertEquals(1, board.getBoard()[7][0]);        assertEquals(1, board.getBoard()[7][1]);
+
+
+        assertEquals(1, board.getBoard()[8][0]);        assertEquals(1, board.getBoard()[8][1]);
+        assertEquals(1, board.getBoard()[9][0]);        assertEquals(1, board.getBoard()[9][1]);
+
+        assertEquals(42, c1.getTic());  //Como hubieron 22 descensos, corroboramos que hayan 42 tics
+    }
+
+    /* Requerimiento 4 */
+    //Al llegar a la fila 0 y se coloque una nueva pieza se pierde el juego
+    
+    @Test
+    void verificar_fin_de_juego_pieceSquare_Presentacion_test() {
+
+        Board board = new Board();
+        Clock c1 = new Clock();
+
+        PieceSquare pS = new PieceSquare();
+        board.ingresarNuevaPieza(pS);
+
+        for (int i = 0; i < 10; i++) {
+
+            c1.tic();
+            c1.tic();
+            board.descenderPieza(pS);
+        }
+
+        PieceSquare pS1 = new PieceSquare();
+        board.ingresarNuevaPieza(pS1);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS1);
+        }
+        
+        PieceSquare pS2 = new PieceSquare();
+        board.ingresarNuevaPieza(pS2);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS2);
+        }
+
+        PieceSquare pS3 = new PieceSquare();
+        board.ingresarNuevaPieza(pS3);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS3);
+        }
+
+        PieceSquare pS4 = new PieceSquare();
+        board.ingresarNuevaPieza(pS4);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS4);
+        }
+
+        PieceSquare pS5 = new PieceSquare();
+        board.ingresarNuevaPieza(pS5);
+
+        for (int i = 0; i < 10; i++) {
+            board.descenderPieza(pS5);
+        }
+
+        for (int i = 0; i < 10; i++){
+            assertEquals(1, board.getBoard()[i][0]);
+            assertEquals(1, board.getBoard()[i][1]);
+
+        }
+
+        assertTrue(board.esFinDelJuego(pS5));
+    }
+
+        /*REQUERIMIENTO NRO 5 */
+        //Se gana al completar 5 lineas
+        @Test
+        void verificar_eliminacion_linea_de_pieceSquare_Presentacion_test() {
+        
+            Board board = new Board();
+            PieceSquare pS = new PieceSquare();
+            board.ingresarNuevaPieza(pS);
+            Clock c1 = new Clock();
+
+        
+            // Mover la primera pieza hasta la derecha (deberia moverse 8 veces, no 9)
+            for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS);
+            }
+                
+                for (int j = 0; j < 20; j++) {
+                    board.moverPiezaDerecha(pS);
+                }
+            
+        
+            PieceSquare pS1 = new PieceSquare();
+            board.ingresarNuevaPieza(pS1);
+        
+            // Mover la segunda pieza hasta la derecha
+            for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS1);
+            }
+                
+                for ( int j = 0; j < 20; j++) {
+
+                   board.moverPiezaDerecha(pS1);
+                }
+            
+        
+            PieceSquare pS2 = new PieceSquare();
+            board.ingresarNuevaPieza(pS2);
+        
+            // Mover la tercera pieza hasta la derecha
+             for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS2);
+             }
+                
+                for ( int j = 0; j < 20; j++) {
+
+                   board.moverPiezaDerecha(pS2);
+                }
+            
+
+            PieceSquare pS3 = new PieceSquare();
+            board.ingresarNuevaPieza(pS3);
+        
+            // Mover la tercera pieza hasta la derecha
+             for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS3);
+             }
+                
+                for ( int j = 0; j < 20; j++) {
+
+                   board.moverPiezaDerecha(pS3);
+                }
+            
+
+            PieceSquare pS4 = new PieceSquare();
+            board.ingresarNuevaPieza(pS4);
+        
+            // Mover la tercera pieza hasta la derecha
+             for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS4);
+             }
+                
+                for ( int j = 0; j < 20; j++) {
+
+                   board.moverPiezaDerecha(pS4);
+                }
+            
+
+            PieceSquare pS5 = new PieceSquare();
+            board.ingresarNuevaPieza(pS5);
+        
+            // Mover la tercera pieza hasta la derecha
+             for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS5);
+             }
+                
+                for ( int j = 0; j < 20; j++) {
+
+                   board.moverPiezaDerecha(pS5);
+                }
+            
+
+            PieceSquare pS6 = new PieceSquare();
+            board.ingresarNuevaPieza(pS6);
+        
+            // Mover la tercera pieza hasta la derecha
+             for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS6);
+             }
+                
+                for ( int j = 0; j < 20; j++) {
+
+                   board.moverPiezaDerecha(pS6);
+                }
+            
+
+            PieceSquare pS7 = new PieceSquare();
+            board.ingresarNuevaPieza(pS7);
+        
+            // Mover la tercera pieza hasta la derecha
+             for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS7);
+             }
+            for ( int j = 0; j < 20; j++) {
+
+                board.moverPiezaDerecha(pS7);
+            }
+            
+
+            PieceSquare pS8 = new PieceSquare();
+            board.ingresarNuevaPieza(pS8);
+        
+            // Mover la tercera pieza hasta la derecha
+            for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS8);
+
+            }
+                for ( int j = 0; j < 20; j++) {
+
+                   board.moverPiezaDerecha(pS8);
+                }
+            
+
+            PieceSquare pS9 = new PieceSquare();
+            board.ingresarNuevaPieza(pS9);
+        
+            // Mover la tercera pieza hasta la derecha
+             for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS9);
+
+                } 
+                
+                for ( int j = 0; j < 20; j++) {
+
+                   board.moverPiezaDerecha(pS9);
+                }
+        
+            PieceSquare pS10 = new PieceSquare();
+            board.ingresarNuevaPieza(pS10);
+        
+            // Mover la tercera pieza hasta la derecha
+                for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS10);
+            
+                }
+
+                for ( int j = 0; j < 20; j++) {
+
+                   board.moverPiezaDerecha(pS10);
+                }
+            
+                
+            // Verificacion antes de la eliminacion
+            for (int i = 0; i < board.getBoard()[0].length; i++) {
+                assertEquals(1, board.getBoard()[9][i]);
+            }
+            
+            // Verificar y eliminar lineas
+            board.verificarYEliminarLineas();
+        
+            // Verificacion despues de la eliminacion
+            for (int i = 0; i < board.getBoard()[0].length; i++) {
+                assertEquals(0, board.getBoard()[9][i]);
+            }
+        }
 }
