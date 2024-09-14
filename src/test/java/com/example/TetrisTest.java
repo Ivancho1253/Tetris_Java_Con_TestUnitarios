@@ -2830,7 +2830,6 @@ public class TetrisTest {
         }
     }
     
-
     /*      TEST SELECCIONADOS PARA LA PRESENTACION       */
 
     /*REQUERIMIENTO NRO 1 */
@@ -3313,4 +3312,49 @@ public class TetrisTest {
                 assertEquals(0, board.getBoard()[9][i]);
             }
         }
+
+        @Test
+        void Jugar_Tetris_Presentacion_test() {
+    
+        Board board = new Board(); 
+        Clock c1 = new Clock();
+
+        Tetris tetris = new Tetris();
+        tetris.setIniciar(1);
+        assert tetris.getIniciar() == 1;
+
+        assertEquals(1, tetris.getIniciar());
+    
+        while (board.esFinDelJuegoPorPorcentaje() == true) {
+
+                PieceSquare pS = new PieceSquare(); 
+
+                int columnaAleatoria = board.getColumnaActual();
+                board.ingresarNuevaPieza(pS);
+
+                for (int i = 0; i < 10; i++) {
+
+                c1.tic();
+                c1.tic();
+                board.descenderPieza(pS);
+            
+                }
+
+                for (int k = 0; k < 20; k++) {
+                    board.moverPiezaDerecha(pS); 
+                }
+
+            //Verifica que la linea este llena
+            for (int i = 0; i < board.getBoard()[0].length; i++) {  
+                assertEquals(1, board.getBoard()[9][columnaAleatoria + i]);  
+            }
+
+            board.verificarYEliminarLineas();
+
+            for (int i = 0; i < board.getBoard()[0].length; i++) {
+                assertEquals(0, board.getBoard()[9][columnaAleatoria +i]);  
+
+            }
+        }
+    }
 }
