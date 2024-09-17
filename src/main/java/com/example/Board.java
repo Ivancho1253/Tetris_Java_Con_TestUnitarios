@@ -170,11 +170,11 @@ public class Board {
     }
 
     
-    public boolean esFinDelJuegoPorPorcentaje() {   //Metodo para determinar el Fin del juego por porcentaje
+    public boolean esFinDelJuegoPorPorcentaje() {   //Metodo para determinar que gano
 
-        int totalLineas = board.length;
-        int porcentajeLlenado = (lineasEliminadas * 100) / totalLineas;
-        return porcentajeLlenado >= porcentaje;
+        int totalLineas = board.length; //Guardo las lineas total
+        int porcentajeLlenado = (lineasEliminadas * 100) / totalLineas; //Se multiplica las elim por 100 y se divide por el total
+        return porcentajeLlenado >= porcentaje; // Si llega a 50 gano
     }
 
     //NUEVO
@@ -215,7 +215,7 @@ public class Board {
 
     // Limpia la fila llena
         for (int j = 0; j < board[0].length; j++) {
-            board[fila][j] = 0; //Establece toda la primera fila en 0
+            board[fila][j] = 0; //Establece toda la fila en 0
         }
     }
 
