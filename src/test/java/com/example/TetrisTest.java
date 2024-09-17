@@ -2829,8 +2829,9 @@ public class TetrisTest {
             }
         }
     }
-    
+    /*--------------------------------------------------------------------------------------------------- */
     /*      TEST SELECCIONADOS PARA LA PRESENTACION       */
+    /*--------------------------------------------------------------------------------------------------- */
 
     /*REQUERIMIENTO NRO 1 */
     @Test
@@ -2849,10 +2850,9 @@ public class TetrisTest {
         PieceSquare pS = new PieceSquare();
 
         assert pS.getForma() != null;
-        assertArrayEquals(pS.forma, pS.getForma());
+        assertArrayEquals(pS.forma, pS.getForma()); //Compruebo que la forma, se haya seteado correctamente
         
     }
-
 
     /*REQUERIMIENTO NRO 2 */
     @Test
@@ -2863,7 +2863,7 @@ public class TetrisTest {
         
         pT1.rotarIzquierda();
 
-        assert pT1.getForma() != pT2.getForma();
+        assert pT1.getForma() != pT2.getForma(); //Compruebo que ambas sean diferentes
 
     }
 
@@ -2878,8 +2878,8 @@ public class TetrisTest {
         pT1.rotarIzquierda();
         pT1.rotarIzquierda();
 
-        assertArrayEquals(pT2.getForma(), pT1.getForma()); // verifico el contenido del objeto sen iguales para
-                                                           // confirmar
+        assertArrayEquals(pT2.getForma(), pT1.getForma()); // verifico el contenido del objeto sen iguales para 
+                                                           
     }
     @Test
     void rotar_PieceT_Derecha_Presentacion_test() {
@@ -2889,7 +2889,7 @@ public class TetrisTest {
         
         pT1.rotarDerecha();
 
-        assert pT1.getForma() != pT2.getForma();
+        assert pT1.getForma() != pT2.getForma(); //Compruebo que ambas sean diferentes
 
     }
 
@@ -2966,20 +2966,20 @@ public class TetrisTest {
         board.ingresarNuevaPieza(pS);
 
         int columnaAleatoria = board.getColumnaActual();
-        assertEquals(1, board.getBoard()[0][columnaAleatoria]);
+        assertEquals(1, board.getBoard()[0][columnaAleatoria]); //Corroboramos que se haya ingresado
         assertEquals(1, board.getBoard()[1][columnaAleatoria]);
         assertEquals(1, board.getBoard()[1][columnaAleatoria + 1]);
         assertEquals(1, board.getBoard()[0][columnaAleatoria + 1]);
 
         c1.tic();
         c1.tic();
-        board.descenderPieza(pS);
+        board.descenderPieza(pS);   //Luego de 2 segundos (tic) se desciende la pieza
 
-        int[][] formaInicial = pS.getForma();
+        int[][] formaInicial = pS.getForma();  
         for (int i = 0; i < formaInicial.length; i++) {
             for (int j = 0; j < formaInicial[i].length; j++) {
                 if (formaInicial[i][j] != 0) {
-                    assertEquals(formaInicial[i][j], board.getBoard()[i + 1][j]);
+                    assertEquals(formaInicial[i][j], board.getBoard()[i + 1][j]);  //Verificamos que la pieza se haya desplazado hacia abajo
                 }
             }
         }
@@ -2994,9 +2994,8 @@ public class TetrisTest {
         PieceSquare pS = new PieceSquare();
         Clock c1 = new Clock();
 
-
         board.ingresarNuevaPieza(pS);
-
+        //Descendemos la pieza hasta que este en la ultima fila
         for (int i = 0; i < 10; i++) {
             c1.tic();
             c1.tic();
@@ -3031,11 +3030,12 @@ public class TetrisTest {
             c1.tic();
             board.descenderPieza(pS1);
         }
-
+        
+        //Verificamos la nueva pieza
         assertEquals(1, board.getBoard()[6][0]);        assertEquals(1, board.getBoard()[6][1]);
         assertEquals(1, board.getBoard()[7][0]);        assertEquals(1, board.getBoard()[7][1]);
 
-
+        //Verificamos la primera pieza
         assertEquals(1, board.getBoard()[8][0]);        assertEquals(1, board.getBoard()[8][1]);
         assertEquals(1, board.getBoard()[9][0]);        assertEquals(1, board.getBoard()[9][1]);
 
