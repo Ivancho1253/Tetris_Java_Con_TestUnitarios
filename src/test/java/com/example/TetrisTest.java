@@ -3397,7 +3397,7 @@ public class TetrisTest {
                 c1.tic();
                 c1.tic();
                 board.descenderPieza(pS);
-
+//ASDASDASD
                 for (int k = 0; k < 20; k++) {
                     board.moverPiezaDerecha(pS); 
                 }
